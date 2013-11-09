@@ -19,7 +19,7 @@ var port = (isProduction ? 80 : 8000);
 var app = express();
 app.configure(function() {
   app.set('port', port);
-  app.set('views', __dirname + '/views');
+  app.set('views', __dirname + '/app/views');
   app.set("view options", {
       layout: false
   }); 
@@ -30,7 +30,7 @@ app.configure(function() {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
+  app.use(express.static(__dirname + '/app/public'));
 });
 
 app.listen(port);
