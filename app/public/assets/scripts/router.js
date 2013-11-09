@@ -6,5 +6,3 @@ App.Router = Ember.Router.extend({
     	})
   	})
 });
-
-App.initialize();
