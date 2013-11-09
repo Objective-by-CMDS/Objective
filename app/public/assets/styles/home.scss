@@ -35,9 +35,7 @@ ul {
 }
 
 .floatybugger {
-	position: fixed;
-	top: 1em;
-	left: 1em;
+	float: left;
 	z-index: 10;
 }
 
@@ -57,8 +55,9 @@ header {
 
 .branding {
 	float: left;
-	width: 60%;
+	display: inline-block;
 	margin-left: 1.5%;
+	margin-right: 2.5%;
 }
 
 .branding p {
@@ -68,7 +67,7 @@ header {
 header .container {
 	margin: 1.5% auto 0;
 	width: 100%;
-	max-width: 45em;
+	max-width: 60em;
 }
 
 .login {
@@ -110,7 +109,7 @@ main img {
 	display: block;
 }
 
-@media only screen and (max-width: 60em) {
+@media only screen and (max-width: 40em) {
 .floatybugger {
 	display: none;
 }

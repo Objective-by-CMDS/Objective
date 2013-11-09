@@ -1,1 +1,106 @@
-.cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}body{margin:0;font:normal 500 100%/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}::selection{background:rgba(178,238,74,0.5)}::-moz-selection{background:rgba(178,238,74,0.5)}img{border:none}ul{margin:0;padding:0}.floatybugger{position:fixed;top:1em;left:1em;z-index:10}header{color:#444;border-bottom:1px solid #ccc;width:100%;position:fixed;padding-bottom:0.5%;background:rgba(232,232,232,0.85);background:-o-linear-gradient(-90deg, #fff 0%, rgba(232,232,232,0.85) 50%);background:-moz-linear-gradient(-90deg, #fff 0%, rgba(232,232,232,0.85) 50%);background:-webkit-linear-gradient(-90deg, #fff 0%, rgba(232,232,232,0.85) 50%);background:-ms-linear-gradient(-90deg, #fff 0%, rgba(232,232,232,0.85) 50%);background:linear-gradient(-180deg, #fff 0%, rgba(232,232,232,0.85) 50%)}.branding{float:left;width:60%;margin-left:1.5%}.branding p{margin:1.25% 0 2.5%}header .container{margin:1.5% auto 0;width:100%;max-width:45em}.login{float:right;width:33%;vertical-align:middle;text-align:center;margin-right:1.5%}.FacebookLogin{-webkit-transition:background-color 0.3s ease;-moz-transition:background-color 0.3s ease;transition:background-color 0.3s ease;padding:0.5em 0.75em;border-radius:8px;font-size:1.1em;display:inline-block;border-radius:8px;background-color:#8ad56f;background-image:-o-linear-gradient(-90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 100%);background-image:-moz-linear-gradient(-90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 100%);background-image:-webkit-linear-gradient(-90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 100%);background-image:-ms-linear-gradient(-90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 100%);background-image:linear-gradient(-180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.15) 100%)}.FacebookLogin:hover{background-color:#6ed149}.FacebookLogin{color:#FFF;text-decoration:none}main img{width:100%;display:block}@media only screen and (max-width: 60em){.floatybugger{display:none}}@media only screen and (max-width: 35em){header{font-size:0.8em;text-align:center;padding:1.5% 0 3.5%}.branding,.login{float:none;width:auto;margin-left:auto;margin-right:auto}}
+/* Nice Tools */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */ }
+
+.cf:after {
+  clear: both; }
+
+/* Main CSS */
+body {
+  margin: 0;
+  font: normal 500 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; }
+
+::selection {
+  background: rgba(178, 238, 74, 0.5); }
+
+::-moz-selection {
+  background: rgba(178, 238, 74, 0.5); }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+.floatybugger {
+  float: left;
+  z-index: 10; }
+
+header {
+  color: #444444;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  position: fixed;
+  padding-bottom: 0.5%;
+  background: rgba(232, 232, 232, 0.85);
+  background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: -webkit-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: -ms-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: linear-gradient(-180deg, white 0%, rgba(232, 232, 232, 0.85) 50%); }
+
+.branding {
+  float: left;
+  display: inline-block;
+  margin-left: 1.5%;
+  margin-right: 2.5%; }
+
+.branding p {
+  margin: 1.25% 0 2.5%; }
+
+header .container {
+  margin: 1.5% auto 0;
+  width: 100%;
+  max-width: 60em; }
+
+.login {
+  float: right;
+  width: 33%;
+  vertical-align: middle;
+  text-align: center;
+  margin-right: 1.5%; }
+
+.FacebookLogin {
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  padding: 0.5em 0.75em;
+  border-radius: 8px;
+  font-size: 1.1em;
+  display: inline-block;
+  border-radius: 8px;
+  background-color: #8ad56f;
+  background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%); }
+
+.FacebookLogin:hover {
+  background-color: #6ed149; }
+
+.FacebookLogin {
+  color: #FFF;
+  text-decoration: none; }
+
+main img {
+  width: 100%;
+  display: block; }
+
+@media only screen and (max-width: 40em) {
+  .floatybugger {
+    display: none; } }
+@media only screen and (max-width: 35em) {
+  header {
+    font-size: 0.8em;
+    text-align: center;
+    padding: 1.5% 0 3.5%; }
+
+  .branding, .login {
+    float: none;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto; } }
