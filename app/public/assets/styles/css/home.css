@@ -25,7 +25,7 @@ ul {
   margin: 0;
   padding: 0; }
 
-.floatybugger {
+.button-o-buggery {
   float: left;
   z-index: 10; }
 
@@ -55,7 +55,7 @@ header {
 header .container {
   margin: 1.5% auto 0;
   width: 100%;
-  max-width: 60em; }
+  max-width: 85em; }
 
 .login {
   float: right;
