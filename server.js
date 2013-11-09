@@ -31,16 +31,19 @@ mongoose.connect('mongodb://moin.2013.nodeknockout.com/objective');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
+
+// done for scope-requirements
+var findOrCreate; var userSchema; var User;
 db.once('open', function callback () {
-  var findOrCreate = require('mongoose-findorcreate')
-  var userSchema = mongoose.Schema({
+  findOrCreate = require('mongoose-findorcreate')
+  userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     facebookId: Number,
     task: [{name:String, dueDate: Date, notes:String, URL:String, }]
   })
   userSchema.plugin(findOrCreate);
-  var User = mongoose.model('User', userSchema);
+  User = mongoose.model('User', userSchema);
 });
 
 // Facebook Login Code
