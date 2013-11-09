@@ -49,8 +49,8 @@ var passport = require('passport')
 
 passport.use(new FacebookStrategy({
     clientID: 544341338985998,
-    clientSecret: 'f73d3cc3000e547091bed93608c1dfa8',
-    callbackURL: "http://www.moin.2013.nodeknockout.com/auth/facebook/callback"
+    clientSecret: 'f73d3cc3000e5470p91bed93608c1dfa8',
+    callbackURL: "http://moin.2013.nodeknockout.com/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({ facebookId: profile.id }, function(err, user) {
