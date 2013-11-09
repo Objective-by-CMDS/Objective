@@ -33,7 +33,14 @@ header {
 	background: -webkit-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 30%);
 	background: -ms-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 30%);
 	background: linear-gradient(-180deg, #FFFFFF 0%, $bg-color 30%);
+<<<<<<< HEAD
 
+=======
+}
+
+.branding p {
+	margin: 1.25% 0 2.5%;
+>>>>>>> homepage-changes
 }
 
 header .container {
@@ -49,15 +56,34 @@ header .container {
 }
 
 .FacebookLogin {
+<<<<<<< HEAD
+=======
+	-webkit-transition: background-color 0.3s ease;
+	-moz-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+>>>>>>> homepage-changes
 	padding: 0.5em 0.75em;
 	border-radius: 8px;
 	font-size: 1.1em;
 	border-radius: 8px;
+<<<<<<< HEAD
 	background-image: -o-linear-gradient(-90deg, #B5ED57 0%, #5EC23A 100%);
 	background-image: -moz-linear-gradient(-90deg, #B5ED57 0%, #5EC23A 100%);
 	background-image: -webkit-linear-gradient(-90deg, #B5ED57 0%, #5EC23A 100%);
 	background-image: -ms-linear-gradient(-90deg, #B5ED57 0%, #5EC23A 100%);
 	background-image: linear-gradient(-180deg, #B5ED57 0%, #5EC23A 100%);
+=======
+	background-color: #74ee4a;
+	background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.35) 100%);
+	background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.35) 100%);
+	background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+}
+
+.FacebookLogin:hover {
+	background-color: #67d542;
+>>>>>>> homepage-changes
 }
 
 .FacebookLogin {
