@@ -48,13 +48,14 @@ var passport = require('passport')
   , FacebookStrategy = require('passport-facebook').Strategy;
 
 passport.use(new FacebookStrategy({
-    clientID: 544341338985998,
-    clientSecret: 'f73d3cc3000e5470p91bed93608c1dfa8',
-    callbackURL: "http://moin.2013.nodeknockout.com/auth/facebook/callback"
+    clientID: (isProduction ? 544341338985998 : 570196463053329),
+    clientSecret: (isProduction ? 'f73d3cc3000e547091bed93608c1dfa8' : '0d972e868bd1ced4ac069de6d263476b'),
+    callbackURL: (isProduction ? "http://moin.2013.nodeknockout.com/auth/facebook/callback" : "http://localhost:8000/auth/facebook/callback")
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({ facebookId: profile.id }, function(err, user) {
       if (err) { return done(err); }
+      console.log(profile.id)
       done(null, user);
     });
   }
