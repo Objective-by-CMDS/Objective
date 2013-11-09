@@ -63,7 +63,7 @@ passport.use(new FacebookStrategy({
       if (err) { return done(err); }
       if (created) {
         User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
-          console.log("Some mysterious error occured saving user ID " + profile.id);
+          console.log("A mysterious error occured saving user ID " + profile.id);
           console.log(err);
         });
       } 
