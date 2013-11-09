@@ -72,7 +72,7 @@ header .userpic {
 
 header .username {
   font-size: 1.2em;
-  margin-left: 0.5em;
+  margin-left: 0.25em;
   display: inline-block;
   vertical-align: middle; }
 
@@ -100,14 +100,15 @@ header .username {
   padding: 1%;
   border-radius: 8px;
   border: 1px solid #cccccc;
-  background: #f5f5f5;
+  background: #f8f8f8;
   float: left;
   width: 95%;
   display: inline-block;
   text-align: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
 
 .itemimage {
   float: left;
