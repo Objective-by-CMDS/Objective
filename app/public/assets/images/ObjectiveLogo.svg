@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="278px" height="64px" viewBox="0 0 278 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg width="278px" height="63.5px" viewBox="0 0 278 63.5" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
     <title>Objective Logo</title>
     <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Header-Text" sketch:type="MSLayerGroup" transform="translate(-3.000000, -16.000000)">
-            <path d="M12.5696181,33.1293268 C13.6780276,33.1293268 15.1451397,33.8098306 15.8627256,34.668689 L23.8656165,44.2471235 C24.5759401,45.0972897 25.8024392,45.1759047 26.6069048,44.4208516 C26.6069048,44.4208516 51.3973979,21.1625586 53.6986995,18.8612568 C54.6192202,19.091387 56,20.0119077 56,20.0119077 L26.5371842,50.563395 C25.7720417,51.35681 24.6371262,51.27181 24.0031433,50.3747644 L12.963637,34.7545624 C12.3292673,33.8569696 12.7192478,33.1293268 13.8219621,33.1293268 L12.5696181,33.1293268 Z M12.5696181,33.1293268" id="Path-3" fill="#7EBE66" sketch:type="MSShapeGroup"></path>
+            <path d="M13.6279294,33.2301324 C14.8788738,34.3200772 23.8156252,44.2985767 23.8156252,44.2985767 C24.5535582,45.1203261 25.8016499,45.1735253 26.6066639,44.4142427 L53.6986995,18.8612568 C53.6986995,18.8612568 54.3339395,18.5064326 55.1667223,19.0104782 C55.999505,19.5145238 56,20.0119077 56,20.0119077 L26.5371842,50.563395 C25.7720417,51.35681 24.6342632,51.2726812 23.9921881,50.3699721 C23.9921881,50.3699721 12.3795407,34.0554068 11.8150091,33.1293268 C11.2504776,32.2032468 12.1373592,32.6525767 13.6279294,33.2301324 Z M13.6279294,33.2301324" id="Path-3" fill="#7EBE66" sketch:type="MSShapeGroup"></path>
             <text id="Objective" fill="#444444" sketch:type="MSTextLayer" font-family="Avenir Next" font-size="64" font-weight="normal">
                 <tspan x="0" y="64">Objective</tspan>
             </text>
