@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font: normal 300 100%/1.5 sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #e3e5e7;
+  background: -o-linear-gradient(-90deg, white 0%, #e3e5e7 30%);
+  background: -moz-linear-gradient(-90deg, white 0%, #e3e5e7 30%);
+  background: -webkit-linear-gradient(-90deg, white 0%, #e3e5e7 30%);
+  background: -ms-linear-gradient(-90deg, white 0%, #e3e5e7 30%);
+  background: linear-gradient(-180deg, white 0%, #e3e5e7 30%); }
+
+::selection {
+  background: rgba(178, 238, 74, 0.24); }
+
+::-moz-selection {
+  background: rgba(178, 238, 74, 0.24); }
+
+img {
+  border: none; }
+
+ul {
+  margin: 0;
+  padding: 0; }
+
+header {
+  color: #444444;
+  border-bottom: 1px solid #898989;
+  height: 30%; }
