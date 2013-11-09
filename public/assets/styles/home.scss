@@ -41,13 +41,15 @@ ul {
 .floatybugger {
 	position: fixed;
 	top: 1em;
-	left: 2.5%;
+	left: 1em;
+	z-index: 10;
 }
 
 header {
 	color: $text-color;
 	border-bottom: 1px solid #ccc;
-	height: 30%;
+	width: 100%;
+	position: fixed;
 	padding-bottom: 0.5%;
 	background: $bg-color;
 	background: -o-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
