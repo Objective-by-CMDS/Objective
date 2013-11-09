@@ -17,6 +17,7 @@
 
 body {
 	margin: 0;
+	color: $text-color;
 	font: normal 500 100%/1.5 $font-fam;
 	-webkit-font-smoothing: antialiased;
 }
@@ -88,6 +89,17 @@ header .userpic {
 header .username {
 	font-size: 1.2em;
 	margin-left: 0.5em;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.arrow-down {
+	content: '';
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid $text-color;
 	display: inline-block;
 	vertical-align: middle;
 }
