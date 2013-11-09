@@ -79,7 +79,7 @@ passport.deserializeUser(function(id, done) {
 
 // Controllers
 var userController = require('./controllers/user.js');
-
+var taskController = require('./controllers/taks.js');
 
 // Router
 require("./routes.js")(app, {
