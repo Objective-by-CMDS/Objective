@@ -44,7 +44,6 @@ header {
 	border-bottom: 1px solid #ccc;
 	width: 100%;
 	position: fixed;
-	z-index: 2;
 	padding-bottom: 0.5%;
 	background: $bg-color;
 	background: -o-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
@@ -71,50 +70,23 @@ header .container {
 	max-width: 60em;
 }
 
-.login {
+header .user {
 	float: right;
-	width: 33%;
-	vertical-align: middle;
-	text-align: center;
-	margin-right: 1.5%;
 }
 
-.FacebookLogin {
-	-webkit-transition: background-color 0.3s ease;
-	-moz-transition: background-color 0.3s ease;
-	transition: background-color 0.3s ease;
-	padding: 0.5em 0.75em;
-	border-radius: 8px;
-	font-size: 1.1em;
+header .userpic {
+	width: 3.5em;
+	border-radius: 50%;
+	border: 1px solid $lightgrey;
 	display: inline-block;
-	border-radius: 8px;
-	background-color: $objgreen;
-	background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	vertical-align: middle;
 }
 
-.FacebookLogin:hover {
-	background-color: #6ed149;
-}
-
-.FacebookLogin {
-	color: #FFF;
-	text-decoration: none;
-}
-
-main img {
-	width: 100%;
-	display: block;
-	-webkit-filter: blur(5px);
-}
-
-@media only screen and (max-width: 40em) {
-.button-o-buggery {
-	display: none;
-}
+header .username {
+	font-size: 1.2em;
+	margin-left: 0.5em;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 @media only screen and (max-width: 35em) {
@@ -122,12 +94,5 @@ header {
 	font-size: 0.8em;
 	text-align: center;
 	padding: 1.5% 0 3.5%;
-}
-
-.branding, .login {
-	float: none;
-	width: auto;
-	margin-left: auto;
-	margin-right: auto;
 }
 }
