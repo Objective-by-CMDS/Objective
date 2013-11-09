@@ -89,32 +89,35 @@ header .username {
 .tasklist {
   margin: 1.5% 0.5% 0;
   -moz-column-count: 3;
-  -moz-column-gap: 0px;
+  -moz-column-gap: 1em;
   -webkit-column-count: 3;
-  -webkit-column-gap: 0px;
+  -webkit-column-gap: 1em;
   column-count: 3;
-  column-gap: 0px; }
+  column-gap: 1em; }
 
 .taskitem {
-  -webkit-transition: box-shadow 0.5s ease;
-  -moz-transition: box-shadow 0.5s ease;
-  transition: box-shadow 0.5s ease;
-  margin: 1% 2.5%;
+  -webkit-transition: border-color 0.5s ease;
+  -moz-transition: border-color 0.5s ease;
+  transition: border-color 0.5s ease;
+  margin: 1.5% 0;
   padding: 1%;
   border-radius: 8px;
   border: 1px solid #cccccc;
   background: #f8f8f8;
-  float: left;
-  width: 95%;
-  display: inline-block;
-  text-align: left;
+  width: 100%;
   -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
   box-sizing: border-box;
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
+  display: inline-block;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
 
 .taskitem:hover {
-  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); }
+  border-color: #8ad56f; }
 
 .itemimage {
   float: left;
