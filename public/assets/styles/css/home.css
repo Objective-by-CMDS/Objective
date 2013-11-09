@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font: normal 300 100%/1.5 sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #e3e5e7;
   background: -o-linear-gradient(-90deg, white 0%, #e3e5e7 30%);
