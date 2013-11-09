@@ -86,6 +86,14 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }))
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
-    // Successful authentication, redirect home.
+    res.cookie('objectID', req.user._id);
     res.redirect('/');
+});
+
+// Task API
+app.get('/get/profile/:id', function(req, res) {
+  var id = req.params.id;
+  User.find({_id: id}, function(err, docs) {
+    res.send(JSON.stringify(docs));
+  });
 });
