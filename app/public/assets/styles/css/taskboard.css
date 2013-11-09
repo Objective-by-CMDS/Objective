@@ -107,7 +107,7 @@ header .username {
   -moz-transition: border-color 0.5s ease;
   transition: border-color 0.5s ease;
   margin: 1.5% 0;
-  padding: 1%;
+  padding: 1.5%;
   border-radius: 8px;
   border: 1px solid #cccccc;
   background: #f8f8f8;
@@ -126,19 +126,20 @@ header .username {
 
 .itemimage {
   float: left;
-  width: 15%; }
+  width: auto;
+  margin-right: 2.5%; }
 
 .taskitem img {
-  width: 2.5em;
-  border-radius: 6px 0px 0px 0px;
-  border: 1px solid #cccccc; }
+  width: 2em;
+  border-radius: 4px 0px 0px 0px; }
 
 .iteminfo {
-  float: right;
+  float: left;
   width: 85%; }
 
 .taskitem h1 {
   margin: 0;
+  font-size: 1.5em;
   line-height: 1.25; }
 
 .taskitem p {
