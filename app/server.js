@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 	FacebookStrategy = require('passport-facebook').Strategy;
 
 var isProduction = (process.env.NODE_ENV === 'production');
-
+var port = (isProduction ? 80:8000);
 var app = express();
 app.configure(function() {
 	app.set('port', port);
@@ -32,16 +32,19 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 var userSchema, User;
 db.once('open', function callback () {
-	var findOrCreate = require('mongoose-findorcreate');
-		userSchema = mongoose.Schema({
-		firstName: String,
-		lastName: String,
-		email: String,
-		facebookId: Number,
-		task: [{name:String, dueDate: Date, notes:String, URL:String, }]
-	});
-	userSchema.plugin(findOrCreate);
-	User = mongoose.model('User', userSchema);
+
+  var findOrCreate = require('mongoose-findorcreate');
+  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, });
+  userSchema = mongoose.Schema({
+    firstName: String,
+    lastName: String,
+    email: String,
+    facebookId: Number,
+    tasks: [taskSchema]
+  });
+  userSchema.plugin(findOrCreate);
+  Task = mongoose.model('Task', taskSchema);
+  User = mongoose.model('User', userSchema);
 });
 
 // Facebook Login Code
@@ -86,5 +89,6 @@ require("./routes.js")(app, {
 
 app.use(app.router);
 
-app.listen(config.get('port') || 8000);
+app.listen(port);
 console.log("Server listening on: " + port);
+
