@@ -107,6 +107,7 @@ header .container {
 main img {
 	width: 100%;
 	display: block;
+	-webkit-filter: blur(5px);
 }
 
 @media only screen and (max-width: 40em) {
