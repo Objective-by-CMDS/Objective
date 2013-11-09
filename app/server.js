@@ -80,12 +80,10 @@ passport.deserializeUser(function(id, done) {
 
 // Controllers
 var userController = require('./controllers/user.js');
-var taskController = require('./controllers/tasks.js');
 
 // Router
 require("./routes.js")(app, {
 	userController :userController,
-	taskController :taskController,
 	passport: passport
 });
 
