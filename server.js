@@ -27,13 +27,13 @@ app.configure(function() {
 });
 
 app.listen(port);
-console.log("Started listening on: " + port);
+console.log("Server listening on: " + port);
 
 app.get('/', function(req, res) {
     res.render('index.html');
 });
 
-// Mongo code, Daniel will have to help me out here:
+// Mongo code
 mongoose.connect('mongodb://moin.2013.nodeknockout.com/objective');
 
 var db = mongoose.connection;
@@ -44,6 +44,7 @@ db.once('open', function callback () {
     userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
+    email: String,
     facebookId: Number,
     task: [{name:String, dueDate: Date, notes:String, URL:String, }]
   })
@@ -60,8 +61,12 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
       if (err) { return done(err); }
-      console.log(profile.id)
-      console.log(created);
+      if (created) {
+        User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
+          console.log("Some mysterious error occured saving user ID " + profile.id);
+          console.log(err);
+        });
+      } 
       done(null, user);
     });
   }
