@@ -41,14 +41,16 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var userSchema, User;
 db.once('open', function callback () {
   var findOrCreate = require('mongoose-findorcreate');
-    userSchema = mongoose.Schema({
+  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, })
+  userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
     facebookId: Number,
-    task: [{name:String, dueDate: Date, notes:String, URL:String, }]
+    tasks: [taskSchema]
   })
   userSchema.plugin(findOrCreate);
+  Task = mongoose.model('Task', taskSchema);
   User = mongoose.model('User', userSchema);
 });
 
@@ -63,8 +65,10 @@ passport.use(new FacebookStrategy({
       if (err) { return done(err); }
       if (created) {
         User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
-          console.log("A mysterious error occured saving user ID " + profile.id);
-          console.log(err);
+          if (err) { 
+            console.log("A mysterious error occured saving user ID " + profile.id);
+            console.log(err);
+          }
         });
       } 
       done(null, user);
@@ -95,5 +99,30 @@ app.get('/get/profile/:id', function(req, res) {
   var id = req.params.id;
   User.find({_id: id}, function(err, docs) {
     res.send(JSON.stringify(docs));
+  });
+});
+
+app.get('/get/tasks/:id', function(req, res) {
+  var id = req.params.id;
+  User.find({_id: id}, 'tasks', function(err, docs) {
+    res.send(JSON.stringify(docs));
+  });
+});
+
+app.post('/add/task', function(req, res) { 
+  var id = req.body.id;
+  var name = req.body.name;
+  var dueDate = req.body.dueDate;
+  var notes = req.body.notes;
+  var URL = req.body.URL;
+  var task = new Task({name: name, dueDate: dueDate, notes: notes, URL: URL});
+
+  User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
+    if(err) {
+      console.log("An error occured adding your task.");
+      console.log(err);
+      res.send("{success: 0}");
+    }
+    res.send("{success: 1}");
   });
 });
