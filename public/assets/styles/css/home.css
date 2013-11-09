@@ -31,19 +31,21 @@ ul {
 .floatybugger {
   position: fixed;
   top: 1em;
-  left: 2.5%; }
+  left: 1em;
+  z-index: 10; }
 
 header {
   color: #444444;
   border-bottom: 1px solid #ccc;
-  height: 30%;
+  width: 100%;
+  position: fixed;
   padding-bottom: 0.5%;
-  background: #e3e5e7;
-  background: -o-linear-gradient(-90deg, white 0%, #e3e5e7 50%);
-  background: -moz-linear-gradient(-90deg, white 0%, #e3e5e7 50%);
-  background: -webkit-linear-gradient(-90deg, white 0%, #e3e5e7 50%);
-  background: -ms-linear-gradient(-90deg, white 0%, #e3e5e7 50%);
-  background: linear-gradient(-180deg, white 0%, #e3e5e7 50%); }
+  background: rgba(232, 232, 232, 0.85);
+  background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: -webkit-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: -ms-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
+  background: linear-gradient(-180deg, white 0%, rgba(232, 232, 232, 0.85) 50%); }
 
 .branding {
   float: left;
