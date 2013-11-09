@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="../public/assets/styles/css/normalize.css">
 	
 	<link rel="stylesheet" href="../public/assets/styles/css/taskboard.css">
+	
+	<script src="../public/assets/scripts/libs/snapsvg-min.js"></script>
 
 </head>
 <body>
@@ -45,6 +47,7 @@
 		<div class="taskitem cf">
 			<div class="itemimage">
 				<img src="../public/assets/images/testfavicons/Twitter.png">
+				<span class="si-icon si-icon-check" data-icon-name="check"></span>
 			</div>
 			<div class="iteminfo">
 				<h1>Task Title</h1>
@@ -127,13 +130,27 @@
 		</div>
 	</main>
 	
+		<script src="../public/assets/scripts/libs/svgicons-config.js"></script>
+		<script src="../public/assets/scripts/libs/svgicons.js"></script>
+		<script>
+			(function() {
+				// initialize all
+				
+				[].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
+					var svgicon = new svgIcon( el, svgIconConfig );
+				} );
+				
+				new svgIcon( document.querySelector( '.si-icon .si-icon-check' ), svgIconConfig, { easing : mina.backin, evtoggle : 'mouseover', size : { w : 128, h : 128 } } );
+			})();
+		</script>
+	
 	<script src="../public/assets/scripts/libs/jquery-1.9.1.js"></script>
 	<script src="../public/assets/scripts/libs/handlebars-1.1.2.js"></script>
 	<script src="../public/assets/scripts/libs/ember-1.1.2.js"></script>
 	<script src="../public/assets/scripts/app.js"></script>
 	<script src="../public/assets/scripts/models/todo.js"></script>
-	<script src="../public/assets/scripts/views/application.js"></script>
-	<script src="../public/assets/scripts/views/application.js"></script>
+	<script src="../public/assets/scripts/views/application.ebs"></script>
+	<script src="../public/assets/scripts/controllers/application.js"></script>
 	<script src="../public/assets/scripts/router.js"></script>
 	<script src="../public/assets/scripts/ajax_helpers.js"></script>
 </body>
