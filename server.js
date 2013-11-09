@@ -1,22 +1,29 @@
 // add VoteKO and that root thingy later
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yotDA5W4DvTFZREf');
-var mongoose = require('mongoose');
-var express = require("express");
+var mongoose = require('mongoose'),
+  express = require("express"),
+  passport = require('passport'),
+  FacebookStrategy = require('passport-facebook').Strategy;
 
 var isProduction = (process.env.NODE_ENV === 'production');
 var port = (isProduction ? 80 : 8000);
 
 var app = express();
 app.configure(function() {
-    app.set('port', port);
-    app.set('views', __dirname + '/views');
-    app.set("view options", {
-        layout: false
-    }); 
-    app.engine('html', require('ejs').renderFile);
-    app.use(app.router);
-    app.use(express.static(__dirname + '/public'));
+  app.set('port', port);
+  app.set('views', __dirname + '/views');
+  app.set("view options", {
+      layout: false
+  }); 
+  app.use(express.cookieParser());
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.engine('html', require('ejs').renderFile);
+  app.use(app.router);
+  app.use(express.static(__dirname + '/public'));
 });
 
 app.listen(port);
@@ -31,12 +38,10 @@ mongoose.connect('mongodb://moin.2013.nodeknockout.com/objective');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-
-// done for scope-requirements
-var findOrCreate; var userSchema; var User;
+var userSchema, User;
 db.once('open', function callback () {
-  findOrCreate = require('mongoose-findorcreate')
-  userSchema = mongoose.Schema({
+  var findOrCreate = require('mongoose-findorcreate');
+    userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     facebookId: Number,
@@ -47,22 +52,35 @@ db.once('open', function callback () {
 });
 
 // Facebook Login Code
-var passport = require('passport')
-  , FacebookStrategy = require('passport-facebook').Strategy;
-
 passport.use(new FacebookStrategy({
     clientID: (isProduction ? 544341338985998 : 570196463053329),
     clientSecret: (isProduction ? 'f73d3cc3000e547091bed93608c1dfa8' : '0d972e868bd1ced4ac069de6d263476b'),
     callbackURL: (isProduction ? "http://moin.2013.nodeknockout.com/auth/facebook/callback" : "http://localhost:8000/auth/facebook/callback")
   },
   function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ facebookId: profile.id }, function(err, user) {
+    User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
       if (err) { return done(err); }
       console.log(profile.id)
+      console.log(created);
       done(null, user);
     });
   }
 ));
 
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { successRedirect: '/', failureRedirect: '/login' }));
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+});
