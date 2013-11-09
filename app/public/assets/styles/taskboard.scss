@@ -45,7 +45,6 @@ header {
 	border-bottom: 1px solid $lightgrey;
 	width: 100%;
 	padding: 1% 0;
-	display: table;
 	background: $bg-color;
 	background: -o-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
 	background: -moz-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
@@ -59,8 +58,6 @@ header .container {
 	margin: 0 auto;
 	width: 100%;
 	max-width: 85em;
-	display: table-cell;
-	vertical-align: middle;
 }
 
 .branding {

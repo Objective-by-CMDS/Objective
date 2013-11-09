@@ -35,7 +35,6 @@ header {
   border-bottom: 1px solid #cccccc;
   width: 100%;
   padding: 1% 0;
-  display: table;
   background: rgba(232, 232, 232, 0.85);
   background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
   background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
@@ -47,9 +46,7 @@ header {
 header .container {
   margin: 0 auto;
   width: 100%;
-  max-width: 85em;
-  display: table-cell;
-  vertical-align: middle; }
+  max-width: 85em; }
 
 .branding {
   float: left;
