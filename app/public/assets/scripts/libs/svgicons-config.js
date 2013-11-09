@@ -1,6 +1,6 @@
 var svgIconConfig = {
 	check : {
-		url : 'svg/check.svg',
+		url : '../public/assets/images/check.svg',
 		animation : [
 			{
 				el : 'path:nth-child(1)',
