@@ -71,11 +71,12 @@ header {
 header .container {
 	margin: 0 auto;
 	width: 100%;
-	max-width: 60em;
+	max-width: 85em;
 }
 
 header .user {
 	float: right;
+	margin-right: 2.5%;
 }
 
 header .userpic {
@@ -105,13 +106,18 @@ header .username {
 }
 
 .tasklist {
-	margin: 1.5% 0.5% 0;
-    -moz-column-count: 3;
-    -moz-column-gap: 1em;
-    -webkit-column-count: 3;
-    -webkit-column-gap: 1em;
-    column-count: 3;
-    column-gap: 1em;
+	margin: 1.5% 1.5% 0;
+}
+
+.tasklistcontainer {
+	margin: 0 auto;
+	max-width: 85em;
+	-moz-column-count: 3;
+	-moz-column-gap: 1em;
+	-webkit-column-count: 3;
+	-webkit-column-gap: 1em;
+	column-count: 3;
+	column-gap: 1em;
 }
 
 .taskitem {
@@ -162,10 +168,30 @@ header .username {
 	border-top: 1px solid $lightgrey;
 }
 
+@media only screen and (max-width: 768px) {
+.tasklistcontainer {
+    -moz-column-count: 2;
+    -moz-column-gap: 0.5em;
+    -webkit-column-count: 2;
+    -webkit-column-gap: 0.5em;
+    column-count: 2;
+    column-gap: 0.5em;
+}
+}
+
 @media only screen and (max-width: 35em) {
 header {
 	font-size: 0.8em;
 	text-align: center;
 	padding: 1.5% 0 3.5%;
+}
+
+.tasklistcontainer {
+    -moz-column-count: 1;
+    -moz-column-gap: 0;
+    -webkit-column-count: 1;
+    -webkit-column-gap: 0;
+    column-count: 1;
+    column-gap: 0;
 }
 }
