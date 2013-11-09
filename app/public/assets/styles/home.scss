@@ -44,6 +44,7 @@ header {
 	border-bottom: 1px solid #ccc;
 	width: 100%;
 	position: fixed;
+	z-index: 2;
 	padding-bottom: 0.5%;
 	background: $bg-color;
 	background: -o-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);

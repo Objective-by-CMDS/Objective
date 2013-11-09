@@ -34,6 +34,7 @@ header {
   border-bottom: 1px solid #ccc;
   width: 100%;
   position: fixed;
+  z-index: 2;
   padding-bottom: 0.5%;
   background: rgba(232, 232, 232, 0.85);
   background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
@@ -88,7 +89,8 @@ header .container {
 
 main img {
   width: 100%;
-  display: block; }
+  display: block;
+  -webkit-filter: blur(5px); }
 
 @media only screen and (max-width: 40em) {
   .button-o-buggery {
