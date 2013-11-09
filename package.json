@@ -1,10 +1,10 @@
 {
 	"name": "nko4-moin",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "CMDS",
 	"main": "server.js",
 	"scripts": {
-		"start": "node app/server.js"
+		"start": "node app/temp_server.js"
 	},
 	"repository": {
 		"type": "git",
