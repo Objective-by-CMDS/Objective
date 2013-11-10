@@ -121,15 +121,12 @@ main img {
   display: inline;
   float: left;
   width: 40%; 
-  padding-right: 30%;
-  position: absolute;
   font-size: 1.25em;
   line-height: 1.5em }
 
 .right {
-  float: right;
   display: inline;
-  position: absolute; }
+  float: right; }
 
 
 /* GOT 'DAT MEDIA QUERY FLOW GOIN' */
