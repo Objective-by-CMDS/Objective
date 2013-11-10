@@ -1,10 +1,3 @@
-// NEED TO FIX. NOT PERMANENT.
-
-
-
-
-
-
 // add VoteKO and that root thingy later
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yotDA5W4DvTFZREf');
@@ -83,7 +76,7 @@ passport.use(new FacebookStrategy({
     User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
       if (err) { return done(err); }
       if (created) {
-        User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email, tasks: {name: ''}}}, function (err, user) {
+        User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email, tasks: {name: "Save Tasks with Objective", URL: "moin.2013.nodeknockout.com/tasks#bookmarklet", notes: "Objective allows you to easily save the important things you need to do on the internet for later. To get started, just click the title of this task to add the bookmarklet to your browser."}}}, function (err, user) {
           if (err) { 
             console.log("A mysterious error occured saving user ID " + profile.id);
             console.log(err);
