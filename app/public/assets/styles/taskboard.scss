@@ -56,13 +56,15 @@
 	border-color: $objgreen;
 }
 
-.itemimage {
+.itemleft {
 	float: left;
-	width: auto;
-	margin-right: 2.5%;
+	clear: both;
+	text-align: center;
+	width: 10%;
+	padding-right: 2.5%;
 }
 
-.taskitem img {
+.itemleft img {
 	width: 2em;
 	border-radius: 4px 0px 0px 0px;
 	-webkit-transition: opacity 0.25s ease;
@@ -70,13 +72,19 @@
 	transition: opacity 0.25s ease;
 }
 
-	.taskitem a img:hover {
+	.itemleft a img:hover {
 		opacity: 0.65;
 	}
 	
-	.taskitem a img:active {
+	.itemleft a img:active {
 		opacity: 0.85;
 	}
+
+.itemleft .completebutton {
+	font-size: 1.5em;
+	text-decoration: none;
+	text-align: center;
+}
 
 .iteminfo {
 	float: left;

@@ -98,14 +98,14 @@
 
 		<% tasks.forEach(function(task, i){ %>
 		<div class="taskitem cf">
-			<div class="itemimage">
+			<div class="itemleft">
 				<a href="http://<%= task['URL'] %>"><img src="http://d.fvicon.com/http://<%=task['URL']%>?canAudit=false"></a>
+				<a class="completebutton" href="delete/task/task['_id']">&#10003;</a>
 			</div>
 			<div class="iteminfo">
 				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
 				<p><%=task['notes'] %></p>
 			</div>
-			<a href="delete/task/task['_id']">Delete.</a>
 		</div>
 		<%})%>
 		</div>
