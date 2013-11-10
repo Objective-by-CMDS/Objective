@@ -1,3 +1,10 @@
+// NEED TO FIX. NOT PERMANENT.
+
+
+
+
+
+
 // add VoteKO and that root thingy later
 // https://github.com/nko4/website/blob/master/module/README.md#nodejs-knockout-deploy-check-ins
 require('nko')('yotDA5W4DvTFZREf');
@@ -135,6 +142,7 @@ app.get('/add/task', function(req, res) {
   var task = new Task({name: name, notes: notes, URL: url});
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
     if(err) {
+      console.log(err);
       console.log("An error occured adding your task, " + id + ", URL, " + url);
     }
   });

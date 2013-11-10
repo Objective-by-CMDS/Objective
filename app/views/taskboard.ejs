@@ -127,8 +127,12 @@
 				$('.bookmarklet-explain').slideUp('300');
 			});
 			$('.completebutton').click(function() {
-				$(this).closest('.taskitem').fadeOut('300')
+				$(this).closest('.taskitem').fadeOut('300');
 			});
 		});
+
+		function deleteTask(id) {
+			$.get("http://moin.2013.nodeknockout.com/delete/task" + id);
+		}
 	</script>
 </body>
