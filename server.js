@@ -126,6 +126,20 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
+app.get('/add/task/:id/:name/:notes/:url', function(req, res) {
+  var id = req.params.id;
+  var name = req.params.name;
+  var notes = req.params.notes;
+  var url = req.params.url;
+  console.log("Rec.");
+  var task = new Task({name: name, notes: notes, URL: url});
+  User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
+    if(err) {
+      console.log("An error occured adding your task, " + id + ", URL, " + url);
+    }
+  });
+});
+
 app.post('/add/task', function(req, res) { 
   console.log(req);
   var id = req.body.id;
