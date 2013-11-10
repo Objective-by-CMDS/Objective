@@ -125,7 +125,7 @@
 				$('.bookmarklet-explain').slideUp('show');
 			});
 			$('.completebutton').click(function() {
-				$(this).children('.taskitem').fadeOut('300');
+				$(this).closest('.taskitem').fadeOut('300');
 			});
 			$('.completebutton').hover(function() {
 				$(this).children('.checkmark').toggleClass('active');
