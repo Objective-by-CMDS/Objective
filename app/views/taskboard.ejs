@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Welcome to Objective!</title>
+	<title>Objective | Your Tasks</title>
 	
 	<meta charset="UTF-8">
 	
@@ -17,6 +17,8 @@
 	
 	<link rel="stylesheet" href="assets/styles/css/taskboard.css">
 
+	<script src="../public/assets/scripts/libs/snapsvg-min.js"></script>
+
 </head>
 <body>
 	<header>
@@ -25,7 +27,7 @@
 			<img class="objlogo" src="assets/images/ObjectiveLogo.svg">
 		</div>
 		<div class="user">
-			<img class="userpic" src="assets/images/Userpic.png">
+			<img class="userpic" src="http://graph.facebook.com/<%=facebookId%>/picture?type=small">
 			<p class="username"><%= firstName %></p>
 			<span class="arrow-down"></span>
 		</div>
@@ -46,7 +48,19 @@
 		<%})%>
 		</div>
 	</main>
-	
+	<script src="assets/scripts/libs/svgicons-config.js"></script>
+		<script src="assets/scripts/libs/svgicons.js"></script>
+		<script>
+			(function() {
+				// initialize all
+				
+				[].slice.call( document.querySelectorAll( '.si-icon' ) ).forEach( function( el ) {
+					var svgicon = new svgIcon( el, svgIconConfig );
+				} );
+				
+				new svgIcon( document.querySelector( '.si-icon .si-icon-check' ), svgIconConfig, { easing : mina.backin, evtoggle : 'mouseover', size : { w : 333, h : 300 } } );
+			})();
+		</script>
 	<script src="assets/scripts/libs/jquery-1.9.1.js"></script>
 	<script src="assets/scripts/libs/handlebars-1.1.2.js"></script>
 	<script src="assets/scripts/libs/ember-1.1.2.js"></script>

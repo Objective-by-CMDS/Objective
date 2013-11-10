@@ -66,7 +66,7 @@ app.get('/devaddtask', function(req, res) {
 });
 
 app.get('/tasks', function(req, res) {
-  User.findById(req.cookies.objectID, 'firstName tasks', function(err, docs) {
+  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
     res.render('taskboard.ejs', docs);
   });
 });
@@ -127,6 +127,7 @@ app.get('/get/tasks/:id', function(req, res) {
 });
 
 app.post('/add/task', function(req, res) { 
+  console.log(req);
   var id = req.body.id;
   var name = req.body.name;
   var dueDate = req.body.dueDate;
@@ -140,6 +141,7 @@ app.post('/add/task', function(req, res) {
       console.log(err);
       res.send("{success: 0}");
     }
+    console.log(user);
     res.send("{success: 1}");
   });
 });
