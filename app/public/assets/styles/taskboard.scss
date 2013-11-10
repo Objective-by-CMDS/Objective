@@ -203,3 +203,13 @@ header {
     column-gap: 0;
 }
 }
+
+@media only screen and (max-width: 20em) {
+header .user {
+	margin-top: 2.5%;
+}
+
+header .username {
+	display: none;
+}
+}
