@@ -126,11 +126,11 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
-app.get('/add/task/:id/:name/:notes/:url', function(req, res) {
-  var id = req.params.id;
-  var name = req.params.name;
-  var notes = req.params.notes;
-  var url = req.params.url;
+app.get('/add/task', function(req, res) {
+  var id = req.query.id;
+  var name = req.query.name;
+  var notes = req.query.notes;
+  var url = req.query.url;
   console.log("Rec.");
   var task = new Task({name: name, notes: notes, URL: url});
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
