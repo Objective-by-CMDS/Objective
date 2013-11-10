@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Objective | Bookmarklet</title>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	<meta name="apple-mobile-web-app-title" content="Objective">
+	 
+		<!-- Icons -->
+		
+		<!-- iOS 7 iPad (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/152x152.png"
+			sizes="152x152"
+			rel="apple-touch-icon">
+
+		<!-- iOS 6 iPad (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/144x144.png"
+			sizes="144x144"
+			rel="apple-touch-icon">
+
+		<!-- iOS 7 iPhone (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/120x120.png"
+			sizes="120x120"
+			rel="apple-touch-icon">
+		
+		<!-- iOS 6 iPhone (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/114x114.png"
+			sizes="114x114"
+			rel="apple-touch-icon">
+
+		<!-- iOS 7 iPad -->
+		<link href="../public/assets/images/AppleTouchIcons/76x76.png"
+			sizes="76x76"
+			rel="apple-touch-icon">
+
+		<!-- iOS 6 iPad -->
+		<link href="../public/assets/images/AppleTouchIcons/72x72.png"
+			sizes="72x72"
+			rel="apple-touch-icon">
+		
+		<!-- iOS 6 iPhone -->
+		<link href="../public/assets/images/AppleTouchIcons/57x57.png"
+			sizes="57x57"
+			rel="apple-touch-icon">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	
+	<link rel="stylesheet" href="../public/assets/styles/css/normalize.css">
+	
+	<link rel="stylesheet" href="../public/assets/styles/css/bookmarklet.css">
+	
+</head>
+<body>
+	<header>
+		<div class="container cf">
+		<div class="branding">
+			<img class="objlogo" src="../public/assets/images/ObjectiveLogo.svg">
+		</div>
+		<div class="user">
+			<img class="userpic" src="../public/assets/images/Userpic.png">
+			<p class="username">Scott</p>
+			<span class="arrow-down"></span>
+		</div>
+	</header>
+	<div class="bookmarklet-explain">
+		<div class="outercontainer">
+		<div class="innercontainer">
+		<span class="text">Drag the button up into your bookmarks bar to add tasks to Objective!</span>
+		</div>
+		</div>
+	</div>
+	<main class="content">
+		<h1>Bookmarklet</h1>
+		<h2>Adding tasks to Objective</h2>
+		<p class="bookmarklet-instructions">Drag this into your bookmarks bar so you can easily add tasks to Objective</p>
+		<a class="bookmarklet" href="javascript:($=window.jQuery)?a():(s=document.createElement("script"),s.src="http://code.jquery.com/jquery-2.0.3.min.js",s.onload=a,document.body.appendChild(s));function a(){var b=prompt("Enter name for task:"),c=prompt("Enter notes for task:");$.get("http://moin.2013.nodeknockout.com/add/task/527de4733578330000000003/"+b+"/"+c+"/"+window.location.href)};">Add an Objective</a>
+	</main>
+	
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.bookmarklet').mouseenter(function() {
+				$('.bookmarklet-explain').slideDown('300');
+			});
+			$('body').mouseleave(function() {
+				$('.bookmarklet-explain').slideUp('show');
+			});
+		});
+	</script>
+	
+	<script src="../public/assets/scripts/libs/handlebars-1.1.2.js"></script>
+	<script src="../public/assets/scripts/libs/ember-1.1.2.js"></script>
+	<script src="../public/assets/scripts/app.js"></script>
+	<script src="../public/assets/scripts/models/todo.js"></script>
+	<script src="../public/assets/scripts/views/application.ejs"></script>
+	<script src="../public/assets/scripts/controllers/application.js"></script>
+	<script src="../public/assets/scripts/router.js"></script>
+	<script src="../public/assets/scripts/ajax_helpers.js"></script>
+</body>

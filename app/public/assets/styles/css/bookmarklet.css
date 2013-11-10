@@ -98,75 +98,58 @@ header .username {
 
   header .username {
     display: none; } }
-.tasklist {
-  margin: 1.5% 1.5% 0; }
-
-.tasklistcontainer {
-  margin: 0 auto;
-  max-width: 85em;
-  -moz-column-count: 3;
-  -moz-column-gap: 1em;
-  -webkit-column-count: 3;
-  -webkit-column-gap: 1em;
-  column-count: 3;
-  column-gap: 1em; }
-
-.taskitem {
-  -webkit-transition: border-color 0.5s ease;
-  -moz-transition: border-color 0.5s ease;
-  transition: border-color 0.5s ease;
-  margin: 1.5% 0;
-  padding: 1.5%;
-  border-radius: 8px;
-  border: 1px solid #cccccc;
-  background: #f8f8f8;
+.bookmarklet-explain {
+  position: relative;
   width: 100%;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-column-break-inside: avoid;
-  -moz-column-break-inside: avoid;
-  column-break-inside: avoid;
+  color: #FFF;
+  display: none;
+  background-color: #8ad56f;
+  background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%); }
+
+.bookmarklet-explain .outercontainer {
+  height: 2.5em;
+  margin-left: 1.25%;
+  display: table; }
+
+.bookmarklet-explain .innercontainer {
+  display: table-cell;
+  vertical-align: middle; }
+
+.content {
+  margin: 1.5% auto;
+  max-width: 85em;
+  text-align: center; }
+
+.content h1 {
+  text-decoration: underline;
+  margin: 0; }
+
+.content h2 {
+  margin: 0; }
+
+.content .bookmarklet-instructions {
+  margin-top: 3.5%; }
+
+.content .bookmarklet {
+  padding: 0.5em 0.75em;
+  color: #FFF;
+  text-decoration: none;
+  font-size: 1.1em;
   display: inline-block;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
+  border-radius: 8px;
+  -webkit-transition: background-color 0.3s ease;
+  -moz-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+  background-color: #8ad56f;
+  background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%); }
 
-.taskitem:hover {
-  border-color: #8ad56f; }
-
-.itemimage {
-  float: left;
-  width: auto;
-  margin-right: 2.5%; }
-
-.taskitem img {
-  width: 2em;
-  border-radius: 4px 0px 0px 0px; }
-
-.iteminfo {
-  float: left;
-  width: 85%; }
-
-.taskitem h1 {
-  margin: 0;
-  font-size: 1.5em;
-  line-height: 1.25; }
-
-.taskitem p {
-  border-top: 1px solid #cccccc; }
-
-@media only screen and (max-width: 768px) {
-  .tasklistcontainer {
-    -moz-column-count: 2;
-    -moz-column-gap: 0.5em;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 0.5em;
-    column-count: 2;
-    column-gap: 0.5em; } }
-@media only screen and (max-width: 35em) {
-  .tasklistcontainer {
-    -moz-column-count: 1;
-    -moz-column-gap: 0;
-    -webkit-column-count: 1;
-    -webkit-column-gap: 0;
-    column-count: 1;
-    column-gap: 0; } }
+.content .bookmarklet:hover {
+  background-color: #6ed149; }

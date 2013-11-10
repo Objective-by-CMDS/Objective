@@ -1,0 +1,83 @@
+@import "constants";
+
+/* Nice Tools */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+/* Main CSS */
+
+@import "appstyle";
+
+.bookmarklet-explain {
+	position: relative;
+	width: 100%;	
+	color: #FFF;
+	display: none;
+	background-color: $objgreen;
+	background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+}
+
+.bookmarklet-explain .outercontainer {
+	height: 2.5em;
+	margin-left: 1.25%;
+	display: table;
+}
+
+.bookmarklet-explain .innercontainer {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.content {
+	margin: 1.5% auto;
+	max-width: 85em;
+	text-align: center;
+}
+
+.content h1 {
+	text-decoration: underline;
+	margin: 0;
+}
+
+.content h2 {
+	margin: 0;
+}
+
+.content .bookmarklet-instructions {
+	margin-top: 3.5%;
+}
+
+.content .bookmarklet {
+	padding: 0.5em 0.75em;
+	color: #FFF;
+	text-decoration: none;
+	font-size: 1.1em;
+	display: inline-block;
+	border-radius: 8px;
+	-webkit-transition: background-color 0.3s ease;
+	-moz-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+	background-color: $objgreen;
+	background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+}
+
+.content .bookmarklet:hover {
+	background-color: #6ed149;
+}
