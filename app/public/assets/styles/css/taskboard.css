@@ -205,7 +205,7 @@ header .username {
 
 #bookmarklet .background {
   background-color: rgba(0, 0, 0, 0);
-  position: absolute;
+  position: fixed;
   display: block;
   top: 0;
   right: 0;
@@ -224,7 +224,7 @@ header .username {
 
 #bookmarklet .modal {
   width: 50%;
-  height: 50%;
+  height: 60%;
   overflow: auto;
   margin: auto;
   position: absolute;
