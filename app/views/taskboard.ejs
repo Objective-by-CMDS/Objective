@@ -100,7 +100,7 @@
 		<div class="taskitem cf">
 			<div class="itemleft">
 				<a href="http://<%= task['URL'] %>"><img class="taskicon" src="http://d.fvicon.com/http://<%=task['URL']%>?canAudit=false"></a>
-				<a class="completebutton" href="delete/task/<%=task['_id']%>"><img class="circle" src="assets/images/complete.svg"><img class="checkmark" src="assets/images/check.svg"></a>
+				<a class="completebutton" href="delete?id=<%=task['_id']%>"><img class="circle" src="assets/images/complete.svg"><img class="checkmark" src="assets/images/check.svg"></a>
 			</div>
 			<div class="iteminfo">
 				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
@@ -135,7 +135,8 @@
 		});
 
 		function deleteTask(id) {
-			$.get("http://moin.2013.nodeknockout.com/delete/task" + id);
+			$.get("http://localhost:8000/delete/task/" + id);
+			console.log(id);
 		}
 	</script>
 </body>

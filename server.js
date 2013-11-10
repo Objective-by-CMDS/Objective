@@ -180,9 +180,10 @@ app.post('/add/task', function(req, res) {
   });
 });
 
-app.get('/delete/task/:id', function(req, res) {
-  var id = req.params.id;
+app.get('/delete', function(req, res) {
+  var id = req.query.id;
   User.update({'tasks._id':id}, { $pull: { tasks: {_id: id}}}, function (err) {
     if (err) { console.log(err); }
+    res.redirect('tasks');
   });
 });
