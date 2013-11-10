@@ -17,8 +17,6 @@
 	
 	<link rel="stylesheet" href="../public/assets/styles/css/taskboard.css">
 	
-	<script src="../public/assets/scripts/libs/snapsvg-min.js"></script>
-
 </head>
 <body>
 	<header>
@@ -129,27 +127,7 @@
 		</div>
 		</div>
 	</main>
-	
-		<script src="../public/assets/scripts/libs/svgicons-config.js"></script>
-		<script src="../public/assets/scripts/libs/svgicons.js"></script>
-		<script>
-			(function() {
-				
-				// initialize all
-				[].slice.call( document.querySelectorAll( '.si-icons-default > .si-icon' ) ).forEach( function( el ) {
-					var svgicon = new svgIcon( el, svgIconConfig );
-				} );
-				
-				new svgIcon( document.querySelector( '.si-icon .si-icon-check' ), svgIconConfig, { 
-					easing : mina.backin, evtoggle : 'mouseover', size : { 
-						w : 128, h : 128 }
-				} );
-
-				new svgIcon( document.querySelector( '.si-icon .si-icon-check' ), svgIconConfig, { easing : mina.backin, evtoggle : 'mouseover', size : { w : 333, h : 300 } } );
-
-			})();
-		</script>
-	
+		
 	<script src="../public/assets/scripts/libs/jquery-2.0.3.js"></script>
 	<script src="../public/assets/scripts/libs/handlebars-1.1.2.js"></script>
 	<script src="../public/assets/scripts/libs/ember-1.1.2.js"></script>
