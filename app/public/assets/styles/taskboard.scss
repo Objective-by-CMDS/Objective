@@ -65,12 +65,39 @@
 .taskitem img {
 	width: 2em;
 	border-radius: 4px 0px 0px 0px;
+	-webkit-transition: opacity 0.25s ease;
+	-moz-transition: opacity 0.25s ease;
+	transition: opacity 0.25s ease;
 }
+
+	.taskitem a img:hover {
+		opacity: 0.65;
+	}
+	
+	.taskitem a img:active {
+		opacity: 0.85;
+	}
 
 .iteminfo {
 	float: left;
 	width: 85%;
 }
+
+.taskitem a, .taskitem a:visited {
+	color: $text-color;
+	text-decoration: underline;
+	-webkit-transition: color 0.25s ease;
+	-moz-transition: color 0.25s ease;
+	transition: color 0.25s ease;
+}
+
+	.taskitem a:hover {
+		color: $objgreen;
+	}
+	
+	.taskitem a:active {
+		color: $darkgreen;
+	}
 
 .taskitem h1 {
 	margin: 0;
