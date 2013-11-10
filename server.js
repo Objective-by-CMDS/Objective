@@ -137,6 +137,7 @@ app.get('/add/task/:id/:name/:notes/:url', function(req, res) {
     if(err) {
       console.log("An error occured adding your task, " + id + ", URL, " + url);
     }
+    res.send("Rec.");
   });
 });
 
