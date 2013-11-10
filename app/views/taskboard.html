@@ -127,10 +127,7 @@
 			$('.completebutton').click(function() {
 				$(this).children('.taskitem').fadeOut('300');
 			});
-			$('.completebutton').mouseenter(function() {
-				$(this).children('.checkmark').toggleClass('active');
-			});
-			$('.completebutton').mouseleave(function() {
+			$('.completebutton').hover(function() {
 				$(this).children('.checkmark').toggleClass('active');
 			});
 		});
