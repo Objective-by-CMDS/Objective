@@ -98,8 +98,8 @@
 		<div class="tasklistcontainer cf">
 		<div class="taskitem cf">
 			<div class="itemleft">
-				<a href=""><img src="../public/assets/images/testfavicons/Google.jpg"></a>
-				<a class="completebutton">&#10003;</a>
+				<a href=""><img class="taskicon" src="../public/assets/images/Userpic.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
 			</div>
 			<div class="iteminfo">
 				<a href=""><h1>Task Title</h1></a>
@@ -125,7 +125,13 @@
 				$('.bookmarklet-explain').slideUp('show');
 			});
 			$('.completebutton').click(function() {
-				$(this).closest('.taskitem').fadeOut('300')
+				$(this).children('.taskitem').fadeOut('300');
+			});
+			$('.completebutton').mouseenter(function() {
+				$(this).children('.checkmark').toggleClass('active');
+			});
+			$('.completebutton').mouseleave(function() {
+				$(this).children('.checkmark').toggleClass('active');
 			});
 		});
 	</script>
