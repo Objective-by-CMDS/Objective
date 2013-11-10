@@ -54,7 +54,8 @@ header .container {
   margin-right: 2.5%; }
 
 .branding img {
-  vertical-align: middle; }
+  vertical-align: middle;
+  width: 18em; }
 
 .branding p {
   margin: 1.25% 0 2.5%; }
