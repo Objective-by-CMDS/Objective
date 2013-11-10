@@ -105,7 +105,7 @@
 				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
 				<p><%=task['notes'] %></p>
 			</div>
-			<a href="delete/task/task['_id']">Delete.</a>
+			<a href="delete/task/<%=task['_id']%>">Delete.</a>
 		</div>
 		<%})%>
 		</div>
