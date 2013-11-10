@@ -99,11 +99,11 @@
 		<% tasks.forEach(function(task, i){ %>
 		<div class="taskitem cf">
 			<div class="itemimage">
-				<img src="http://www.google.com/s2/favicons?domain=<%=task['URL']%>">
+				<a href="http://<%= task['URL'] %>"><img src="http://www.google.com/s2/favicons?domain=<%=task['URL']%>"></a>
 			</div>
 			<div class="iteminfo">
-				<h1><%= task['name']%></h1>
-				<p><%= task['notes']%></p>
+				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
+				<p><%=task['notes'] %></p>
 			</div>
 		</div>
 		<%})%>
