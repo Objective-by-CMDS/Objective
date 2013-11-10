@@ -1,25 +1,11 @@
-(function(){
-	var v = "1.3.2";
-	if (window.jQuery === undefined || window.jQuery.fn.jquery < v) {
-		var done = false;
-		var script = document.createElement("script");
-		script.src = "http://ajax.googleapis.com/ajax/libs/jquery/" + v + "/jquery.min.js";
-		script.onload = script.onreadystatechange = function(){
-			if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) {
-				done = true;
-				initMyBookmarklet();
-			}
-		};
-		document.getElementsByTagName("head")[0].appendChild(script);
-	} else {
-		initMyBookmarklet();
-	}
-	function initMyBookmarklet() {
-		(window.myBookmarklet = function() {
-			var name = prompt("Enter name for task:");
-			var notes = prompt("Enter notes for task:");
-			var url = location.href.replace(/https?:\/\//i, "");
-			$.get("http://moin.2013.nodeknockout.com/add/task/"+ id + "/" + name + "/" + notes + "/" + url);		
-		})();
-	}
+(window.myBookmarklet = function() {
+	var id = '527fa94f8a8e2ada72000012';
+	var name = prompt("Enter name for task:");
+	var notes = prompt("Enter notes for task:");
+	var url = location.href.replace(/https?:\/\//i, "");
+	ifrm = document.createElement('IFRAME');
+	ifrm.style.width = '0px';
+	ifrm.style.height = '0px';
+	ifrm.src = "http://moin.2013.nodeknockout.com/add/task/?id="+ id + "&name=" + name + "&notes=" + notes + "&url=" + url;
+	document.body.appendChild(ifrm);	
 })();
