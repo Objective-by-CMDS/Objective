@@ -10,6 +10,10 @@
   clear: both; }
 
 /* Main CSS */
+html {
+  background: url("../../images/ObjectiveHomeBG_1.jpg");
+  background-size: cover; }
+
 body {
   margin: 0;
   font: normal 500 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -34,15 +38,15 @@ header {
   color: #444444;
   border-bottom: 1px solid #ccc;
   width: 100%;
-  position: fixed;
+  position: relative;
   z-index: 2;
   padding: 1% 0;
-  background: rgba(232, 232, 232, 0.85);
-  background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
-  background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
-  background: -webkit-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
-  background: -ms-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
-  background: linear-gradient(-180deg, white 0%, rgba(232, 232, 232, 0.85) 50%); }
+  background: rgba(232, 232, 232, 0.35);
+  background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.35) 50%);
+  background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.35) 50%);
+  background: -webkit-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.35) 50%);
+  background: -ms-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.35) 50%);
+  background: linear-gradient(-180deg, white 0%, rgba(232, 232, 232, 0.35) 50%); }
 
 header .container {
   margin: 0 auto;
@@ -92,44 +96,9 @@ header .container {
   color: #FFF;
   text-decoration: none; }
 
-main img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  position: relative;
-  -webkit-filter: blur(5px); }
-
-#content {
-  *zoom: 1; 
-  z-index: 999; 
-  position: relative; 
-  padding: 32px 0px 64px }
-
-
-.low_container {
-  *zoom: 1;
-  width: 960px;
-  position: relative;
-  margin-top: -60%;
-  color: white;
-  text-shadow: 0px 1px 2px rgba(150, 150, 150, 1);
-  margin-left: auto;
-  margin-right: auto }
-
-
-.left {
-  display: inline;
-  float: left;
-  width: 40%; 
-  font-size: 1.25em;
-  line-height: 1.5em }
-
-.right {
-  display: inline;
-  float: right; }
-
-
-/* GOT 'DAT MEDIA QUERY FLOW GOIN' */
+main {
+  color: #444444;
+  margin: 0 3.5%; }
 
 @media only screen and (max-width: 40em) {
   .button-o-buggery {
@@ -140,12 +109,8 @@ main img {
     text-align: center;
     padding: 1.5% 0 3.5%; }
 
-  .branding, .login, .container {
+  .branding, .login {
     float: none;
     width: auto;
     margin-left: auto;
     margin-right: auto; } }
-
-
-
-

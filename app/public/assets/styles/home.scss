@@ -15,6 +15,11 @@
 
 /* Main CSS */
 
+html {
+	background: url('../../images/ObjectiveHomeBG_1.jpg');
+	background-size: cover;
+}
+
 body {
 	margin: 0;
 	font: normal 500 100%/1.5 $font-fam;
@@ -44,15 +49,15 @@ header {
 	color: $text-color;
 	border-bottom: 1px solid #ccc;
 	width: 100%;
-	position: fixed;
+	position: relative;
 	z-index: 2;
 	padding: 1% 0;
-	background: $bg-color;
-	background: -o-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
-	background: -moz-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
-	background: -webkit-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
-	background: -ms-linear-gradient(-90deg, #FFFFFF 0%, $bg-color 50%);
-	background: linear-gradient(-180deg, #FFFFFF 0%, $bg-color 50%);
+	background: rgba(232,232,232,0.35);
+	background: -o-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
+	background: -moz-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
+	background: -webkit-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
+	background: -ms-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
+	background: linear-gradient(-180deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
 }
 
 header .container {
@@ -111,10 +116,9 @@ header .container {
 	text-decoration: none;
 }
 
-main img {
-	width: 100%;
-	display: block;
-	-webkit-filter: blur(5px);
+main {
+	color: $text-color;
+	margin: 0 3.5%;
 }
 
 @media only screen and (max-width: 40em) {
