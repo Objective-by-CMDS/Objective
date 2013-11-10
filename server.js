@@ -160,3 +160,7 @@ app.post('/add/task', function(req, res) {
     res.send("{success: 1}");
   });
 });
+
+app.get('/bookmarklet', function(req, res) {
+  res.render('bookmarklet.ejs', {id: req.cookies.objectID})
+});
