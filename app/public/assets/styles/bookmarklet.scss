@@ -18,7 +18,7 @@
 @import "appstyle";
 
 .bookmarklet-explain {
-	position: relative;
+	position: fixed;
 	width: 100%;	
 	color: #FFF;
 	display: none;
@@ -65,6 +65,8 @@
 	color: #FFF;
 	text-decoration: none;
 	font-size: 1.1em;
+	cursor: move;
+	cursor: -webkit-grab;
 	display: inline-block;
 	border-radius: 8px;
 	-webkit-transition: background-color 0.3s ease;
@@ -80,4 +82,8 @@
 
 .content .bookmarklet:hover {
 	background-color: #6ed149;
+}
+
+.content .bookmarklet:active {
+	cursor: -webkit-grabbing;
 }
