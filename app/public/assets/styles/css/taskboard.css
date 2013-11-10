@@ -152,11 +152,14 @@ header .username {
   margin: 0 auto;
   max-width: 85em;
   -moz-column-count: 3;
-  -moz-column-gap: 1em;
+  -moz-column-gap: 0.75em;
+  -moz-column-fill: balance;
   -webkit-column-count: 3;
-  -webkit-column-gap: 1em;
+  -webkit-column-gap: 0.75em;
+  -webkit-column-fill: balance;
   column-count: 3;
-  column-gap: 1em; }
+  column-gap: 0.75em;
+  column-fill: balance; }
 
 .taskitem {
   -webkit-transition: border-color 0.5s ease;
@@ -194,16 +197,41 @@ header .username {
   -moz-transition: opacity 0.25s ease;
   transition: opacity 0.25s ease; }
 
-.itemleft a img:hover {
+.itemleft a img:active {
   opacity: 0.65; }
 
-.itemleft a img:active {
-  opacity: 0.85; }
-
 .itemleft .completebutton {
-  font-size: 1.5em;
-  text-decoration: none;
-  text-align: center; }
+  display: block;
+  position: relative; }
+
+.itemleft .completebutton .circle {
+  position: relative;
+  display: block;
+  height: 2.5em;
+  margin: 0 auto;
+  z-index: 3;
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease; }
+
+.itemleft .completebutton:hover .circle {
+  opacity: 0.8; }
+
+.itemleft .completebutton:active .circle {
+  opacity: 0.6; }
+
+.itemleft .completebutton .checkmark {
+  position: absolute;
+  top: 0.25em;
+  left: 0.2em;
+  z-index: 2;
+  -webkit-transition: opacity 0.35s ease;
+  -moz-transition: opacity 0.35s ease;
+  transition: opacity 0.35s ease;
+  opacity: 0; }
+
+.itemleft .completebutton .checkmark.active {
+  opacity: 1; }
 
 .iteminfo {
   float: left;
