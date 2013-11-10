@@ -25,11 +25,14 @@
 	margin: 0 auto;
 	max-width: 85em;
 	-moz-column-count: 3;
-	-moz-column-gap: 1em;
+	-moz-column-gap: 0.75em;
+	-moz-column-fill: balance;
 	-webkit-column-count: 3;
-	-webkit-column-gap: 1em;
+	-webkit-column-gap: 0.75em;
+	-webkit-column-fill: balance;
 	column-count: 3;
-	column-gap: 1em;
+	column-gap: 0.75em;
+	column-fill: balance;
 }
 
 .taskitem {

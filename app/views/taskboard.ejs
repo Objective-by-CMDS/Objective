@@ -99,8 +99,8 @@
 		<% tasks.forEach(function(task, i){ %>
 		<div class="taskitem cf">
 			<div class="itemleft">
-				<a href="http://<%= task['URL'] %>"><img src="http://d.fvicon.com/http://<%=task['URL']%>?canAudit=false"></a>
-				<a class="completebutton" href="delete/task/<%=task['_id']%>">&#10003;</a>
+				<a href="http://<%= task['URL'] %>"><img class="taskicon" src="http://d.fvicon.com/http://<%=task['URL']%>?canAudit=false"></a>
+				<a class="completebutton" href="delete/task/<%=task['_id']%>"><img class="circle" src="assets/images/complete.svg"><img class="checkmark" src="assets/images/check.svg"></a>
 			</div>
 			<div class="iteminfo">
 				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
@@ -128,6 +128,12 @@
 			});
 			$('.completebutton').click(function() {
 				$(this).closest('.taskitem').fadeOut('300');
+			});
+			$('.completebutton').mouseenter(function() {
+				$(this).children('.checkmark').toggleClass('active');
+			});
+			$('.completebutton').mouseleave(function() {
+				$(this).children('.checkmark').toggleClass('active');
 			});
 		});
 
