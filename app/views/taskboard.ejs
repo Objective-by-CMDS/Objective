@@ -124,7 +124,10 @@
 				$('.bookmarklet-explain').slideDown('300');
 			});
 			$('body').mouseleave(function() {
-				$('.bookmarklet-explain').slideUp('show');
+				$('.bookmarklet-explain').slideUp('300');
+			});
+			$('.completebutton').click(function() {
+				$(this).closest('.taskitem').fadeOut('300')
 			});
 		});
 	</script>
