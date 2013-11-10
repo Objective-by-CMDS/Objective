@@ -58,11 +58,13 @@ db.once('open', function callback () {
 });
 
 app.get('/', function(req, res) {
-    res.render('index.ejs');
-});
-
-app.get('/devaddtask', function(req, res) {
-    res.render('devtaskform.ejs');
+    if (typeof req.cookies.objectID != 'undefined') {
+      User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
+        res.render('taskboard.ejs', docs);
+      });
+    } else {
+      res.render('index.ejs');
+    }
 });
 
 app.get('/tasks', function(req, res) {
@@ -81,7 +83,7 @@ passport.use(new FacebookStrategy({
     User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
       if (err) { return done(err); }
       if (created) {
-        User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
+        User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email, tasks: {name: ''}}}, function (err, user) {
           if (err) { 
             console.log("A mysterious error occured saving user ID " + profile.id);
             console.log(err);
@@ -126,18 +128,22 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
+app.get('/logout', function(req, res){
+  req.logout();
+  res.clearCookie('objectID');
+  res.redirect('/');
+});
+
 app.get('/add/task', function(req, res) {
   var id = req.query.id;
   var name = req.query.name;
   var notes = req.query.notes;
   var url = req.query.url;
-  console.log("Rec.");
   var task = new Task({name: name, notes: notes, URL: url});
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
     if(err) {
       console.log("An error occured adding your task, " + id + ", URL, " + url);
     }
-    res.send("Rec.");
   });
 });
 
@@ -163,4 +169,11 @@ app.post('/add/task', function(req, res) {
 
 app.get('/bookmarklet', function(req, res) {
   res.render('bookmarklet.ejs', {id: req.cookies.objectID})
+});
+
+app.get('/delete/task/:id', function(req, res) {
+  var id = req.params.id;
+  User.update({'tasks._id':id}, { $pull: { tasks: {_id: id}}}, function (err) {
+    if (err) { console.log(err); }
+  });
 });
