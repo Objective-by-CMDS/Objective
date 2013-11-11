@@ -91,7 +91,7 @@ passport.use(new FacebookStrategy({
           var facebookId = profile.id;
           var name = "Save Tasks with Objective"
           var notes = "Objective allows you to easily save the important things you need to do on the internet for later. To get started, just click the title of this task to add the bookmarklet to your browser.";
-          var url = "http://moin.2013.nodeknockout.com/tasks#bookmarklet";
+          var url = "moin.2013.nodeknockout.com/tasks#bookmarklet";
           var task = new Task({name: name, notes: notes, URL: url});
           User.update({facebookId: facebookId}, { $push: {tasks: task}}, function(err, user) {
             if(err) {
