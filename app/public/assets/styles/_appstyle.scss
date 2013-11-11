@@ -56,18 +56,21 @@ header .user {
 	float: right;
 	margin-right: 2.5%;
 	cursor: pointer;
+}
+
+header .userpic, header .username {
 	-webkit-transition: opacity 0.25s ease;
 	-moz-transition: opacity 0.25s ease;
-	transition: opacity 0.25s ease;
+	transition: opacity 0.25s ease;	
 }
 
-header .user:hover {
-	opacity: 0.60;
-}
-
-header .user:active {
-	opacity: 0.85;
-}
+	header .userpic:hover, header .username:hover {
+		opacity: 0.60;
+	}
+	
+	header .userpic:active, header .username:active {
+		opacity: 0.85;
+	}
 
 header .userpic {
 	width: 2.5em;
@@ -78,8 +81,7 @@ header .userpic {
 }
 
 header .username {
-	font-size: 1.2em;
-	margin-left: 0.25em;
+	margin: 1em 0.5em;
 	display: inline-block;
 	vertical-align: middle;
 	-webkit-user-select: none;
@@ -88,20 +90,26 @@ header .username {
 	user-select: none;
 }
 
+header .username p {
+	font-size: 1.2em;
+	display: inline;
+}
+
 .arrow-down {
 	content: '';
-	width: 0; 
-	height: 0; 
+	width: 0;
+	height: 0;
 	border-left: 5px solid transparent;
 	border-right: 5px solid transparent;
 	border-top: 5px solid $text-color;
+	margin-left: 0.25em;
 	display: inline-block;
 	vertical-align: middle;
 }
 
 .user-menu {
 	position: absolute;
-	top: 5em;
+	top: 4.75em;
 	right: 0;
 	width: 10em;
 	border-radius: 8px;
@@ -121,10 +129,10 @@ header .username {
 	-moz-transition: background 0.25s ease;
 	transition: background 0.25s ease;
 }
-
-.user-menu li:hover {
-	background: #e2e2e2;
-}
+	
+	.user-menu li:hover {
+		background: #e2e2e2;
+	}
 
 .user-menu a {
 	color: $text-color;
@@ -152,6 +160,12 @@ header {
 
 .user-menu li {
 	font-size: 1.2em;
+}
+
+.arrow-down {
+	border-left-width: 4px;
+	border-right-width: 4px;
+	border-top-width: 4px;
 } }
 
 @media only screen and (max-width: 20em) {
@@ -160,5 +174,13 @@ header .user {
 }
 
 header .username {
+	margin-left: 0;
+}
+
+header .username p {
 	display: none;
+}
+
+.arrow-down {
+	
 } }
