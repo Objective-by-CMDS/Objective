@@ -61,6 +61,10 @@ header .user {
 	transition: opacity 0.15s ease;
 }
 
+header .user:hover {
+	opacity: 0.65;
+}
+
 header .user:active {
 	opacity: 0.65;
 }
@@ -82,6 +86,17 @@ header .username {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+}
+
+.arrow-down {
+	content: '';
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 5px solid $text-color;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 .user-menu {
@@ -123,16 +138,6 @@ header .username {
 	color: $darkgreen;
 }
 
-.arrow-down {
-	content: '';
-	width: 0; 
-	height: 0; 
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-top: 5px solid $text-color;
-	display: inline-block;
-	vertical-align: middle;
-}
 
 @media only screen and (max-width: 35em) {
 header {
