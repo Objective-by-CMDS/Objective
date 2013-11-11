@@ -64,10 +64,10 @@ header .user {
   transition: opacity 0.15s ease; }
 
 header .user:hover {
-  opacity: 0.65; }
+  opacity: 0.60; }
 
 header .user:active {
-  opacity: 0.65; }
+  opacity: 0.85; }
 
 header .userpic {
   width: 2.5em;
