@@ -178,7 +178,9 @@
 #bookmarklet .modal {
 	width: 50%;
 	height: 60%;
-	overflow: auto;
+	min-height: 25em;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
 	margin: auto;
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
@@ -191,6 +193,13 @@
 	-webkit-transition: top 2.5s ease;
 	-moz-transition: top 2.5s ease;
 	transition: top 2.5s ease;
+}
+
+#bookmarklet .close img {
+	position: absolute;
+	left: 0;
+	margin: 2%;
+	width: 1.5em;
 }
 
 #bookmarklet .bookmarklet-explain {
@@ -240,22 +249,24 @@
 	cursor: -webkit-grab;
 	display: inline-block;
 	border-radius: 8px;
-	-webkit-transition: background-color 0.3s ease;
-	-moz-transition: background-color 0.3s ease;
-	transition: background-color 0.3s ease;
+	-webkit-transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	-moz-transition: background-color 0.3s ease, box-shadow 0.3s ease;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease;
 	background-color: $objgreen;
 	background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
 	background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
 	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
 	background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
 	background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
+	box-shadow: 0px 0px 0px rgba(0,0,0,0);
 }
 
-#bookmarklet .content .bookmarklet:hover {
+#bookmarklet .bookmarklet:hover {
 	background-color: #6ed149;
+	box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
 }
 
-#bookmarklet .content .bookmarklet:active {
+#bookmarklet .bookmarklet:active {
 	cursor: -webkit-grabbing;
 }
 
@@ -287,5 +298,9 @@
 #bookmarklet .modal {
 	height: 90%;
 	width: 95%;
+}
+
+#bookmarklet .close img {
+	margin: 3.5%;
 }
 }
