@@ -11,12 +11,8 @@
 
 /* Main CSS */
 html {
-  background: url("../../images/ObjectiveHomeBG_1.jpg") no-repeat center center fixed;;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-   }
+  background: url("../../images/ObjectiveHomeBG_1.jpg") no-repeat;
+  background-size: cover; }
 
 body {
   margin: 0;
@@ -32,11 +28,6 @@ body {
 ul {
   margin: 0;
   padding: 0; }
-
-.button-o-buggery {
-  display: inline-block;
-  vertical-align: middle;
-  z-index: 10; }
 
 header {
   color: #444444;
@@ -67,9 +58,6 @@ header .container {
 .branding img {
   display: block;
   width: 18em; }
-
-.branding p {
-  margin: 1.25% 0 0; }
 
 .login {
   display: inline-block;
@@ -102,11 +90,11 @@ header .container {
 
 .content {
   color: #444444;
-  margin: 2.5% 3.5% 0; }
+  margin: 0 auto;
+  max-width: 85em; }
 
-.content h1 {
-  font-size: 2.5em;
-  margin: 0; }
+.content .container {
+  margin: 0 3.5%; }
 
 .content h2 {
   width: 14em;
@@ -118,21 +106,13 @@ header .container {
   float: left;
   width: 55%; }
 
-.content .left img {
-  width: 15em;
-  display: block; }
-
-.content .left p {
+.content p {
   font-size: 1.2em;
   line-height: 2;
   text-shadow: -1px 1px 0 white; }
 
 .content .right {
   float: left; }
-
-.content .right img {
-  width: 45%;
-  height: auto; }
 
 @media only screen and (max-width: 40em) {
   .button-o-buggery {
@@ -147,4 +127,21 @@ header .container {
     float: none;
     width: auto;
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto; }
+
+  .branding img {
+    margin: 3.5% 0; }
+
+  .content {
+    font-size: 0.8em; }
+
+  .content h2 {
+    width: 100%; }
+
+  .content h2:first-letter {
+    text-transform: uppercase; }
+
+  .content .left {
+    float: none;
+    margin: 0 auto;
+    width: 92.5%; } }

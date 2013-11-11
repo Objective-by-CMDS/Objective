@@ -16,8 +16,8 @@
 /* Main CSS */
 
 html {
-	background: url('../../images/ObjectiveHomeBG_1.jpg');
-	background-size: 100%;
+	background: url('../../images/ObjectiveHomeBG_1.jpg') no-repeat;
+	background-size: cover;
 }
 
 body {
@@ -37,12 +37,6 @@ body {
 ul {
 	margin: 0;
 	padding: 0;
-}
-
-.button-o-buggery {
-	display: inline-block;
-	vertical-align: middle;
-	z-index: 10;
 }
 
 header {
@@ -77,10 +71,6 @@ header .container {
 .branding img {
 	display: block;
 	width: 18em;
-}
-
-.branding p {
-	margin: 1.25% 0 0;
 }
 
 .login {
@@ -118,12 +108,12 @@ header .container {
 
 .content {
 	color: $text-color;
-	margin: 2.5% 3.5% 0;
+	margin: 0 auto;
+	max-width: 85em;
 }
 
-.content h1 {
-	font-size: 2.5em;
-	margin: 0;
+.content .container {
+	margin: 0 3.5%;
 }
 
 .content h2 {
@@ -138,12 +128,7 @@ header .container {
 	width: 55%;
 }
 
-.content .left img {
-	width: 15em;
-	display: block;
-}
-
-.content .left p {
+.content p {
 	font-size: 1.2em;
 	line-height: 2;
 	text-shadow: -1px 1px 0 white;
@@ -151,11 +136,6 @@ header .container {
 
 .content .right {
 	float: left;
-}
-
-.content .right img {
-	width: 45%;
-	height: auto;
 }
 
 
@@ -177,5 +157,27 @@ header {
 	width: auto;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.branding img {
+	margin: 3.5% 0;
+}
+
+.content {
+	font-size: 0.8em;
+}
+
+.content h2 {
+	width: 100%;
+}
+
+.content h2:first-letter {
+    text-transform: uppercase;
+}
+
+.content .left {
+	float: none;
+	margin: 0 auto;
+	width: 92.5%;
 }
 }
