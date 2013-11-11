@@ -11,7 +11,10 @@
 
 /* Main CSS */
 html {
-  background: url("../../images/ObjectiveHomeBG_1.jpg") no-repeat;
+  background: url("../../images/ObjectiveHomeBG_1.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover; }
 
 body {
@@ -114,9 +117,6 @@ header .container {
 .content .right {
   float: left; }
 
-@media only screen and (max-width: 40em) {
-  .button-o-buggery {
-    display: none; } }
 @media only screen and (max-width: 35em) {
   header {
     font-size: 0.8em;
@@ -125,12 +125,16 @@ header .container {
 
   .branding, .login {
     float: none;
+    display: block;
     width: auto;
     margin-left: auto;
     margin-right: auto; }
 
   .branding img {
-    margin: 3.5% 0; }
+    margin: 3.5% auto; }
+
+  .FacebookLogin {
+    float: none; }
 
   .content {
     font-size: 0.8em; }
