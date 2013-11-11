@@ -16,8 +16,11 @@
 /* Main CSS */
 
 html {
-	background: url('../../images/ObjectiveHomeBG_1.jpg') no-repeat;
-	background-size: cover;
+	background: url('../../images/ObjectiveHomeBG_1_nobottom.jpg') no-repeat center center fixed;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+ 	background-size: cover;
 }
 
 body {
@@ -143,7 +146,10 @@ header .container {
 .button-o-buggery {
 	display: none;
 }
-}
+
+.FacebookLogin {
+	float: center;	
+} }
 
 @media only screen and (max-width: 35em) {
 header {
@@ -179,5 +185,4 @@ header {
 	float: none;
 	margin: 0 auto;
 	width: 92.5%;
-}
-}
+} }
