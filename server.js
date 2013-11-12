@@ -10,6 +10,7 @@
 require('nko')('yotDA5W4DvTFZREf');
 var mongoose = require('mongoose'),
   express = require("express"),
+  engine = require("ejs-locals"),
   passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy;
 
@@ -17,6 +18,7 @@ var isProduction = (process.env.NODE_ENV === 'production');
 var port = (isProduction ? 80 : 8000);
 
 var app = express();
+app.engine('ejs', engine);
 app.configure(function() {
   app.set('port', port);
   app.set('views', __dirname + '/app/views');
@@ -179,7 +181,11 @@ app.post('/add/task', function(req, res) {
     res.send("{success: 1}");
   });
 });
-
+app.get('/settings', function(req, res) {
+  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
+    res.render('taskboard.ejs', docs);
+  });
+});
 app.get('/delete', function(req, res) {
   var id = req.query.id;
   User.update({'tasks._id':id}, { $pull: { tasks: {_id: id}}}, function (err) {

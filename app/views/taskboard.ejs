@@ -1,65 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Objective | Your Tasks</title>
-
-	<meta charset="UTF-8">
-
-	<meta name="apple-mobile-web-app-capable" content="yes">
-
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-	<meta name="apple-mobile-web-app-title" content="Objective">
-
-		<!-- Icons -->
-
-		<!-- iOS 7 iPad (retina) -->
-		<link href="assets/images/AppleTouchIcons/152x152.png"
-			sizes="152x152"
-			rel="apple-touch-icon">
-
-		<!-- iOS 6 iPad (retina) -->
-		<link href="assets/images/AppleTouchIcons/144x144.png"
-			sizes="144x144"
-			rel="apple-touch-icon">
-
-		<!-- iOS 7 iPhone (retina) -->
-		<link href="assets/images/AppleTouchIcons/120x120.png"
-			sizes="120x120"
-			rel="apple-touch-icon">
-
-		<!-- iOS 6 iPhone (retina) -->
-		<link href="assets/images/AppleTouchIcons/114x114.png"
-			sizes="114x114"
-			rel="apple-touch-icon">
-
-		<!-- iOS 7 iPad -->
-		<link href="assets/images/AppleTouchIcons/76x76.png"
-			sizes="76x76"
-			rel="apple-touch-icon">
-
-		<!-- iOS 6 iPad -->
-		<link href="assets/images/AppleTouchIcons/72x72.png"
-			sizes="72x72"
-			rel="apple-touch-icon">
-
-		<!-- iOS 6 iPhone -->
-		<link href="assets/images/AppleTouchIcons/57x57.png"
-			sizes="57x57"
-			rel="apple-touch-icon">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-	<link rel="icon" href="favicon.png">
-
-	<link rel="stylesheet" href="assets/styles/css/normalize.css">
-
-	<link rel="stylesheet" href="assets/styles/css/taskboard.css">
-
-</head>
-<body>
+<% layout('layout') -%>
+<% stylesheet('/assets/styles/css/normalize.css') -%>
+<% stylesheet('/assets/styles/css/taskboard.css') -%>
 
 	<section id="bookmarklet">
 		<a href="#" class="background"></a>
@@ -105,9 +46,9 @@
 				<a class="completebutton" href="delete?id=<%=task['_id']%>"><img class="circle" src="assets/images/complete.svg"><img class="checkmark" src="assets/images/check.svg"></a>
 			</div>
 			<div class="iteminfo">
-				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
+				<a href="http://<%= task['URL'] %>"><h1><%= task['name'].length > 28 ? task['name'].substring(0, 25) + "..." : task['name']%></h1></a>
 				<% if (task['notes'] != '') { %>
-					<p><%=task['notes'] %></p>
+					<p><%= task['notes'].length > 80 ? task['notes'].substring(0, 88) + "..." : task['notes'] %></p>
 				<% } else { %>
 					<p><i>No Notes</i></p>
 				<% } %>
@@ -145,4 +86,3 @@
 			console.log(id);
 		}
 	</script>
-</body>
