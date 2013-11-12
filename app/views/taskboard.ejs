@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
 	<title>Objective | Your Tasks</title>
-	
+
 	<meta charset="UTF-8">
-	
+
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	
+
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	
+
 	<meta name="apple-mobile-web-app-title" content="Objective">
-	 
+
 		<!-- Icons -->
-		
+
 		<!-- iOS 7 iPad (retina) -->
 		<link href="assets/images/AppleTouchIcons/152x152.png"
 			sizes="152x152"
@@ -27,7 +27,7 @@
 		<link href="assets/images/AppleTouchIcons/120x120.png"
 			sizes="120x120"
 			rel="apple-touch-icon">
-		
+
 		<!-- iOS 6 iPhone (retina) -->
 		<link href="assets/images/AppleTouchIcons/114x114.png"
 			sizes="114x114"
@@ -42,25 +42,25 @@
 		<link href="assets/images/AppleTouchIcons/72x72.png"
 			sizes="72x72"
 			rel="apple-touch-icon">
-		
+
 		<!-- iOS 6 iPhone -->
 		<link href="assets/images/AppleTouchIcons/57x57.png"
 			sizes="57x57"
 			rel="apple-touch-icon">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-	
+
 	<meta http-equiv="X-UA-Compatible" content="chrome=1">
-	
+
 	<link rel="icon" href="favicon.png">
-	
+
 	<link rel="stylesheet" href="assets/styles/css/normalize.css">
-	
+
 	<link rel="stylesheet" href="assets/styles/css/taskboard.css">
 
 </head>
 <body>
-	
+
 	<section id="bookmarklet">
 		<a href="#" class="background"></a>
 		<a href="#" class="close"><img src="assets/images/close.svg"></a>
@@ -80,7 +80,7 @@
 		</div>
 		</div>
 	</section>
-	
+
 	<header>
 		<div class="container cf">
 		<div class="branding">
@@ -106,7 +106,11 @@
 			</div>
 			<div class="iteminfo">
 				<a href="http://<%= task['URL'] %>"><h1><%= task['name']%></h1></a>
-				<p><%=task['notes'] %></p>
+				<% if (task['notes'] != '') { %>
+					<p><%=task['notes'] %></p>
+				<% } else { %>
+					<p><i>No Notes</i></p>
+				<% } %>
 			</div>
 		</div>
 		<%})%>

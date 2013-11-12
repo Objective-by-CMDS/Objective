@@ -22,7 +22,7 @@ app.configure(function() {
   app.set('views', __dirname + '/app/views');
   app.set("view options", {
       layout: false
-  }); 
+  });
   app.set('view engine', 'ejs');
   app.use(express.cookieParser());
   app.use(express.bodyParser());
@@ -44,14 +44,14 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var userSchema, User;
 db.once('open', function callback () {
   var findOrCreate = require('mongoose-findorcreate');
-  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, })
+  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, });
   userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
     facebookId: Number,
     tasks: [taskSchema]
-  })
+  });
   userSchema.plugin(findOrCreate);
   Task = mongoose.model('Task', taskSchema);
   User = mongoose.model('User', userSchema);
@@ -82,12 +82,12 @@ passport.use(new FacebookStrategy({
       if (err) { return done(err); }
       if (created) {
         User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
-          if (err) { 
+          if (err) {
             console.log("A mysterious error occured saving user ID " + profile.id);
             console.log(err);
           }
         });
-      } 
+      }
       done(null, user);
     });
   }
@@ -126,7 +126,7 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
-app.post('/add/task', function(req, res) { 
+app.post('/add/task', function(req, res) {
   var id = req.body.id;
   var name = req.body.name;
   var dueDate = req.body.dueDate;

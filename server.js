@@ -22,7 +22,7 @@ app.configure(function() {
   app.set('views', __dirname + '/app/views');
   app.set("view options", {
       layout: false
-  }); 
+  });
   app.set('view engine', 'ejs');
   app.use(express.cookieParser());
   app.use(express.bodyParser());
@@ -84,7 +84,7 @@ passport.use(new FacebookStrategy({
       if (err) { return done(err); }
       if (created) {
         User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
-          if (err) { 
+          if (err) {
             console.log("A mysterious error occured saving user ID " + profile.id);
             console.log(err);
           }
@@ -100,7 +100,7 @@ passport.use(new FacebookStrategy({
             }
           });
         });
-      } 
+      }
       done(null, user);
     });
   }
@@ -160,7 +160,7 @@ app.get('/add/task', function(req, res) {
   });
 });
 
-app.post('/add/task', function(req, res) { 
+app.post('/add/task', function(req, res) {
   console.log(req);
   var id = req.body.id;
   var name = req.body.name;
