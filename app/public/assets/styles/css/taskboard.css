@@ -5,7 +5,7 @@
 .cf:after { clear: both; }
 
 /* === Main CSS === */
-body { margin: 0; color: #444444; font: normal 500 100%/1.5 "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0; color: #444444; font: normal 400 100%/1.5 "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 
 ::selection { background: rgba(178, 238, 74, 0.5); }
 
