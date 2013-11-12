@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Objective | Your Tasks</title>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	
+	<meta name="apple-mobile-web-app-title" content="Objective">
+	 
+		<!-- Icons -->
+		
+		<!-- iOS 7 iPad (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/152x152.png"
+			sizes="152x152"
+			rel="apple-touch-icon">
+
+		<!-- iOS 6 iPad (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/144x144.png"
+			sizes="144x144"
+			rel="apple-touch-icon">
+
+		<!-- iOS 7 iPhone (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/120x120.png"
+			sizes="120x120"
+			rel="apple-touch-icon">
+		
+		<!-- iOS 6 iPhone (retina) -->
+		<link href="../public/assets/images/AppleTouchIcons/114x114.png"
+			sizes="114x114"
+			rel="apple-touch-icon">
+
+		<!-- iOS 7 iPad -->
+		<link href="../public/assets/images/AppleTouchIcons/76x76.png"
+			sizes="76x76"
+			rel="apple-touch-icon">
+
+		<!-- iOS 6 iPad -->
+		<link href="../public/assets/images/AppleTouchIcons/72x72.png"
+			sizes="72x72"
+			rel="apple-touch-icon">
+		
+		<!-- iOS 6 iPhone -->
+		<link href="../public/assets/images/AppleTouchIcons/57x57.png"
+			sizes="57x57"
+			rel="apple-touch-icon">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	
+	<link rel="icon" href="../public/favicon.png">
+	
+	<link rel="stylesheet" href="../public/assets/styles/css/normalize.css">
+	
+	<link rel="stylesheet" href="../public/assets/styles/css/taskboard.css">
+	
+</head>
+<body>
+	
+	<section id="bookmarklet">
+		<a href="#" class="background"></a>
+		<div class="modal">
+		<a href="#" class="close"><img src="../public/assets/images/close.svg"></a>
+		<div class="bookmarklet-explain">
+			<div class="outercontainer">
+			<div class="innercontainer">
+				<span class="text">Drag the button up into your bookmarks bar to add tasks to Objective!</span>
+			</div>
+			</div>
+		</div>
+		<div class="instructions">
+		<h1>Bookmarklet</h1>
+		<h2>Adding tasks to Objective</h2>
+		<a class="bookmarklet" href="javascript:($=window.jQuery)?a():(s=document.createElement("script"),s.src="http://code.jquery.com/jquery-2.0.3.min.js",s.onload=a,document.body.appendChild(s));function a(){var b=prompt("Enter name for task:"),c=prompt("Enter notes for task:");$.get("http://getobjective.com/add/task/527de4733578330000000003/"+b+"/"+c+"/"+window.location.href)};">Add to Objective</a>
+		<p class="bookmarklet-instructions">Drag this into your bookmarks bar so you can easily add tasks to Objective.<br><br>Next time you have something that you need to add to your task list, just give this link a click from your bookmarks bar.</p>
+		</div>
+		</div>
+	</section>
+
+	<header>
+		<div class="container cf">
+		<div class="branding">
+			<img class="objlogo" src="../public/assets/images/ObjectiveLogo.svg">
+		</div>
+		<div class="user">
+			<img class="userpic" src="../public/assets/images/demo/ScottPic.jpg">
+			<span class="username"><p>Scott</p><span class="arrow-down"></span></span>
+		</div>
+		<div class="user-menu">
+			<a href="#bookmarklet"><li>Bookmarklet</li></a>
+			<a href=""><li>Sign Out</li></a>
+		</div>
+	</header>
+	
+	<main class="tasklist">
+		<div class="tasklistcontainer cf">
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://www.wired.com/magazine/"><img class="taskicon" src="../public/assets/images/demo/wired.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href=""><h1>Sign Up for Wired</h1></a>
+				<p>Subscriptions are $5 per month</p>
+			</div>
+		</div>
+		
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://www.name.com/"><img class="taskicon" src="../public/assets/images/demo/name.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href=""><h1>Stop renewing old domain names</h1></a>
+				<p>Also make sure that payment info is up-to-date</p>
+			</div>
+		</div>
+		
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="https://docs.google.com/a/scotthsmith.com/document/d/1b4AJnE34gOsxDGTKuB-ExRJtiGxajJ-V4HlQfTi3dPg/edit"><img class="taskicon" src="../public/assets/images/demo/drive.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href=""><h1>Add details to Derek's topic summary</h1></a>
+				<p>As usual, Derek misses the big picture.</p>
+			</div>
+		</div>
+		
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href=""><img class="taskicon" src="../public/assets/images/demo/netflix.ico"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href=""><h1>Remove Pretty Little Liars from Queue</h1></a>
+				<p>Parents coming home this week</p>
+			</div>
+		</div>
+		</div>
+	</main>
+		
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('header .user').click(function() {
+				$('.user-menu').fadeToggle('300');
+			});
+			$('.user-menu').mouseleave(function() {
+				$('.user-menu').fadeOut('300');
+			});
+			$('.bookmarklet').mouseenter(function() {
+				$('.bookmarklet-explain').slideDown('300');
+			});
+			$('body').mouseleave(function() {
+				$('.bookmarklet-explain').slideUp('show');
+			});
+			$('.completebutton').click(function() {
+				$(this).closest('.taskitem').fadeOut('300');
+			});
+			$('.completebutton').hover(function() {
+				$(this).children('.checkmark').toggleClass('active');
+			});
+		});
+	</script>
+	
+	<script src="../public/assets/scripts/libs/handlebars-1.1.2.js"></script>
+	<script src="../public/assets/scripts/libs/ember-1.1.2.js"></script>
+	<script src="../public/assets/scripts/app.js"></script>
+	<script src="../public/assets/scripts/models/todo.js"></script>
+	<script src="../public/assets/scripts/views/application.ejs"></script>
+	<script src="../public/assets/scripts/controllers/application.js"></script>
+	<script src="../public/assets/scripts/router.js"></script>
+	<script src="../public/assets/scripts/ajax_helpers.js"></script>
+</body>
