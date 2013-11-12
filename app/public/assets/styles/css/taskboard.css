@@ -78,7 +78,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .itemleft .completebutton:active .circle { opacity: 0.6; }
 
-.itemleft .completebutton .checkmark { position: absolute; top: 0.25em; left: 0.2em; z-index: 2; -webkit-transition: opacity 0.35s ease; -moz-transition: opacity 0.35s ease; transition: opacity 0.35s ease; opacity: 0; }
+.itemleft .completebutton .checkmark { position: absolute; top: 0.35em; left: 0.25em; z-index: 2; -webkit-transition: opacity 0.35s ease; -moz-transition: opacity 0.35s ease; transition: opacity 0.35s ease; opacity: 0; }
 
 .itemleft .completebutton .checkmark.active { opacity: 1; }
 
