@@ -70,7 +70,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .itemleft a img:active { opacity: 0.65; }
 
-.itemleft .completebutton { display: block; position: relative; }
+.itemleft .completebutton { display: block; position: relative; cursor: pointer; }
 
 .itemleft .completebutton .circle { position: relative; display: block; height: 2.5em; margin: 0 auto; z-index: 3; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
 
