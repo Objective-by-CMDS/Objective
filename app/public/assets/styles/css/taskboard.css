@@ -1,30 +1,37 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:400,700,300);
 /* === Nice Tools === */
 .cf:before,
 .cf:after {
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */ }
+  /* 2 */
+}
 
 .cf:after {
-  clear: both; }
+  clear: both;
+}
 
 /* === Main CSS === */
 body {
   margin: 0;
   color: #444444;
   font: normal 500 100%/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+}
 
 ::selection {
-  background: rgba(178, 238, 74, 0.5); }
+  background: rgba(178, 238, 74, 0.5);
+}
 
 ::-moz-selection {
-  background: rgba(178, 238, 74, 0.5); }
+  background: rgba(178, 238, 74, 0.5);
+}
 
 ul {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 header {
   color: #444444;
@@ -36,47 +43,57 @@ header {
   background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
   background: -webkit-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
   background: -ms-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
-  background: linear-gradient(-180deg, white 0%, rgba(232, 232, 232, 0.85) 50%);
-  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25); }
+  background: linear-gradient(-180deg, #ffffff 0%, rgba(232, 232, 232, 0.85) 50%);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+}
 
 header .container {
   margin: 0 auto;
   width: 100%;
-  max-width: 85em; }
+  max-width: 85em;
+}
 
 .branding {
   float: left;
-  margin: 0 2.5%; }
+  margin: 0 2.5%;
+}
 
 .branding img {
   vertical-align: middle;
-  width: 18em; }
+  width: 18em;
+}
 
 .branding p {
-  margin: 1.25% 0 2.5%; }
+  margin: 1.25% 0 2.5%;
+}
 
 header .user {
   float: right;
   margin-right: 2.5%;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 header .userpic, header .username {
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease; }
+  transition: opacity 0.25s ease;
+}
 
 header .userpic:hover, header .username:hover {
-  opacity: 0.60; }
+  opacity: 0.60;
+}
 
 header .userpic:active, header .username:active {
-  opacity: 0.85; }
+  opacity: 0.85;
+}
 
 header .userpic {
   width: 2.5em;
   border-radius: 50%;
   border: 1px solid #cccccc;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 header .username {
   margin: 1em 0.5em;
@@ -85,11 +102,13 @@ header .username {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 header .username p {
   font-size: 1.2em;
-  display: inline; }
+  display: inline;
+}
 
 .arrow-down {
   content: '';
@@ -100,7 +119,8 @@ header .username p {
   border-top: 5px solid #444444;
   margin-left: 0.25em;
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 .user-menu {
   position: absolute;
@@ -112,7 +132,8 @@ header .username p {
   display: none;
   overflow: hidden;
   background: #f4f4f4;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35); }
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35);
+}
 
 .user-menu li {
   list-style: none;
@@ -121,48 +142,62 @@ header .username p {
   display: inline-block;
   -webkit-transition: background 0.25s ease;
   -moz-transition: background 0.25s ease;
-  transition: background 0.25s ease; }
+  transition: background 0.25s ease;
+}
 
 .user-menu li:hover {
-  background: #e2e2e2; }
+  background: #e2e2e2;
+}
 
 .user-menu a {
   color: #444444;
   text-decoration: none;
   -webkit-transition: color 0.10s ease;
   -moz-transition: color 0.10s ease;
-  transition: color 0.10s ease; }
+  transition: color 0.10s ease;
+}
 
 .user-menu a:hover {
-  color: #469d26; }
+  color: #469d26;
+}
 
 @media only screen and (max-width: 35em) {
   header {
     font-size: 0.8em;
-    padding: 2.5% 0; }
+    padding: 2.5% 0;
+  }
 
   .branding img {
     width: 13.5em;
-    margin-top: 3.5%; }
+    margin-top: 3.5%;
+  }
 
   .user-menu li {
-    font-size: 1.2em; }
+    font-size: 1.2em;
+  }
 
   .arrow-down {
     border-left-width: 4px;
     border-right-width: 4px;
-    border-top-width: 4px; } }
+    border-top-width: 4px;
+  }
+}
 @media only screen and (max-width: 20em) {
   header .user {
-    margin-top: 2.5%; }
+    margin-top: 2.5%;
+  }
 
   header .username {
-    margin-left: 0; }
+    margin-left: 0;
+  }
 
   header .username p {
-    display: none; } }
+    display: none;
+  }
+}
 .tasklist {
-  margin: 1.5% 1.5% 0; }
+  margin: 1.5% 1.5% 0;
+}
 
 .tasklistcontainer {
   margin: 0 auto;
@@ -175,14 +210,15 @@ header .username p {
   -webkit-column-fill: balance;
   column-count: 3;
   column-gap: 0.75em;
-  column-fill: balance; }
+  column-fill: balance;
+}
 
 .taskitem {
   -webkit-transition: border-color 0.5s ease;
   -moz-transition: border-color 0.5s ease;
   transition: border-color 0.5s ease;
   margin: 1.5% 0;
-  padding: 1.5%;
+  padding: 4% 1.5%;
   border-radius: 8px;
   border: 1px solid #cccccc;
   background: #f8f8f8;
@@ -194,31 +230,37 @@ header .username p {
   -moz-column-break-inside: avoid;
   column-break-inside: avoid;
   display: inline-block;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
 
 .taskitem:hover {
-  border-color: #8ad56f; }
+  border-color: #8ad56f;
+}
 
 .itemleft {
   float: left;
   clear: both;
   text-align: center;
   width: 10%;
-  padding-right: 2.5%; }
+  padding-right: 2.5%;
+}
 
 .itemleft img {
   width: 2em;
   border-radius: 4px 0px 0px 0px;
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease; }
+  transition: opacity 0.25s ease;
+}
 
 .itemleft a img:active {
-  opacity: 0.65; }
+  opacity: 0.65;
+}
 
 .itemleft .completebutton {
   display: block;
-  position: relative; }
+  position: relative;
+}
 
 .itemleft .completebutton .circle {
   position: relative;
@@ -228,13 +270,16 @@ header .username p {
   z-index: 3;
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease; }
+  transition: opacity 0.25s ease;
+}
 
 .itemleft .completebutton:hover .circle {
-  opacity: 0.8; }
+  opacity: 0.8;
+}
 
 .itemleft .completebutton:active .circle {
-  opacity: 0.6; }
+  opacity: 0.6;
+}
 
 .itemleft .completebutton .checkmark {
   position: absolute;
@@ -244,43 +289,53 @@ header .username p {
   -webkit-transition: opacity 0.35s ease;
   -moz-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease;
-  opacity: 0; }
+  opacity: 0;
+}
 
 .itemleft .completebutton .checkmark.active {
-  opacity: 1; }
+  opacity: 1;
+}
 
 .iteminfo {
   float: left;
-  width: 85%; }
+  width: 85%;
+}
 
 .taskitem a, .taskitem a:visited {
   color: #444444;
-  text-decoration: underline;
+  text-decoration: none;
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
-  transition: color 0.25s ease; }
+  transition: color 0.25s ease;
+}
 
 .taskitem a:hover {
-  color: #8ad56f; }
+  color: #8ad56f;
+}
 
 .taskitem a:active {
-  color: #469d26; }
+  color: #469d26;
+}
 
 .taskitem h1 {
   margin: 0;
-  font-size: 1.5em;
-  line-height: 1.25; }
+  font: 600 1.3em 'Oxygen';
+  line-height: 1.25;
+}
 
 .taskitem p {
-  border-top: 1px solid #cccccc; }
+  margin: 2.7% 0 0 0;
+}
 
 /* === Bookmarklet === */
 #bookmarklet {
   display: none;
-  z-index: 10; }
+  z-index: 10;
+}
 
 #bookmarklet:target {
-  display: block; }
+  display: block;
+}
 
 #bookmarklet .background {
   background-color: rgba(0, 0, 0, 0.85);
@@ -293,7 +348,8 @@ header .username p {
   -webkit-transition: background-color 2.5s ease;
   -moz-transition: background-color 2.5s ease;
   transition: background-color 2.5s ease;
-  z-index: 11; }
+  z-index: 11;
+}
 
 #bookmarklet .modal {
   width: 50%;
@@ -315,13 +371,15 @@ header .username p {
   background: #F4F4F4;
   -webkit-transition: top 2.5s ease;
   -moz-transition: top 2.5s ease;
-  transition: top 2.5s ease; }
+  transition: top 2.5s ease;
+}
 
 #bookmarklet .close img {
   position: absolute;
   left: 0;
   margin: 2%;
-  width: 1.5em; }
+  width: 1.5em;
+}
 
 #bookmarklet .bookmarklet-explain {
   position: absolute;
@@ -333,26 +391,32 @@ header .username p {
   background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
-  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%); }
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
+}
 
 #bookmarklet .bookmarklet-explain .outercontainer {
   height: 2.5em;
   margin-left: 2%;
-  display: table; }
+  display: table;
+}
 
 #bookmarklet .bookmarklet-explain .innercontainer {
   display: table-cell;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
 #bookmarklet .instructions {
-  padding: 5%; }
+  padding: 5%;
+}
 
 #bookmarklet h1 {
   text-decoration: underline;
-  margin: 2.5% 0 0; }
+  margin: 2.5% 0 0;
+}
 
 #bookmarklet h2 {
-  margin: 0; }
+  margin: 0;
+}
 
 #bookmarklet .bookmarklet {
   margin-top: 7.5%;
@@ -373,17 +437,21 @@ header .username p {
   background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); }
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
 
 #bookmarklet .bookmarklet:hover {
   background-color: #6ed149;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
 
 #bookmarklet .bookmarklet:active {
-  cursor: -webkit-grabbing; }
+  cursor: -webkit-grabbing;
+}
 
 #bookmarklet .bookmarklet-instructions {
-  margin-top: 5%; }
+  margin-top: 5%;
+}
 
 @media only screen and (max-width: 768px) {
   .tasklistcontainer {
@@ -392,7 +460,9 @@ header .username p {
     -webkit-column-count: 2;
     -webkit-column-gap: 0.5em;
     column-count: 2;
-    column-gap: 0.5em; } }
+    column-gap: 0.5em;
+  }
+}
 @media only screen and (max-width: 35em) {
   .tasklistcontainer {
     -moz-column-count: 1;
@@ -400,11 +470,15 @@ header .username p {
     -webkit-column-count: 1;
     -webkit-column-gap: 0;
     column-count: 1;
-    column-gap: 0; }
+    column-gap: 0;
+  }
 
   #bookmarklet .modal {
     height: 90%;
-    width: 95%; }
+    width: 95%;
+  }
 
   #bookmarklet .close img {
-    margin: 3.5%; } }
+    margin: 3.5%;
+  }
+}

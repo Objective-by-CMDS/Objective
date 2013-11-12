@@ -4,3 +4,6 @@ node_modules/*
 node_modules
 
 .DS_Store
+*.sublime_*
+config.rb
+.sass-cache
