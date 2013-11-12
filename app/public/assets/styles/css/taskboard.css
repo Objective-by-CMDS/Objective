@@ -66,7 +66,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .itemleft { float: left; clear: both; text-align: center; width: 10%; padding-right: 2.5%; }
 
-.itemleft img { width: 2em; border-radius: 4px 0px 0px 0px; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
+.itemleft img { width: 2em; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
 
 .itemleft a img:active { opacity: 0.65; }
 
