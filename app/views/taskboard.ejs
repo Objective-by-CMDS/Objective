@@ -101,7 +101,7 @@
 		<% tasks.forEach(function(task, i){ %>
 		<div class="taskitem cf">
 			<div class="itemleft">
-				<a href="http://<%= task['URL'] %>"><img class="taskicon" src="http://d.fvicon.com/http://<%=task['URL']%>?canAudit=false"></a>
+				<a href="http://<%= task['URL'] %>"><img class="taskicon" src="http://o.fvicon.com/<%=task['URL']%>?includesocial=true&filter=apple-touch-icon-precomposed"></a>
 				<a class="completebutton" href="delete?id=<%=task['_id']%>"><img class="circle" src="assets/images/complete.svg"><img class="checkmark" src="assets/images/check.svg"></a>
 			</div>
 			<div class="iteminfo">
