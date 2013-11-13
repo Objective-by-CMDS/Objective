@@ -28,7 +28,7 @@
 }
 
 .taskitem, .grid-sizer {
-	width: 32%;
+	width: 32.5%;
 }
 
 .taskitem {
@@ -74,6 +74,10 @@
 	-moz-transition: opacity 0.25s ease;
 	transition: opacity 0.25s ease;
 }
+
+	.itemleft a img:hover {
+		opacity: 0.80;
+	}
 
 	.itemleft a img:active {
 		opacity: 0.65;
@@ -286,7 +290,7 @@
 
 @media only screen and (max-width: 768px) {
 .taskitem, .grid-sizer {
-	width: 45%;
+	width: 49%;
 }
 }
 

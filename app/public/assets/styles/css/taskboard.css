@@ -66,7 +66,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .tasklistcontainer { margin: 0 auto; max-width: 85em; width: 95%; }
 
-.taskitem, .grid-sizer { width: 32%; }
+.taskitem, .grid-sizer { width: 32.5%; }
 
 .taskitem { -webkit-transition: box-shadow 0.35s ease, background 0.35s ease; -moz-transition: box-shadow 0.35s ease, background 0.35s ease; transition: box-shadow 0.35s ease, background 0.35s ease; background: #F4F4F4; padding: 1.5% 2.5%; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc; margin: 1% 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
 
@@ -79,6 +79,8 @@ header .username p { font-size: 1.2em; display: inline; }
 .itemleft { float: left; clear: both; text-align: center; width: 10%; padding-right: 5%; }
 
 .itemleft img { width: 2em; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
+
+.itemleft a img:hover { opacity: 0.80; }
 
 .itemleft a img:active { opacity: 0.65; }
 
@@ -139,7 +141,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 #bookmarklet .bookmarklet-instructions { margin-top: 5%; }
 
-@media only screen and (max-width: 768px) { .taskitem, .grid-sizer { width: 45%; } }
+@media only screen and (max-width: 768px) { .taskitem, .grid-sizer { width: 49%; } }
 @media only screen and (max-width: 35em) { .taskitem, .grid-sizer { width: 100%; }
   .taskitem { margin: 2.5% 0; }
   #bookmarklet .modal { height: 90%; width: 95%; }
