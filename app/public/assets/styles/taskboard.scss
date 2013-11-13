@@ -24,28 +24,20 @@
 .tasklistcontainer {
 	margin: 0 auto;
 	max-width: 85em;
-	-moz-column-count: 3;
-	-moz-column-gap: 0.75em;
-	-moz-column-fill: balance;
-	-webkit-column-count: 3;
-	-webkit-column-gap: 0.75em;
-	-webkit-column-fill: balance;
-	column-count: 3;
-	column-gap: 0.75em;
-	column-fill: balance;
+	width: 95%;
 }
 
 .taskitem {
 	-webkit-transition: box-shadow 0.35s ease, background 0.35s ease;
 	-moz-transition: box-shadow 0.35s ease, background 0.35s ease;
 	transition: box-shadow 0.35s ease, background 0.35s ease;
-	margin: 1.5% 0;
-	padding: 4% 2.5%;
+	margin: 1% 0;
+	padding: 1.5% 2.5%;
 	border-top: 1px solid $lightgrey;
 	border-left: 1px solid $lightgrey;
 	border-right: 1px solid $lightgrey;
 	background: #F4F4F4;
-	width: 100%;
+	width: 32%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -56,24 +48,24 @@
 	box-shadow: 0px 2px 0px #8AD56F;
 }
 
-.background .taskitem {
-	background: rgba(245,245,245,0.8);
-}
+	.background .taskitem {
+		background: rgba(245,245,245,0.8);
+	}
+	
+	.taskitem:hover {
+		box-shadow: 0px 5px 0px rgba(139,215,112,0.85);
+	}
 
-.taskitem:hover {
-	box-shadow: 0px 5px 0px rgba(139,215,112,0.85);
-}
-
-.background .taskitem:hover {
-	background: rgba(245,245,245,0.85);
-}
+	.background .taskitem:hover {
+		background: rgba(245,245,245,0.9);
+	}
 
 .itemleft {
 	float: left;
 	clear: both;
 	text-align: center;
 	width: 10%;
-	padding-right: 2.5%;
+	padding-right: 5%;
 }
 
 .itemleft img {
@@ -115,17 +107,17 @@
 .itemleft .completebutton .checkmark {
 	position: absolute;
 	top: 0.35em;
-	left: 0.25em;
+	left: 0;
 	z-index: 2;
 	-webkit-transition: opacity 0.35s ease;
 	-moz-transition: opacity 0.35s ease;
 	transition: opacity 0.35s ease;
 	opacity: 0;
 }
-
-.itemleft .completebutton .checkmark.active {
-	opacity: 1;
-}
+	
+	.itemleft .completebutton .checkmark.active {
+		opacity: 1;
+	}
 
 .iteminfo {
 	float: left;
@@ -293,24 +285,15 @@
 }
 
 @media only screen and (max-width: 768px) {
-.tasklistcontainer {
-    -moz-column-count: 2;
-    -moz-column-gap: 0.5em;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 0.5em;
-    column-count: 2;
-    column-gap: 0.5em;
+.taskitem {
+	width: 45%;
 }
 }
 
 @media only screen and (max-width: 35em) {
-.tasklistcontainer {
-    -moz-column-count: 1;
-    -moz-column-gap: 0;
-    -webkit-column-count: 1;
-    -webkit-column-gap: 0;
-    column-count: 1;
-    column-gap: 0;
+.taskitem {
+	width: 100%;
+	margin: 2.5% 0;
 }
 
 #bookmarklet .modal {

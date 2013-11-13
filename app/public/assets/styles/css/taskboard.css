@@ -41,7 +41,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .arrow-down { content: ''; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #444444; margin-left: 0.25em; display: inline-block; vertical-align: middle; }
 
-.user-menu { position: absolute; top: 4.75em; right: 0; width: 10em; border-bottom: 2px solid #8ad56f; display: none; overflow: hidden; background: #F4F4F4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35); }
+.user-menu { position: absolute; top: 4.75em; right: 0; width: 10em; border-bottom: 2px solid #8ad56f; z-index: 2; display: none; overflow: hidden; background: #F4F4F4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35); }
 
 .background .user-menu { background: rgba(244, 244, 244, 0.9); }
 
@@ -64,17 +64,17 @@ header .username p { font-size: 1.2em; display: inline; }
   header .username p { display: none; } }
 .tasklist { margin: 0 1.5%; }
 
-.tasklistcontainer { margin: 0 auto; max-width: 85em; -moz-column-count: 3; -moz-column-gap: 0.75em; -moz-column-fill: balance; -webkit-column-count: 3; -webkit-column-gap: 0.75em; -webkit-column-fill: balance; column-count: 3; column-gap: 0.75em; column-fill: balance; }
+.tasklistcontainer { margin: 0 auto; max-width: 85em; width: 95%; }
 
-.taskitem { -webkit-transition: box-shadow 0.35s ease, background 0.35s ease; -moz-transition: box-shadow 0.35s ease, background 0.35s ease; transition: box-shadow 0.35s ease, background 0.35s ease; margin: 1.5% 0; padding: 4% 2.5%; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc; background: #F4F4F4; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
+.taskitem { -webkit-transition: box-shadow 0.35s ease, background 0.35s ease; -moz-transition: box-shadow 0.35s ease, background 0.35s ease; transition: box-shadow 0.35s ease, background 0.35s ease; margin: 1% 0; padding: 1.5% 2.5%; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc; background: #F4F4F4; width: 32%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
 
 .background .taskitem { background: rgba(245, 245, 245, 0.8); }
 
 .taskitem:hover { box-shadow: 0px 5px 0px rgba(139, 215, 112, 0.85); }
 
-.background .taskitem:hover { background: rgba(245, 245, 245, 0.85); }
+.background .taskitem:hover { background: rgba(245, 245, 245, 0.9); }
 
-.itemleft { float: left; clear: both; text-align: center; width: 10%; padding-right: 2.5%; }
+.itemleft { float: left; clear: both; text-align: center; width: 10%; padding-right: 5%; }
 
 .itemleft img { width: 2em; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
 
@@ -88,7 +88,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .itemleft .completebutton:active .circle { opacity: 0.6; }
 
-.itemleft .completebutton .checkmark { position: absolute; top: 0.35em; left: 0.25em; z-index: 2; -webkit-transition: opacity 0.35s ease; -moz-transition: opacity 0.35s ease; transition: opacity 0.35s ease; opacity: 0; }
+.itemleft .completebutton .checkmark { position: absolute; top: 0.35em; left: 0; z-index: 2; -webkit-transition: opacity 0.35s ease; -moz-transition: opacity 0.35s ease; transition: opacity 0.35s ease; opacity: 0; }
 
 .itemleft .completebutton .checkmark.active { opacity: 1; }
 
@@ -137,7 +137,7 @@ header .username p { font-size: 1.2em; display: inline; }
 
 #bookmarklet .bookmarklet-instructions { margin-top: 5%; }
 
-@media only screen and (max-width: 768px) { .tasklistcontainer { -moz-column-count: 2; -moz-column-gap: 0.5em; -webkit-column-count: 2; -webkit-column-gap: 0.5em; column-count: 2; column-gap: 0.5em; } }
-@media only screen and (max-width: 35em) { .tasklistcontainer { -moz-column-count: 1; -moz-column-gap: 0; -webkit-column-count: 1; -webkit-column-gap: 0; column-count: 1; column-gap: 0; }
+@media only screen and (max-width: 768px) { .taskitem { width: 45%; } }
+@media only screen and (max-width: 35em) { .taskitem { width: 100%; margin: 2.5% 0; }
   #bookmarklet .modal { height: 90%; width: 95%; }
   #bookmarklet .close img { margin: 3.5%; } }

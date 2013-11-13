@@ -97,7 +97,7 @@
 	</header>
 	
 	<main class="tasklist">
-		<div class="tasklistcontainer cf">
+		<div class="tasklistcontainer cf" id="masonryContainer">
 		<div class="taskitem cf">
 			<div class="itemleft">
 				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
@@ -108,6 +108,59 @@
 				<p>I like the style, but I'm going to try using different colors.</p>
 			</div>
 		</div>
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><h1>Rebound this shot</h1></a>
+				<p>I like the style, but I'm going to try using different colors.</p>
+			</div>
+		</div>
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><h1>Rebound this shotRebound this shotRebound this shotRebound this shotRebound this shotRebound this shotRebound this shotRebound this shot</h1></a>
+				<p>I like the style, but I'm going to try using different colors.</p>
+			</div>
+		</div>
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><h1>Rebound this shot</h1></a>
+				<p>I like the style, but I'm going to try using different colors.I like the style, but I'm going to try using different colors.I like the style, but I'm going to try using different colors.I like the style, but I'm going to try using different colors.I like the style, but I'm going to try using different colors.I like the style, but I'm going to try using different colors.</p>
+			</div>
+		</div>
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><h1>f
+					
+				</h1></a>
+				<p>I like the style, but I'm going to try using different colors.</p>
+			</div>
+		</div>
+		<div class="taskitem cf">
+			<div class="itemleft">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
+				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
+			</div>
+			<div class="iteminfo">
+				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><h1>Rebound this shot</h1></a>
+				<p>I like the style, but I'm going to try using different colors.</p>
+			</div>
+		</div>
+		
 		
 		<div class="taskitem cf">
 			<div class="itemleft">
@@ -154,10 +207,19 @@
 		</div>
 		</div>
 	</main>
-		
+	
+	<script src="../public/assets/scripts/libs/masonry.min.js"></script>
+	<script>
+		docReady( function() {
+			var container = document.querySelector('#masonryContainer');
+			var msnry = new Masonry( container, { gutter: 15, itemSelector: '.taskitem' });
+		});
+	</script>
+	
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 	<script>
 		$(document).ready(function(){
+		
 			$('header .user').mouseenter(function() {
 				$('.user-menu').fadeIn('300');
 			});
@@ -175,11 +237,11 @@
 				$('.bookmarklet-explain').slideUp('show');
 				$('.close').removeClass('lower');
 			});
-			$('.completebutton').click(function() {
-				$(this).closest('.taskitem').fadeOut('300');
-			});
 			$('.completebutton').hover(function() {
 				$(this).children('.checkmark').toggleClass('active');
+			});		
+			$('.completebutton').click(function() {
+				$(this).closest('.taskitem').fadeOut('300');
 			});
 		});
 	</script>

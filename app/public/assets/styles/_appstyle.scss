@@ -115,6 +115,7 @@ header .username p {
 	right: 0;
 	width: 10em;
 	border-bottom: 2px solid $objgreen;
+	z-index: 2;
 	display: none;
 	overflow: hidden;
 	background: #F4F4F4;
