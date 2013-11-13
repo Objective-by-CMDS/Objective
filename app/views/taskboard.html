@@ -114,11 +114,16 @@
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 	<script>
 		$(document).ready(function(){
+		
+			var $container = $('#masonryContainer');
+			$container.masonry({ gutter: 15, itemSelector: '.taskitem' });
+			$container.masonry('bindResize');		
+			
 			$('header .user').mouseenter(function() {
 				$('.user-menu').fadeIn('300');
 			});
 			$('header .user').click(function() {
-				$('.user-menu').fadeIn('300');
+				$('.user-menu').fadeToggle('300');
 			});
 			$('.user-menu').mouseleave(function() {
 				$('.user-menu').fadeOut('300');
@@ -131,11 +136,14 @@
 				$('.bookmarklet-explain').slideUp('show');
 				$('.close').removeClass('lower');
 			});
-			$('.completebutton').click(function() {
-				$(this).closest('.taskitem').fadeOut('300');
-			});
 			$('.completebutton').hover(function() {
 				$(this).children('.checkmark').toggleClass('active');
+			});						
+			$('.completebutton').click(function() {
+				$(this).closest('.taskitem').fadeOut('300', function(){
+					$(this).remove();
+					$container.masonry();
+				});
 			});
 		});
 	</script>

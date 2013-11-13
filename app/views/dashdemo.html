@@ -208,18 +208,15 @@
 		</div>
 	</main>
 	
-	<script src="../public/assets/scripts/libs/masonry.min.js"></script>
-	<script>
-		docReady( function() {
-			var container = document.querySelector('#masonryContainer');
-			var msnry = new Masonry( container, { gutter: 15, itemSelector: '.taskitem' });
-		});
-	</script>
-	
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="../public/assets/scripts/libs/masonry.min.js"></script>
 	<script>
 		$(document).ready(function(){
 		
+			var $container = $('#masonryContainer');
+			$container.masonry({ gutter: 15, itemSelector: '.taskitem' });
+			$container.masonry('bindResize');		
+			
 			$('header .user').mouseenter(function() {
 				$('.user-menu').fadeIn('300');
 			});
@@ -239,9 +236,12 @@
 			});
 			$('.completebutton').hover(function() {
 				$(this).children('.checkmark').toggleClass('active');
-			});		
+			});						
 			$('.completebutton').click(function() {
-				$(this).closest('.taskitem').fadeOut('300');
+				$(this).closest('.taskitem').fadeOut('300', function(){
+					$(this).remove();
+					$container.masonry();
+				});
 			});
 		});
 	</script>
