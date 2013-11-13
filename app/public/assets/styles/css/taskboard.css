@@ -66,7 +66,9 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .tasklistcontainer { margin: 0 auto; max-width: 85em; width: 95%; }
 
-.taskitem { -webkit-transition: box-shadow 0.35s ease, background 0.35s ease; -moz-transition: box-shadow 0.35s ease, background 0.35s ease; transition: box-shadow 0.35s ease, background 0.35s ease; margin: 1% 0; padding: 1.5% 2.5%; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc; background: #F4F4F4; width: 32%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
+.taskitem, .grid-sizer { width: 32%; }
+
+.taskitem { -webkit-transition: box-shadow 0.35s ease, background 0.35s ease; -moz-transition: box-shadow 0.35s ease, background 0.35s ease; transition: box-shadow 0.35s ease, background 0.35s ease; background: #F4F4F4; padding: 1.5% 2.5%; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc; margin: 1% 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
 
 .background .taskitem { background: rgba(245, 245, 245, 0.8); }
 
@@ -137,7 +139,8 @@ header .username p { font-size: 1.2em; display: inline; }
 
 #bookmarklet .bookmarklet-instructions { margin-top: 5%; }
 
-@media only screen and (max-width: 768px) { .taskitem { width: 45%; } }
-@media only screen and (max-width: 35em) { .taskitem { width: 100%; margin: 2.5% 0; }
+@media only screen and (max-width: 768px) { .taskitem, .grid-sizer { width: 45%; } }
+@media only screen and (max-width: 35em) { .taskitem, .grid-sizer { width: 100%; }
+  .taskitem { margin: 2.5% 0; }
   #bookmarklet .modal { height: 90%; width: 95%; }
   #bookmarklet .close img { margin: 3.5%; } }

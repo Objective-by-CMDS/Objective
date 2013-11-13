@@ -23,7 +23,8 @@
 	</section>
 	<main class="tasklist">
 		<div class="tasklistcontainer cf">
-
+		<div class="grid-sizer"></div>
+		
 		<% tasks.forEach(function(task, i){ %>
 		<div class="taskitem cf">
 			<div class="itemleft">
@@ -44,11 +45,12 @@
 	</main>
 
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="/assets/scripts/libs/masonry.min.js"></script>
 	<script>
 		$(document).ready(function(){
 		
 			var $container = $('#masonryContainer');
-			$container.masonry({ gutter: 15, itemSelector: '.taskitem' });
+			$container.masonry({ gutter: 15, columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
 			$container.masonry('bindResize');		
 			
 			$('header .user').mouseenter(function() {

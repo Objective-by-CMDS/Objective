@@ -98,6 +98,7 @@
 	
 	<main class="tasklist">
 		<div class="tasklistcontainer cf">
+		<div class="grid-sizer"></div>
 		<div class="taskitem cf">
 			<div class="itemleft">
 				<a href=""><img class="taskicon" src="../public/assets/images/Userpic.png"></a>
@@ -116,7 +117,7 @@
 		$(document).ready(function(){
 		
 			var $container = $('#masonryContainer');
-			$container.masonry({ gutter: 15, itemSelector: '.taskitem' });
+			$container.masonry({ gutter: 15, itemSelector: '.taskitem', columnWidth: '.grid-sizer' });
 			$container.masonry('bindResize');		
 			
 			$('header .user').mouseenter(function() {

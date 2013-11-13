@@ -27,23 +27,23 @@
 	width: 95%;
 }
 
+.taskitem, .grid-sizer {
+	width: 32%;
+}
+
 .taskitem {
 	-webkit-transition: box-shadow 0.35s ease, background 0.35s ease;
 	-moz-transition: box-shadow 0.35s ease, background 0.35s ease;
 	transition: box-shadow 0.35s ease, background 0.35s ease;
-	margin: 1% 0;
+	background: #F4F4F4;
 	padding: 1.5% 2.5%;
 	border-top: 1px solid $lightgrey;
 	border-left: 1px solid $lightgrey;
 	border-right: 1px solid $lightgrey;
-	background: #F4F4F4;
-	width: 32%;
+	margin: 1% 0;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	-webkit-column-break-inside: avoid;
-	-moz-column-break-inside: avoid;
-	column-break-inside: avoid;
 	display: inline-block;
 	box-shadow: 0px 2px 0px #8AD56F;
 }
@@ -285,14 +285,17 @@
 }
 
 @media only screen and (max-width: 768px) {
-.taskitem {
+.taskitem, .grid-sizer {
 	width: 45%;
 }
 }
 
 @media only screen and (max-width: 35em) {
-.taskitem {
+.taskitem, .grid-sizer {
 	width: 100%;
+}
+
+.taskitem {
 	margin: 2.5% 0;
 }
 

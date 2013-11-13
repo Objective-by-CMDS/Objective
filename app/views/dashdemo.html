@@ -98,6 +98,7 @@
 	
 	<main class="tasklist">
 		<div class="tasklistcontainer cf" id="masonryContainer">
+		<div class="grid-sizer"></div>
 		<div class="taskitem cf">
 			<div class="itemleft">
 				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
@@ -139,6 +140,7 @@
 			</div>
 		</div>
 		<div class="taskitem cf">
+			<div class="grid-sizer"></div>
 			<div class="itemleft">
 				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
 				<a class="completebutton"><img class="circle" src="../public/assets/images/complete.svg"><img class="checkmark" src="../public/assets/images/check.svg"></a>
@@ -214,8 +216,8 @@
 		$(document).ready(function(){
 		
 			var $container = $('#masonryContainer');
-			$container.masonry({ gutter: 15, itemSelector: '.taskitem' });
-			$container.masonry('bindResize');		
+			$container.masonry({ gutter: 15, columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
+			$container.masonry('bindResize');
 			
 			$('header .user').mouseenter(function() {
 				$('.user-menu').fadeIn('300');
