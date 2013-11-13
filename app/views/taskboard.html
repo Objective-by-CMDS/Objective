@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="background">
 <head>
 	<title>Objective | Your Tasks</title>
 	
@@ -114,6 +114,9 @@
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 	<script>
 		$(document).ready(function(){
+			$('header .user').mouseenter(function() {
+				$('.user-menu').fadeToggle('300');
+			});
 			$('header .user').click(function() {
 				$('.user-menu').fadeToggle('300');
 			});

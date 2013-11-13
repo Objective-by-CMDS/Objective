@@ -5,6 +5,8 @@
 .cf:after { clear: both; }
 
 /* === Main CSS === */
+html.background { background: url("../../images/background1.jpg") fixed; background-size: cover; }
+
 body { margin: 0; color: #444444; font: normal 400 100%/1.5 "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 
 ::selection { background: rgba(178, 238, 74, 0.5); }
@@ -13,7 +15,7 @@ body { margin: 0; color: #444444; font: normal 400 100%/1.5 "Oxygen", "Helvetica
 
 ul { margin: 0; padding: 0; }
 
-header { color: #444444; border-bottom: 1px solid #cccccc; width: 100%; padding: 1% 0; background: rgba(232, 232, 232, 0.85); background: -o-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%); background: -moz-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%); background: -webkit-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%); background: -ms-linear-gradient(-90deg, white 0%, rgba(232, 232, 232, 0.85) 50%); background: linear-gradient(-180deg, white 0%, rgba(232, 232, 232, 0.85) 50%); box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25); }
+header { color: #444444; width: 100%; padding: 1% 0 3.5%; background-image: -o-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%); background-image: -moz-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%); background-image: -webkit-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%); background-image: -ms-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%); background-image: linear-gradient(-180deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%); }
 
 header .container { margin: 0 auto; width: 100%; max-width: 85em; }
 
@@ -39,15 +41,15 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .arrow-down { content: ''; width: 0; height: 0; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 5px solid #444444; margin-left: 0.25em; display: inline-block; vertical-align: middle; }
 
-.user-menu { position: absolute; top: 4.75em; right: 0; width: 10em; border-radius: 8px; border: 1px solid #8ad56f; display: none; overflow: hidden; background: #f4f4f4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35); }
+.user-menu { position: absolute; top: 4.75em; right: 0; width: 10em; border-bottom: 2px solid #8ad56f; display: none; overflow: hidden; background: #F4F4F4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.35); }
 
 .user-menu li { list-style: none; width: 100%; padding: 5% 10%; display: inline-block; -webkit-transition: background 0.25s ease; -moz-transition: background 0.25s ease; transition: background 0.25s ease; }
 
-.user-menu li:hover { background: #e2e2e2; }
+.user-menu li:hover { background: #eaeaea; }
 
 .user-menu a { color: #444444; text-decoration: none; -webkit-transition: color 0.10s ease; -moz-transition: color 0.10s ease; transition: color 0.10s ease; }
 
-.user-menu a:hover { color: #469d26; }
+.user-menu a:hover { color: #8ad56f; }
 
 @media only screen and (max-width: 35em) { header { font-size: 0.8em; padding: 2.5% 0; }
   .branding img { width: 13.5em; margin-top: 3.5%; }
@@ -56,13 +58,15 @@ header .username p { font-size: 1.2em; display: inline; }
 @media only screen and (max-width: 20em) { header .user { margin-top: 2.5%; }
   header .username { margin-left: 0; }
   header .username p { display: none; } }
-.tasklist { margin: 1.5% 1.5% 0; }
+.tasklist { margin: 0 1.5%; }
 
 .tasklistcontainer { margin: 0 auto; max-width: 85em; -moz-column-count: 3; -moz-column-gap: 0.75em; -moz-column-fill: balance; -webkit-column-count: 3; -webkit-column-gap: 0.75em; -webkit-column-fill: balance; column-count: 3; column-gap: 0.75em; column-fill: balance; }
 
-.taskitem { -webkit-transition: border-color 0.5s ease; -moz-transition: border-color 0.5s ease; transition: border-color 0.5s ease; margin: 1.5% 0; padding: 4% 1.5%; border-radius: 8px; border: 1px solid #cccccc; background: #f8f8f8; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; display: inline-block; box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15); }
+.taskitem { -webkit-transition: box-shadow 0.35s ease; -moz-transition: box-shadow 0.35s ease; transition: box-shadow 0.35s ease; margin: 1.5% 0; padding: 4% 2.5%; border: 1px solid #cccccc; background: #F4F4F4; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-column-break-inside: avoid; -moz-column-break-inside: avoid; column-break-inside: avoid; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
 
-.taskitem:hover { border-color: #8ad56f; }
+.background .taskitem { background: rgba(245, 245, 245, 0.8); }
+
+.taskitem:hover { box-shadow: 0px 5px 0px rgba(139, 215, 112, 0.85); }
 
 .itemleft { float: left; clear: both; text-align: center; width: 10%; padding-right: 2.5%; }
 
