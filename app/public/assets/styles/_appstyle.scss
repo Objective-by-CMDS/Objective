@@ -121,6 +121,10 @@ header .username p {
 	box-shadow: 0px 0px 10px rgba(0,0,0,0.35);
 }
 
+.background .user-menu {
+	background: rgba(244,244,244,0.9);
+}
+
 .user-menu li {
 	list-style: none;
 	width: 100%;
@@ -133,6 +137,10 @@ header .username p {
 	
 	.user-menu li:hover {
 		background: #eaeaea;
+	}
+	
+	.background .user-menu li:hover {
+		background: rgba(200,200,200,0.25);
 	}
 
 .user-menu a {

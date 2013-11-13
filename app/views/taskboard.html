@@ -115,19 +115,21 @@
 	<script>
 		$(document).ready(function(){
 			$('header .user').mouseenter(function() {
-				$('.user-menu').fadeToggle('300');
+				$('.user-menu').fadeIn('300');
 			});
 			$('header .user').click(function() {
-				$('.user-menu').fadeToggle('300');
+				$('.user-menu').fadeIn('300');
 			});
 			$('.user-menu').mouseleave(function() {
 				$('.user-menu').fadeOut('300');
 			});
 			$('.bookmarklet').mouseenter(function() {
 				$('.bookmarklet-explain').slideDown('300');
+				$('.close').addClass('lower');
 			});
 			$('body').mouseleave(function() {
 				$('.bookmarklet-explain').slideUp('show');
+				$('.close').removeClass('lower');
 			});
 			$('.completebutton').click(function() {
 				$(this).closest('.taskitem').fadeOut('300');

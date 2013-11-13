@@ -36,12 +36,14 @@
 }
 
 .taskitem {
-	-webkit-transition: box-shadow 0.35s ease;
-	-moz-transition: box-shadow 0.35s ease;
-	transition: box-shadow 0.35s ease;
+	-webkit-transition: box-shadow 0.35s ease, background 0.35s ease;
+	-moz-transition: box-shadow 0.35s ease, background 0.35s ease;
+	transition: box-shadow 0.35s ease, background 0.35s ease;
 	margin: 1.5% 0;
 	padding: 4% 2.5%;
-	border: 1px solid $lightgrey;
+	border-top: 1px solid $lightgrey;
+	border-left: 1px solid $lightgrey;
+	border-right: 1px solid $lightgrey;
 	background: #F4F4F4;
 	width: 100%;
 	-webkit-box-sizing: border-box;
@@ -60,6 +62,10 @@
 
 .taskitem:hover {
 	box-shadow: 0px 5px 0px rgba(139,215,112,0.85);
+}
+
+.background .taskitem:hover {
+	background: rgba(245,245,245,0.85);
 }
 
 .itemleft {
@@ -200,10 +206,18 @@
 }
 
 #bookmarklet .close img {
+	-webkit-transition: top 0.3s linear;
+	-moz-transition: top 0.3s linear;
+	transition: top 0.3s linear;
 	position: absolute;
 	left: 0;
+	top: 0;
 	margin: 2%;
 	width: 1.5em;
+}
+
+#bookmarklet .close.lower img {
+	top: 10%;
 }
 
 #bookmarklet .bookmarklet-explain {
