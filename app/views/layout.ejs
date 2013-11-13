@@ -57,6 +57,20 @@
 
 </head>
 <body>
+  <header>
+    <div class="container cf">
+    <div class="branding">
+      <img class="objlogo" src="assets/images/ObjectiveLogo.svg">
+    </div>
+    <div class="user">
+      <img class="userpic" src="http://graph.facebook.com/<%=facebookId%>/picture?type=normal">
+      <span class="username"><p><%= firstName %></p><span class="arrow-down"></span></span>
+    </div>
+    <div class="user-menu">
+      <a href="#bookmarklet"><li>Bookmarklet</li></a>
+      <a href="logout"><li>Sign Out</li></a>
+    </div>
+  </header>
   <%- body -%>
   <%- scripts %>
 </body>
