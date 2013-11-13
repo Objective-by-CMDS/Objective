@@ -173,7 +173,7 @@ app.post('/add/task', function(req, res) {
 });
 app.get('/settings', function(req, res) {
   User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
-    res.render('settings.ejs', docs);
+    res.render('taskboard.ejs', docs);
   });
 });
 app.get('/delete', function(req, res) {
