@@ -25,6 +25,7 @@
 	<main class="tasklist">
 		<div class="tasklistcontainer" id="masonryContainer">
 		<div class="grid-sizer"></div>
+		<div class="gutter-sizer"></div>
 
 	<% tasks.forEach(function(task, i){ %>
 	<div class="taskitem cf">
@@ -53,7 +54,7 @@
 	$(document).ready(function(){
 
 		var $container = $('#masonryContainer');
-		$container.masonry({ gutter: 15, columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
+		$container.masonry({ gutter: '.gutter-sizer', columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
 		$container.masonry('bindResize');
 
 		$('.completebutton').hover(function() {
