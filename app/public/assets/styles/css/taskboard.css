@@ -64,9 +64,9 @@ header .username p { font-size: 1.2em; display: inline; }
   header .username p { display: none; } }
 .tasklist { margin: 0 1.5%; }
 
-.tasklistcontainer { margin: 0 auto; max-width: 85em; width: 95%; }
+.tasklistcontainer { margin: 0 auto; max-width: 85em; width: 100%; }
 
-.taskitem, .grid-sizer { width: 32.5%; }
+.taskitem, .grid-sizer { width: 32%; }
 
 .taskitem { -webkit-transition: box-shadow 0.35s ease, background 0.35s ease; -moz-transition: box-shadow 0.35s ease, background 0.35s ease; transition: box-shadow 0.35s ease, background 0.35s ease; background: #F4F4F4; padding: 1.5% 2.5%; border-top: 1px solid #cccccc; border-left: 1px solid #cccccc; border-right: 1px solid #cccccc; margin: 1% 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: inline-block; box-shadow: 0px 2px 0px #8AD56F; }
 
@@ -78,21 +78,25 @@ header .username p { font-size: 1.2em; display: inline; }
 
 .itemleft { float: left; clear: both; text-align: center; width: 10%; padding-right: 5%; }
 
-.itemleft img { width: 2em; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
+.itemleft a { display: block; }
 
-.itemleft a img:hover { opacity: 0.80; }
+.itemleft img, .itemleft svg { display: block; width: 2em; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
 
-.itemleft a img:active { opacity: 0.65; }
+.itemleft .taskicon:hover { opacity: 0.80; }
 
-.itemleft .completebutton { display: block; position: relative; cursor: pointer; }
+.itemleft .taskicon:active { opacity: 0.65; }
 
-.itemleft .completebutton .circle { position: relative; display: block; height: 2.5em; margin: 0 auto; z-index: 3; -webkit-transition: opacity 0.25s ease; -moz-transition: opacity 0.25s ease; transition: opacity 0.25s ease; }
+.itemleft .completebutton { position: relative; cursor: pointer; margin-top: 30%; }
 
-.itemleft .completebutton:hover .circle { opacity: 0.8; }
+.itemleft .completebutton .circle { position: relative; display: block; z-index: 3; }
 
-.itemleft .completebutton:active .circle { opacity: 0.6; }
+.itemleft .completebutton .circle .circlefill { -webkit-transition: fill 0.25s ease; -moz-transition: fill 0.25s ease; transition: fill 0.25s ease; }
 
-.itemleft .completebutton .checkmark { position: absolute; top: 0.35em; left: 0; z-index: 2; -webkit-transition: opacity 0.35s ease; -moz-transition: opacity 0.35s ease; transition: opacity 0.35s ease; opacity: 0; }
+.itemleft .completebutton:hover .circle .circlefill { fill: #888888; color: #afafaf; }
+
+.itemleft .completebutton:active .circle .circlefill { fill: #AAAAAA; }
+
+.itemleft .completebutton .checkmark { position: absolute; top: 0; left: 5%; z-index: 2; -webkit-transition: opacity 0.35s ease; -moz-transition: opacity 0.35s ease; transition: opacity 0.35s ease; opacity: 0; }
 
 .itemleft .completebutton .checkmark.active { opacity: 1; }
 

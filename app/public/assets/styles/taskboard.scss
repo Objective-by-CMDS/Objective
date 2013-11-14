@@ -24,11 +24,11 @@
 .tasklistcontainer {
 	margin: 0 auto;
 	max-width: 85em;
-	width: 95%;
+	width: 100%;
 }
 
 .taskitem, .grid-sizer {
-	width: 32.5%;
+	width: 32%;
 }
 
 .taskitem {
@@ -68,50 +68,57 @@
 	padding-right: 5%;
 }
 
-.itemleft img {
+.itemleft a {
+	display: block;
+}
+
+.itemleft img, .itemleft svg {
+	display: block;
 	width: 2em;
 	-webkit-transition: opacity 0.25s ease;
 	-moz-transition: opacity 0.25s ease;
 	transition: opacity 0.25s ease;
 }
 
-	.itemleft a img:hover {
+	.itemleft .taskicon:hover {
 		opacity: 0.80;
 	}
 
-	.itemleft a img:active {
+	.itemleft .taskicon:active {
 		opacity: 0.65;
 	}
 
 .itemleft .completebutton {
-	display: block;
 	position: relative;
 	cursor: pointer;
+	margin-top: 30%;
 }
 
 .itemleft .completebutton .circle {
 	position: relative;
 	display: block;
-	height: 2.5em;
-	margin: 0 auto;
 	z-index: 3;
-	-webkit-transition: opacity 0.25s ease;
-	-moz-transition: opacity 0.25s ease;
-	transition: opacity 0.25s ease;
 }
 
-.itemleft .completebutton:hover .circle {
-	opacity: 0.8;
+.itemleft .completebutton .circle .circlefill {
+	-webkit-transition: fill 0.25s ease;
+	-moz-transition: fill 0.25s ease;
+	transition: fill 0.25s ease;
 }
-
-.itemleft .completebutton:active .circle {
-	opacity: 0.6;
-}
+	
+	.itemleft .completebutton:hover .circle .circlefill {
+		fill: #888888;
+		color: #afafaf;
+	}
+	
+	.itemleft .completebutton:active .circle .circlefill {
+		fill: #AAAAAA;
+	}
 
 .itemleft .completebutton .checkmark {
 	position: absolute;
-	top: 0.35em;
-	left: 0;
+	top: 0;
+	left: 5%;
 	z-index: 2;
 	-webkit-transition: opacity 0.35s ease;
 	-moz-transition: opacity 0.35s ease;
