@@ -5,38 +5,31 @@
   content: " ";
   /* 1 */
   display: table;
-  /* 2 */
-}
+  /* 2 */ }
 
 .cf:after {
-  clear: both;
-}
+  clear: both; }
 
 /* === Main CSS === */
 html.background {
   background: url("../../images/background1.jpg") fixed;
-  background-size: cover;
-}
+  background-size: cover; }
 
 body {
   margin: 0;
   color: #444444;
   font: normal 400 100%/1.5 "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
+  -webkit-font-smoothing: antialiased; }
 
 ::selection {
-  background: rgba(178, 238, 74, 0.5);
-}
+  background: rgba(178, 238, 74, 0.5); }
 
 ::-moz-selection {
-  background: rgba(178, 238, 74, 0.5);
-}
+  background: rgba(178, 238, 74, 0.5); }
 
 ul {
   margin: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 header {
   color: #444444;
@@ -46,56 +39,46 @@ header {
   background-image: -moz-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%);
   background-image: -webkit-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%);
   background-image: -ms-linear-gradient(-90deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%);
-  background-image: linear-gradient(-180deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%);
-}
+  background-image: linear-gradient(-180deg, rgba(245, 245, 245, 0.75) 0%, rgba(245, 245, 245, 0.5) 65%, rgba(245, 245, 245, 0) 100%); }
 
 header .container {
   margin: 0 auto;
   width: 100%;
-  max-width: 85em;
-}
+  max-width: 85em; }
 
 .branding {
   float: left;
-  margin: 0 2.5%;
-}
+  margin: 0 2.5%; }
 
 .branding img {
   vertical-align: middle;
-  width: 18em;
-}
+  width: 18em; }
 
 .branding p {
-  margin: 1.25% 0 2.5%;
-}
+  margin: 1.25% 0 2.5%; }
 
 header .user {
   float: right;
   margin-right: 2.5%;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 header .userpic, header .username {
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
+  transition: opacity 0.25s ease; }
 
 header .userpic:hover, header .username:hover {
-  opacity: 0.60;
-}
+  opacity: 0.60; }
 
 header .userpic:active, header .username:active {
-  opacity: 0.85;
-}
+  opacity: 0.85; }
 
 header .userpic {
   width: 2.5em;
   border-radius: 50%;
   border: 1px solid #cccccc;
   display: inline-block;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 header .username {
   margin: 1em 0.5em;
@@ -104,13 +87,11 @@ header .username {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
-}
+  user-select: none; }
 
 header .username p {
   font-size: 1.2em;
-  display: inline;
-}
+  display: inline; }
 
 .arrow-down {
   content: '';
@@ -121,24 +102,24 @@ header .username p {
   border-top: 5px solid #444444;
   margin-left: 0.25em;
   display: inline-block;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 .user-menu {
   position: absolute;
   top: 4.75em;
   right: 0;
   width: 10em;
-  border: 1px solid #c0c0c0;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
   display: none;
   overflow: hidden;
+  z-index: 2;
   background: #fff;
-  box-shadow: 0 -2px 0 #939393 inset;
-}
+  box-shadow: 0 2px 0 #8ad56f; }
 
 .background .user-menu {
-  background: rgba(244, 244, 244, 0.9);
-}
+  background: rgba(244, 244, 244, 0.9); }
 
 .user-menu li {
   list-style: none;
@@ -147,76 +128,60 @@ header .username p {
   display: inline-block;
   -webkit-transition: background 0.25s ease;
   -moz-transition: background 0.25s ease;
-  transition: background 0.25s ease;
-}
+  transition: background 0.25s ease; }
 
 .user-menu li:hover {
-  background: #eee;
-}
+  background: #eee; }
 
 .background .user-menu li:hover {
-  background: rgba(200, 200, 200, 0.25);
-}
+  background: rgba(200, 200, 200, 0.35); }
 
 .user-menu a {
   color: #444444;
   text-decoration: none;
   -webkit-transition: color 0.10s ease;
   -moz-transition: color 0.10s ease;
-  transition: color 0.10s ease;
-}
+  transition: color 0.10s ease; }
 
 .user-menu a:hover {
-  color: #474747;
-}
+  color: #8ad56f; }
 
 @media only screen and (max-width: 35em) {
   header {
     font-size: 0.8em;
-    padding: 2.5% 0;
-  }
+    padding: 2.5% 0; }
 
   .branding img {
     width: 13.5em;
-    margin-top: 3.5%;
-  }
+    margin-top: 3.5%; }
 
   .user-menu li {
-    font-size: 1.2em;
-  }
+    font-size: 1.2em; }
 
   .arrow-down {
     border-left-width: 4px;
     border-right-width: 4px;
-    border-top-width: 4px;
-  }
-}
+    border-top-width: 4px; } }
 @media only screen and (max-width: 20em) {
   header .user {
-    margin-top: 2.5%;
-  }
+    margin-top: 2.5%; }
 
   header .username {
-    margin-left: 0;
-  }
+    margin-left: 0; }
 
   header .username p {
-    display: none;
-  }
-}
+    display: none; } }
 .tasklist {
-  margin: 0 1.5%;
-}
+  padding-bottom: 1.5%;
+  margin: 0 1.5%; }
 
 .tasklistcontainer {
   margin: 0 auto;
   max-width: 85em;
-  width: 100%;
-}
+  width: 100%; }
 
 .taskitem, .grid-sizer {
-  width: 32%;
-}
+  width: 32%; }
 
 .taskitem {
   -webkit-transition: box-shadow 0.35s ease, background 0.35s ease;
@@ -232,75 +197,61 @@ header .username p {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: inline-block;
-  box-shadow: 0px 2px 0px #8AD56F;
-}
+  box-shadow: 0px 2px 0px #8AD56F; }
 
 .background .taskitem {
-  background: rgba(245, 245, 245, 0.8);
-}
+  background: rgba(245, 245, 245, 0.8); }
 
 .taskitem:hover {
-  box-shadow: 0px 5px 0px rgba(139, 215, 112, 0.85);
-}
+  box-shadow: 0px 5px 0px rgba(139, 215, 112, 0.85); }
 
 .background .taskitem:hover {
-  background: rgba(245, 245, 245, 0.9);
-}
+  background: rgba(245, 245, 245, 0.9); }
 
 .itemleft {
   float: left;
   clear: both;
   text-align: center;
   width: 10%;
-  padding-right: 5%;
-}
+  padding-right: 5%; }
 
 .itemleft a {
-  display: block;
-}
+  display: block; }
 
 .itemleft img, .itemleft svg {
   display: block;
   width: 2em;
   -webkit-transition: opacity 0.25s ease;
   -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
+  transition: opacity 0.25s ease; }
 
 .itemleft .taskicon:hover {
-  opacity: 0.80;
-}
+  opacity: 0.80; }
 
 .itemleft .taskicon:active {
-  opacity: 0.65;
-}
+  opacity: 0.65; }
 
 .itemleft .completebutton {
   position: relative;
   cursor: pointer;
-  margin-top: 30%;
-}
+  margin-top: 30%; }
 
 .itemleft .completebutton .circle {
   position: relative;
   display: block;
-  z-index: 3;
-}
+  z-index: 3; }
 
 .itemleft .completebutton .circle .circlefill {
   -webkit-transition: fill 0.25s ease;
   -moz-transition: fill 0.25s ease;
-  transition: fill 0.25s ease;
-}
+  transition: fill 0.25s ease; }
 
 .itemleft .completebutton:hover .circle .circlefill {
   fill: #888888;
-  color: #afafaf;
-}
+  color: #afafaf; }
 
 .itemleft .completebutton:active .circle .circlefill {
-  fill: #AAAAAA;
-}
+  fill: #AAAAAA; }
 
 .itemleft .completebutton .checkmark {
   position: absolute;
@@ -310,54 +261,44 @@ header .username p {
   -webkit-transition: opacity 0.35s ease;
   -moz-transition: opacity 0.35s ease;
   transition: opacity 0.35s ease;
-  opacity: 0;
-}
+  opacity: 0; }
 
 .itemleft .completebutton .checkmark.active {
-  opacity: 1;
-}
+  opacity: 1; }
 
 .iteminfo {
   float: left;
-  width: 85%;
-}
+  width: 85%; }
 
 .taskitem a, .taskitem a:visited {
   color: #444444;
   text-decoration: none;
   -webkit-transition: color 0.25s ease;
   -moz-transition: color 0.25s ease;
-  transition: color 0.25s ease;
-}
+  transition: color 0.25s ease; }
 
 .taskitem a:hover {
-  color: #8ad56f;
-}
+  color: #8ad56f; }
 
 .taskitem a:active {
-  color: #469d26;
-}
+  color: #469d26; }
 
 .taskitem h1 {
   margin: 0;
   font-weight: 600;
   font-size: 1.3em;
-  line-height: 1.25;
-}
+  line-height: 1.25; }
 
 .taskitem p {
-  margin: 2.7% 0 0 0;
-}
+  margin: 2.7% 0 0 0; }
 
 /* === Bookmarklet === */
 #bookmarklet {
   display: none;
-  z-index: 10;
-}
+  z-index: 10; }
 
 #bookmarklet:target {
-  display: block;
-}
+  display: block; }
 
 #bookmarklet .background {
   background-color: rgba(0, 0, 0, 0.85);
@@ -370,8 +311,7 @@ header .username p {
   -webkit-transition: background-color 2.5s ease;
   -moz-transition: background-color 2.5s ease;
   transition: background-color 2.5s ease;
-  z-index: 11;
-}
+  z-index: 11; }
 
 #bookmarklet .modal {
   width: 50%;
@@ -393,8 +333,7 @@ header .username p {
   background: #F4F4F4;
   -webkit-transition: top 2.5s ease;
   -moz-transition: top 2.5s ease;
-  transition: top 2.5s ease;
-}
+  transition: top 2.5s ease; }
 
 #bookmarklet .close img {
   -webkit-transition: top 0.3s linear;
@@ -404,12 +343,10 @@ header .username p {
   left: 0;
   top: 0;
   margin: 2%;
-  width: 1.5em;
-}
+  width: 1.5em; }
 
 #bookmarklet .close.lower img {
-  top: 10%;
-}
+  top: 10%; }
 
 #bookmarklet .bookmarklet-explain {
   position: absolute;
@@ -421,32 +358,26 @@ header .username p {
   background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
-  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
-}
+  background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%); }
 
 #bookmarklet .bookmarklet-explain .outercontainer {
   height: 2.5em;
   margin-left: 2%;
-  display: table;
-}
+  display: table; }
 
 #bookmarklet .bookmarklet-explain .innercontainer {
   display: table-cell;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
 #bookmarklet .instructions {
-  padding: 5%;
-}
+  padding: 5%; }
 
 #bookmarklet h1 {
   text-decoration: underline;
-  margin: 2.5% 0 0;
-}
+  margin: 2.5% 0 0; }
 
 #bookmarklet h2 {
-  margin: 0;
-}
+  margin: 0; }
 
 #bookmarklet .bookmarklet {
   margin-top: 7.5%;
@@ -467,42 +398,34 @@ header .username p {
   background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
   background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); }
 
 #bookmarklet .bookmarklet:hover {
   background-color: #6ed149;
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); }
 
 #bookmarklet .bookmarklet:active {
-  cursor: -webkit-grabbing;
-}
+  cursor: -webkit-grabbing; }
 
 #bookmarklet .bookmarklet-instructions {
-  margin-top: 5%;
-}
+  margin-top: 5%; }
 
 @media only screen and (max-width: 768px) {
   .taskitem, .grid-sizer {
-    width: 49%;
-  }
-}
+    width: 49%; } }
 @media only screen and (max-width: 35em) {
+  .tasklist {
+    margin: 0 2.5%; }
+
   .taskitem, .grid-sizer {
-    width: 100%;
-  }
+    width: 100%; }
 
   .taskitem {
-    margin: 2.5% 0;
-  }
+    margin: 2.5% 0; }
 
   #bookmarklet .modal {
     height: 90%;
-    width: 95%;
-  }
+    width: 95%; }
 
   #bookmarklet .close img {
-    margin: 3.5%;
-  }
-}
+    margin: 3.5%; } }

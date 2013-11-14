@@ -18,6 +18,7 @@
 @import "appstyle";
 
 .tasklist {
+	padding-bottom: 1.5%;
 	margin: 0 1.5%;
 }
 
@@ -302,6 +303,10 @@
 }
 
 @media only screen and (max-width: 35em) {
+.tasklist {
+	margin: 0 2.5%;
+}
+
 .taskitem, .grid-sizer {
 	width: 100%;
 }
