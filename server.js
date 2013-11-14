@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
   express = require("express"),
+  fs = require("fs"),
   engine = require("ejs-locals"),
   passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy;
@@ -36,14 +37,14 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var userSchema, User;
 db.once('open', function callback () {
   var findOrCreate = require('mongoose-findorcreate');
-  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, })
+  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, });
   userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     email: String,
     facebookId: Number,
     tasks: [taskSchema]
-  })
+  });
   userSchema.plugin(findOrCreate);
   Task = mongoose.model('Task', taskSchema);
   User = mongoose.model('User', userSchema);
@@ -81,7 +82,7 @@ passport.use(new FacebookStrategy({
             console.log(err);
           }
           var facebookId = profile.id;
-          var name = "Save Tasks with Objective"
+          var name = "Save Tasks with Objective";
           var notes = "Objective allows you to easily save the important things you need to do on the internet for later. To get started, just click the title of this task to add the bookmarklet to your browser.";
           var url = "moin.2013.nodeknockout.com/tasks#bookmarklet";
           var task = new Task({name: name, notes: notes, URL: url});
@@ -173,8 +174,35 @@ app.post('/add/task', function(req, res) {
 });
 app.get('/settings', function(req, res) {
   User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
-    res.render('taskboard.ejs', docs);
+    res.render('settings.ejs', docs);
   });
+});
+app.post('/settings', function(req, res) {
+  if(/^[a-zA-Z0-9- ]*$/.test(req.files.profilephoto.name) === true) {
+    res.send({
+      error: 'Oh no! Your image name contains special/illegal characters. Try again afer renaming your file to not have special characters.'
+    });
+    return;
+  }
+  var serverPath = '/assets/images/uploads/' + req.files.profilephoto.name;
+  console.log(req.files.profilephoto.path);
+  fs.rename(req.files.profilephoto.path, '/Users/derekduncan/code/Objective/app/public' + serverPath,
+    function(error) {
+      fs.unlink(req.files.profilephoto.path, function (err) {
+        if (err) return;
+        console.log('successfully deleted %s', req.files.profilephoto.path);
+      });
+      if(error) {
+        res.send({
+          error: 'Ah crap! Something bad happened'
+        });
+        return;
+      }
+      res.send({
+        path: serverPath
+      });
+    }
+  );
 });
 app.get('/delete', function(req, res) {
   var id = req.query.id;

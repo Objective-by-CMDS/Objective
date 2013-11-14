@@ -1,3 +1,21 @@
 <% layout('layout') -%>
-<% stylesheet('/assets/styles/css/normalize.css') -%>
-<% stylesheet('/assets/styles/css/taskboard.css') -%>
+<link rel="stylesheet" href='/assets/styles/css/settings.css'>
+
+<main class="settingslist">
+  <h1 class="settingstitle">Change your settings</h1>
+  <div class="settingslistcontainer cf">
+    <form id="uploadForm" method="post" action="/settings" enctype="multipart/form-data">
+      <section id="inputbackgroundcontainer">
+        <label class="inputlabels" for="profilephoto">Profile Photo</label><br>
+        <div class="fileinputcontainer">
+          <h6 id="fileselecttext">Select your profile photo</h6>
+          <input id="userPhotoInput" class="fileinputinvis" type="file" name="profilephoto">
+        </div>
+      </section>
+    </form>
+  </div>
+</main>
+<!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script> -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="/assets/scripts/jquery.form.js"></script>
+<script src="/assets/scripts/ajaxSubmitFile.js"></script>

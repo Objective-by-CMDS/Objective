@@ -1,0 +1,78 @@
+@import "constants";
+/* === Nice Tools === */
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+
+/* === Main CSS === */
+
+@import "appstyle";
+
+.settingslistcontainer {
+  width: 80%;
+  margin-left: 10%;
+}
+.settingstitle {
+  font-size: 1.5em;
+  text-align: center;
+}
+#inputbackgroundcontainer {
+  width: 20%;
+}
+.fileinputcontainer {
+  position: relative;
+  background: #fff;
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 -2px 0 #939393 inset;
+  width: 100%;
+  overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  margin: 1.1% 0;
+  &:hover {
+    background: #eee;
+  }
+  &:hover h6 {
+    color: #626262;
+  }
+  .fileinputinvis {
+    z-index: 2;
+    opacity: 0;
+    width: 100%;
+    cursor: pointer;
+  }
+  h6 {
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    margin: 8px 15px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+}
+#backgroundsample {
+  width: 100%;
+  margin-top: 2%;
+  border: 1px solid #c0c0c0;
+}
+.inputlabels {
+  font: 600 1em Oxygen;
+}
+.uploadedPhoto {
+  width: 100%;
+  padding-top: 3%;
+}
