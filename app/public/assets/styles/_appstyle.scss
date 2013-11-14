@@ -114,11 +114,14 @@ header .username p {
 	top: 4.75em;
 	right: 0;
 	width: 10em;
-	border: 1px solid #c0c0c0;
+	border-top: 1px solid $lightgrey;
+	border-right: 1px solid $lightgrey;
+	border-left: 1px solid $lightgrey;
 	display: none;
 	overflow: hidden;
+	z-index: 2;
 	background: #fff;
-	box-shadow: 0 -2px 0 #939393 inset;
+	box-shadow: 0 2px 0 $objgreen; 
 }
 
 .background .user-menu {
@@ -140,7 +143,7 @@ header .username p {
 	}
 
 	.background .user-menu li:hover {
-		background: rgba(200,200,200,0.25);
+		background: rgba(200,200,200,0.35);
 	}
 
 .user-menu a {
