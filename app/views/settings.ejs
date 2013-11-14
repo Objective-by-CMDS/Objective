@@ -4,7 +4,7 @@
 <main class="settingslist">
   <h1 class="settingstitle">Change your settings</h1>
   <div class="settingslistcontainer cf">
-    <form id="uploadForm" method="post" action="/settings" enctype="multipart/form-data">
+    <form id="uploadForm" method="post" action="/settings/save" enctype="multipart/form-data">
       <section id="inputbackgroundcontainer">
         <label class="inputlabels" for="profilephoto">Profile Photo</label><br>
         <div class="fileinputcontainer">
@@ -12,6 +12,7 @@
           <input id="userPhotoInput" class="fileinputinvis" type="file" name="profilephoto">
         </div>
       </section>
+      <input id="saveAjax" type="button" value="Save">
     </form>
   </div>
 </main>

@@ -1,19 +1,16 @@
 $(document).ready(function() {
-  $('.fileinputinvis').on('change', function() {
+  if($('#userPhotoInput').val() === '') {
+    $('#saveAjax').attr('disabled', 'disabled');
+  }
+  $('#userPhotoInput').on('change', function() {
     $('#fileselecttext').text(this.value.split(/[\/\\]/).pop());
     $('.fileinputcontainer').height('200px');
-  });
-  var timerId;
-  timerId = setInterval(function() {
-    if($('#userPhotoInput').val() !== '') {
-      clearInterval(timerId);
-      $('#uploadForm').submit();
-    }
-  }, 500);
-  $('form').submit(function() {
-    $(this).ajaxSubmit({
+    $('#saveAjax').removeAttr('disabled');
+
+    $('#uploadForm').ajaxSubmit({
+      url: 'http://localhost:8000/settings',
       success: function(response) {
-        console.log("SUCCESS UPLOADING BEFORE ERROR REPORTING");
+        console.log("SUCCESS UPLOADING TEMP FILE BEFORE ERROR REPORTING");
         if(response.error) {
           console.log("ERROR UPLOADING");
             $('.fileinputcontainer').append($("<h5 style='color: red; text-align: center; padding: 1%;'>" + response.error + "</h5>"));
@@ -25,6 +22,18 @@ $(document).ready(function() {
         $('.fileinputcontainer').append($(node));
       }
     });
-    return false;
+  });
+
+  $('#saveAjax').on('click', function() {
+    $.ajax({
+      url: 'http://localhost:8000/settings/save',
+      type: 'POST',
+      //Ajax events
+      // beforeSend: beforeSendHandler,
+      success: console.log("Successfully send oldData"),
+      // error: errorHandler,
+      // Form data
+      data: {pathToFile: $('.uploadedPhoto').attr('src')}
+    });
   });
 });

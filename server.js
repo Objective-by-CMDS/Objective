@@ -179,19 +179,41 @@ app.get('/settings', function(req, res) {
   });
 });
 app.post('/settings', function(req, res) {
+  console.log("received request!");
   if(/^[a-zA-Z0-9- ]*$/.test(req.files.profilephoto.name) === true) {
     res.send({
       error: 'Oh no! Your image name contains special/illegal characters. Try again afer renaming your file to not have special characters.'
     });
     return;
   }
-  var serverPath = '/assets/images/uploads/' + req.files.profilephoto.name;
-  console.log(req.files.profilephoto.path);
-  fs.rename(req.files.profilephoto.path, __dirname + '/app/public' + serverPath,
+  var tempPath = '/assets/images/temp/' + req.files.profilephoto.name;
+  fs.rename(req.files.profilephoto.path, __dirname + '/app/public' + tempPath,
     function(error) {
       fs.unlink(req.files.profilephoto.path, function (err) {
         if (err) return;
-        console.log('successfully deleted %s', req.files.profilephoto.path);
+        console.log('successfully deleted first file:  %s', req.files.profilephoto.path);
+      });
+      if(error) {
+        res.send({
+          error: 'Ah crap! Something bad happened while moving/deleting files.'
+        });
+        return;
+      }
+      res.send({
+        path: tempPath
+      });
+    }
+  );
+});
+app.post('/settings/save', function(req, res) {
+  var oldToFile = __dirname + '/app/public' + req.body.pathToFile //FUll path
+    , pathToFile = (req.body.pathToFile).replace(/\/temp\//, '/uploads/'); // starts at /assets/
+  console.log("New File: " + pathToFile + ", Old File: " + oldToFile);
+  fs.rename(oldToFile, __dirname + '/app/public' + pathToFile,
+    function(error) {
+      fs.unlink(oldToFile, function (err) {
+        if (err) return;
+        console.log('successfully deleted %s', oldToFile);
       });
       if(error) {
         res.send({
@@ -205,7 +227,7 @@ app.post('/settings', function(req, res) {
           console.log('successfully deleted old photo %s', __dirname + '/app/public' + docs.profilephoto);
         });
       });
-      User.update({ _id: req.cookies.objectID }, { $set: {profilephoto: serverPath}}, function (err, user) {
+      User.update({ _id: req.cookies.objectID }, { $set: {profilephoto: pathToFile}}, function (err, user) {
         if (err) {
           console.log("A mysterious error occured saving profilephoto to  " + req.cookies.objectID);
           console.log(err);
@@ -215,7 +237,7 @@ app.post('/settings', function(req, res) {
         }
       });
       res.send({
-        path: serverPath
+        path: pathToFile
       });
     }
   );
