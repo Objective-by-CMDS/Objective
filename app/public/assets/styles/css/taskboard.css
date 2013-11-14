@@ -144,7 +144,7 @@ header .username p {
   transition: color 0.10s ease; }
 
 .user-menu a:hover {
-  color: #474747; }
+  color: #8ad56f; }
 
 @media only screen and (max-width: 35em) {
   header {
