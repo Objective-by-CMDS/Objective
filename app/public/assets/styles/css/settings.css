@@ -425,14 +425,6 @@ header .username p {
   margin-top: 5%;
 }
 
-.booklink {
-  color: #8ad56f;
-  text-decoration: none;
-}
-.booklink:hover {
-  color: #52ac32;
-}
-
 @media only screen and (max-width: 35em) {
   #bookmarklet .modal {
     height: 90%;

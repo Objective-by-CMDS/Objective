@@ -359,6 +359,39 @@ header .username p {
   margin: 2.7% 0 0 0;
 }
 
+.no-tasks {
+  -webkit-transition: box-shadow 0.35s ease, background 0.35s ease;
+  -moz-transition: box-shadow 0.35s ease, background 0.35s ease;
+  transition: box-shadow 0.35s ease, background 0.35s ease;
+  background: #F4F4F4;
+  border-top: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
+  padding: 1.5% 1em;
+  width: 50%;
+  box-shadow: 0px 2px 0px #FFA73B;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.2em;
+}
+
+a.no-tasks {
+  color: #444444;
+  text-decoration: none;
+}
+
+.no-tasks:hover {
+  box-shadow: 0px 5px 0px rgba(255, 166, 58, 0.85);
+}
+
+.background .no-tasks {
+  background: rgba(245, 245, 245, 0.8);
+}
+
+.background .no-tasks:hover {
+  background: rgba(245, 245, 245, 0.9);
+}
+
 /* === Bookmarklet === */
 #bookmarklet {
   display: none;
@@ -493,14 +526,6 @@ header .username p {
   margin-top: 5%;
 }
 
-.booklink {
-  color: #8ad56f;
-  text-decoration: none;
-}
-.booklink:hover {
-  color: #52ac32;
-}
-
 @media only screen and (max-width: 35em) {
   #bookmarklet .modal {
     height: 90%;
@@ -532,5 +557,10 @@ header .username p {
 
   .gutter-sizer {
     width: 0;
+  }
+
+  .no-tasks {
+    width: 87.5%;
+    margin: 2.5% auto;
   }
 }
