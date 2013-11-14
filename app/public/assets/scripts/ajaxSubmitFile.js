@@ -17,7 +17,6 @@ $(document).ready(function() {
           return;
         }
         var imageUrlOnServer = response.path;
-        console.log("Path: " + imageUrlOnServer);
         var node = '<img class="uploadedPhoto" src="' + imageUrlOnServer + '"/>';
         $('.fileinputcontainer').append($(node));
       }
@@ -30,7 +29,14 @@ $(document).ready(function() {
       type: 'POST',
       //Ajax events
       // beforeSend: beforeSendHandler,
-      success: console.log("Successfully send oldData"),
+      success: function(response) {
+        $(this).attr('value', "Saved");
+        $(this).css('background', '#57ff90');
+        $('.userpic').attr('src', response.path);
+        $('.uploadedPhoto').remove();
+        $('.fileinputcontainer').height('auto');
+        $('#fileselecttext').text("Uploaded photo!");
+      },
       // error: errorHandler,
       // Form data
       data: {pathToFile: $('.uploadedPhoto').attr('src')}

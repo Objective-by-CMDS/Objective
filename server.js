@@ -179,7 +179,6 @@ app.get('/settings', function(req, res) {
   });
 });
 app.post('/settings', function(req, res) {
-  console.log("received request!");
   if(/^[a-zA-Z0-9- ]*$/.test(req.files.profilephoto.name) === true) {
     res.send({
       error: 'Oh no! Your image name contains special/illegal characters. Try again afer renaming your file to not have special characters.'

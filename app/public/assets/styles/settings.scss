@@ -76,3 +76,19 @@
   width: 100%;
   padding-top: 3%;
 }
+#saveAjax {
+  width: 20%;
+  outline: none;
+  background: #9fffbc;
+  color: #68B77C;
+  font: 600 1em Oxygen;
+  border: 1px solid #68b77c;
+  box-shadow: 0 2px 0 #939393;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+  &:hover {
+    color: #325e3a;
+  }
+}
