@@ -129,7 +129,13 @@
 #bookmarklet .bookmarklet-instructions {
 	margin-top: 5%;
 }
-
+.booklink {
+	color: $objgreen;
+	text-decoration: none;
+	&:hover {
+		color: darken($objgreen, 20%);
+	}
+}
 @media only screen and (max-width: 35em) {
 #bookmarklet .modal {
 	height: 90%;

@@ -26,7 +26,9 @@
 		<div class="tasklistcontainer" id="masonryContainer">
 		<div class="grid-sizer"></div>
 		<div class="gutter-sizer"></div>
-
+	<% if (tasks.length == 0) { %>
+		<p>You have no tasks! :( <br> <a class="booklink" href="#bookmarklet">Read here</a> if you're confused on what to do.</p>
+	<% } else { %>
 	<% tasks.forEach(function(task, i){ %>
 	<div class="taskitem cf">
 		<div class="itemleft">
@@ -45,7 +47,7 @@
 			<% } %>
 		</div>
 	</div>
-	<%})%>
+	<%}); }%>
 	</div>
 </main>
 <!-- JQUERY INCLUDED IN LAYOUT.EJS -->
