@@ -186,7 +186,7 @@ app.post('/settings', function(req, res) {
   }
   var serverPath = '/assets/images/uploads/' + req.files.profilephoto.name;
   console.log(req.files.profilephoto.path);
-  fs.rename(req.files.profilephoto.path, '/Users/derekduncan/code/Objective/app/public' + serverPath,
+  fs.rename(req.files.profilephoto.path, __dirname + '/app/public' + serverPath,
     function(error) {
       fs.unlink(req.files.profilephoto.path, function (err) {
         if (err) return;
