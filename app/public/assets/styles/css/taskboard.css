@@ -44,12 +44,12 @@ header {
 
 header .container {
   margin: 0 auto;
-  width: 100%;
+  width: 95%;
   max-width: 85em; }
 
 .branding {
   float: left;
-  margin: 0 2.5%; }
+  margin-right: 2.5%; }
 
 .branding img {
   vertical-align: middle;
@@ -60,7 +60,6 @@ header .container {
 
 header .user {
   float: right;
-  margin-right: 2.5%;
   cursor: pointer; }
 
 header .userpic, header .username {
