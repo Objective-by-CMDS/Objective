@@ -44,17 +44,15 @@ ul {
 
 header {
 	color: $text-color;
-	border-bottom: 1px solid #ccc;
 	width: 100%;
-	position: relative;
+	padding: 1.5% 0 0.5%;
 	z-index: 2;
-	padding: 1% 0;
-	background: rgba(232,232,232,0.35);
-	background: -o-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
-	background: -moz-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
-	background: -webkit-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
-	background: -ms-linear-gradient(-90deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
-	background: linear-gradient(-180deg, #FFFFFF 0%, rgba(232,232,232,0.35) 50%);
+	background: rgba(245,245,245,0.75);
+	background: -o-linear-gradient(-90deg, rgba(245,245,245,0.75) 0%, rgba(245,245,245,0.5) 65%, rgba(245,245,245,0) 100%);
+	background: -moz-linear-gradient(-90deg, rgba(245,245,245,0.75) 0%, rgba(245,245,245,0.50) 65%, rgba(245,245,245,0.00) 100%);
+	background: -webkit-linear-gradient(-90deg, rgba(245,245,245,0.75) 0%, rgba(245,245,245,0.50) 65%, rgba(245,245,245,0.00) 100%);
+	background: -ms-linear-gradient(-90deg, rgba(245,245,245,0.75) 0%, rgba(245,245,245,0.50) 65%, rgba(245,245,245,0.00) 100%);
+	background: linear-gradient(-180deg, rgba(245,245,245,0.75) 0%, rgba(245,245,245,0.5) 65%, rgba(245,245,245,0) 100%);
 }
 
 header .container {
