@@ -2,91 +2,73 @@
 <% stylesheet('/assets/styles/css/normalize.css') -%>
 <% stylesheet('/assets/styles/css/taskboard.css') -%>
 
-	<section id="bookmarklet">
-		<a href="#" class="background"></a>
-		<a href="#" class="close"><img src="assets/images/close.svg"></a>
-		<div class="modal">
-		<div class="bookmarklet-explain">
-			<div class="outercontainer">
-			<div class="innercontainer">
-				<span class="text">Drag the button up into your bookmarks bar to add tasks to Objective!</span>
-			</div>
-			</div>
-		</div>
-		<div class="instructions">
-		<h1>Bookmarklet</h1>
-		<h2>Adding tasks to Objective</h2>
-		<a class="bookmarklet" href='javascript:void((function(){var id = "<%=_id%>";var name = prompt("Enter name for task:");var notes = prompt("Enter notes for task:");var url = location.href.replace(/https?:\/\//i, "");(new Image()).src = ("http://moin.2013.nodeknockout.com/add/task/?id="+id+"&name="+name+"&notes="+notes+"&url="+url);})());'>Add to Objective</a>
-		<p class="bookmarklet-instructions">Drag this into your bookmarks bar so you can easily add tasks to Objective.<br><br>Next time you have something that you need to add to your task list, just give this link a click from your bookmarks bar.</p>
+<section id="bookmarklet">
+	<a href="#" class="background"></a>
+	<a href="#" class="close"><img src="assets/images/close.svg"></a>
+	<div class="modal">
+	<div class="bookmarklet-explain">
+		<div class="outercontainer">
+		<div class="innercontainer">
+			<span class="text">Drag the button up into your bookmarks bar to add tasks to Objective!</span>
 		</div>
 		</div>
-	</section>
+	</div>
+	<div class="instructions">
+	<h1>Bookmarklet</h1>
+	<h2>Adding tasks to Objective</h2>
+	<a class="bookmarklet" href='javascript:void((function(){var id = "<%=_id%>";var name = prompt("Enter name for task:");var notes = prompt("Enter notes for task:");var url = location.href.replace(/https?:\/\//i, "");(new Image()).src = ("http://moin.2013.nodeknockout.com/add/task/?id="+id+"&name="+name+"&notes="+notes+"&url="+url);})());'>Add to Objective</a>
+	<p class="bookmarklet-instructions">Drag this into your bookmarks bar so you can easily add tasks to Objective.<br><br>Next time you have something that you need to add to your task list, just give this link a click from your bookmarks bar.</p>
+	</div>
+	</div>
+</section>
 
-	<main class="tasklist">
-		<div class="tasklistcontainer cf">
-		<div class="grid-sizer"></div>
+<main class="tasklist">
+	<div class="tasklistcontainer cf">
+	<div class="grid-sizer"></div>
 
-		<% tasks.forEach(function(task, i){ %>
-		<div class="taskitem cf">
-			<div class="itemleft">
-				<a href="http://<%= task['URL'] %>"><img class="taskicon" src="http://o.fvicon.com/<%=task['URL']%>?includesocial=true&filter=apple-touch-icon-precomposed"></a>
-				<a class="completebutton" href="delete?id=<%=task['_id']%>">
-					<svg class="circle" width="32px" height="32px" viewBox="0 0 32 32"><g class="circlefill" transform="translate(-64.000000, -64.000000)" fill="#444444" fill-rule="evenodd"><path d="M80,96 C88.8365564,96 96,88.8365564 96,80 C96,71.1634436 88.8365564,64 80,64 C71.1634436,64 64,71.1634436 64,80 C64,88.8365564 71.1634436,96 80,96 Z M80.1066667,93.12 C87.2937326,93.12 93.12,87.2937326 93.12,80.1066667 C93.12,72.9196008 87.2937326,67.0933333 80.1066667,67.0933333 C72.9196008,67.0933333 67.0933333,72.9196008 67.0933333,80.1066667 C67.0933333,87.2937326 72.9196008,93.12 80.1066667,93.12 Z M80.1066667,93.12"></path></g></svg>
-					<img class="checkmark" src="../assets/images/check.svg">
-				</a>
-			</div>
-			<div class="iteminfo">
-				<a href="http://<%= task['URL'] %>"><h1><%= task['name'].length > 28 ? task['name'].substring(0, 25) + "..." : task['name']%></h1></a>
-				<% if (task['notes'] != '') { %>
-					<p><%= task['notes'].length > 80 ? task['notes'].substring(0, 88) + "..." : task['notes'] %></p>
-				<% } else { %>
-					<p><i>No Notes</i></p>
-				<% } %>
-			</div>
+	<% tasks.forEach(function(task, i){ %>
+	<div class="taskitem cf">
+		<div class="itemleft">
+			<a href="http://<%= task['URL'] %>"><img class="taskicon" src="http://o.fvicon.com/<%=task['URL']%>?includesocial=true&filter=apple-touch-icon-precomposed"></a>
+			<a class="completebutton" href="delete?id=<%=task['_id']%>">
+				<svg class="circle" width="32px" height="32px" viewBox="0 0 32 32"><g class="circlefill" transform="translate(-64.000000, -64.000000)" fill="#444444" fill-rule="evenodd"><path d="M80,96 C88.8365564,96 96,88.8365564 96,80 C96,71.1634436 88.8365564,64 80,64 C71.1634436,64 64,71.1634436 64,80 C64,88.8365564 71.1634436,96 80,96 Z M80.1066667,93.12 C87.2937326,93.12 93.12,87.2937326 93.12,80.1066667 C93.12,72.9196008 87.2937326,67.0933333 80.1066667,67.0933333 C72.9196008,67.0933333 67.0933333,72.9196008 67.0933333,80.1066667 C67.0933333,87.2937326 72.9196008,93.12 80.1066667,93.12 Z M80.1066667,93.12"></path></g></svg>
+				<img class="checkmark" src="../assets/images/check.svg">
+			</a>
 		</div>
-		<%})%>
+		<div class="iteminfo">
+			<a href="http://<%= task['URL'] %>"><h1><%=task['name']%></h1></a>
+			<% if (task['notes'] != '') { %>
+				<p><%= task['notes'] %></p>
+			<% } else { %>
+				<p><i>No Notes</i></p>
+			<% } %>
 		</div>
-	</main>
+	</div>
+	<%})%>
+	</div>
+</main>
+<!-- JQUERY INCLUDED IN LAYOUT.EJS -->
+<script src="/assets/scripts/libs/masonry.min.js"></script>
+<script>
+	$(document).ready(function(){
 
-	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-	<script src="/assets/scripts/libs/masonry.min.js"></script>
-	<script>
-		$(document).ready(function(){
+		var $container = $('#masonryContainer');
+		$container.masonry({ gutter: 15, columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
+		$container.masonry('bindResize');
 
-			var $container = $('#masonryContainer');
-			$container.masonry({ gutter: 15, columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
-			$container.masonry('bindResize');
-
-			$('header .user').mouseenter(function() {
-				$('.user-menu').fadeIn('300');
-			});
-			$('header .user').click(function() {
-				$('.user-menu').fadeToggle('300');
-			});
-			$('.user-menu').mouseleave(function() {
-				$('.user-menu').fadeOut('300');
-			});
-			$('.bookmarklet').mouseenter(function() {
-				$('.bookmarklet-explain').slideDown('300');
-				$('.close').addClass('lower');
-			});
-			$('body').mouseleave(function() {
-				$('.bookmarklet-explain').slideUp('show');
-				$('.close').removeClass('lower');
-			});
-			$('.completebutton').hover(function() {
-				$(this).children('.checkmark').toggleClass('active');
-			});
-			$('.completebutton').click(function() {
-				$(this).closest('.taskitem').fadeOut('300', function(){
-					$(this).remove();
-					$container.masonry();
-				});
+		$('.completebutton').hover(function() {
+			$(this).children('.checkmark').toggleClass('active');
+		});
+		$('.completebutton').click(function() {
+			$(this).closest('.taskitem').fadeOut('300', function(){
+				$(this).remove();
+				$container.masonry();
 			});
 		});
+	});
 
-		function deleteTask(id) {
-			$.get("http://localhost:8000/delete/task/" + id);
-			console.log(id);
-		}
-	</script>
+	function deleteTask(id) {
+		$.get("http://localhost:8000/delete/task/" + id);
+		console.log(id);
+	}
+</script>
