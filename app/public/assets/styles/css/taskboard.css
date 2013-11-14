@@ -403,7 +403,7 @@ a.no-tasks {
 }
 
 #bookmarklet .background {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.75);
   position: fixed;
   display: block;
   top: 0;
