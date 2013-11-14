@@ -416,6 +416,13 @@ header .username p {
 #bookmarklet .bookmarklet-instructions {
   margin-top: 5%; }
 
+@media only screen and (max-width: 35em) {
+  #bookmarklet .modal {
+    height: 90%;
+    width: 95%; }
+
+  #bookmarklet .close img {
+    margin: 3.5%; } }
 @media only screen and (max-width: 768px) {
   .taskitem, .grid-sizer {
     width: 48.75%; }
@@ -431,11 +438,4 @@ header .username p {
     margin: 2.5% 0; }
 
   .gutter-sizer {
-    width: 0; }
-
-  #bookmarklet .modal {
-    height: 90%;
-    width: 95%; }
-
-  #bookmarklet .close img {
-    margin: 3.5%; } }
+    width: 0; } }
