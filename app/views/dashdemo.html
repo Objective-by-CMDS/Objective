@@ -91,6 +91,7 @@
 			<span class="username"><p>Scott</p><span class="arrow-down"></span></span>
 		</div>
 		<div class="user-menu">
+			<a><li class="refresh">Refresh Grid</li></a>
 			<a href="#bookmarklet"><li>Bookmarklet</li></a>
 			<a href=""><li>Sign Out</li></a>
 		</div>
@@ -99,6 +100,7 @@
 	<main class="tasklist">
 		<div class="tasklistcontainer" id="masonryContainer">
 		<div class="grid-sizer"></div>
+		<div class="gutter-sizer"></div>
 		<div class="taskitem cf">
 			<div class="itemleft">
 				<a href="http://dribbble.com/shots/1308850-Disneyland-App-Icon/"><img class="taskicon" src="../public/assets/images/demo/dribbble.png"></a>
@@ -177,7 +179,7 @@
 		$(document).ready(function(){
 		
 			var $container = $('#masonryContainer');
-			$container.masonry({ gutter: 15, columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
+			$container.masonry({ gutter: '.gutter-sizer', columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
 			$container.masonry('bindResize');
 			
 			$('header .user').mouseenter(function() {
@@ -205,6 +207,9 @@
 					$(this).remove();
 					$container.masonry();
 				});
+			});
+			$('.refresh').click(function() {
+				$container.masonry();
 			});
 		});
 	</script>

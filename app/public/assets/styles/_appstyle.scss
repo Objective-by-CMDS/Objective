@@ -148,7 +148,7 @@ header .username p {
 	}
 
 .user-menu a {
-	color: $text-color;
+	color: #848484;
 	text-decoration: none;
 	-webkit-transition: color 0.10s ease;
 	-moz-transition: color 0.10s ease;
@@ -156,7 +156,7 @@ header .username p {
 }
 
 .user-menu a:hover {
-	color: $objgreen;
+	color: $text-color;
 }
 
 

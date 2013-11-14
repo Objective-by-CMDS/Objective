@@ -138,14 +138,14 @@ header .username p {
   background: rgba(200, 200, 200, 0.35); }
 
 .user-menu a {
-  color: #444444;
+  color: #848484;
   text-decoration: none;
   -webkit-transition: color 0.10s ease;
   -moz-transition: color 0.10s ease;
   transition: color 0.10s ease; }
 
 .user-menu a:hover {
-  color: #8ad56f; }
+  color: #444444; }
 
 @media only screen and (max-width: 35em) {
   header {
