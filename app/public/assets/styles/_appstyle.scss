@@ -1,6 +1,6 @@
 html.background {
 	background: url('../../images/background1.jpg') fixed;
-	background-size: cover; 
+	background-size: cover;
 }
 
 body {
@@ -63,13 +63,13 @@ header .user {
 header .userpic, header .username {
 	-webkit-transition: opacity 0.25s ease;
 	-moz-transition: opacity 0.25s ease;
-	transition: opacity 0.25s ease;	
+	transition: opacity 0.25s ease;
 }
 
 	header .userpic:hover, header .username:hover {
 		opacity: 0.60;
 	}
-	
+
 	header .userpic:active, header .username:active {
 		opacity: 0.85;
 	}
@@ -114,12 +114,11 @@ header .username p {
 	top: 4.75em;
 	right: 0;
 	width: 10em;
-	border-bottom: 2px solid $objgreen;
-	z-index: 2;
+	border: 1px solid #c0c0c0;
 	display: none;
 	overflow: hidden;
-	background: #F4F4F4;
-	box-shadow: 0px 0px 10px rgba(0,0,0,0.35);
+	background: #fff;
+	box-shadow: 0 -2px 0 #939393 inset;
 }
 
 .background .user-menu {
@@ -135,11 +134,11 @@ header .username p {
 	-moz-transition: background 0.25s ease;
 	transition: background 0.25s ease;
 }
-	
+
 	.user-menu li:hover {
-		background: #eaeaea;
+		background: #eee;
 	}
-	
+
 	.background .user-menu li:hover {
 		background: rgba(200,200,200,0.25);
 	}
@@ -153,7 +152,7 @@ header .username p {
 }
 
 .user-menu a:hover {
-	color: $objgreen;
+	color: #474747;
 }
 
 
@@ -192,5 +191,5 @@ header .username p {
 }
 
 .arrow-down {
-	
+
 } }
