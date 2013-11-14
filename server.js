@@ -43,7 +43,8 @@ db.once('open', function callback () {
     lastName: String,
     email: String,
     facebookId: Number,
-    tasks: [taskSchema]
+    tasks: [taskSchema],
+    profilephoto: String
   });
   userSchema.plugin(findOrCreate);
   Task = mongoose.model('Task', taskSchema);
@@ -52,7 +53,7 @@ db.once('open', function callback () {
 
 app.get('/', function(req, res) {
     if (typeof req.cookies.objectID != 'undefined') {
-      User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
+      User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
         res.render('taskboard.ejs', docs);
       });
     } else {
@@ -61,7 +62,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/tasks', function(req, res) {
-  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
+  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
     res.render('taskboard.ejs', docs);
   });
 });
@@ -173,7 +174,7 @@ app.post('/add/task', function(req, res) {
   });
 });
 app.get('/settings', function(req, res) {
-  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks', function(err, docs) {
+  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
     res.render('settings.ejs', docs);
   });
 });
@@ -198,6 +199,21 @@ app.post('/settings', function(req, res) {
         });
         return;
       }
+      User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+        fs.unlink(__dirname + '/app/public' + docs.profilephoto, function (err) {
+          if (err) return;
+          console.log('successfully deleted old photo %s', __dirname + '/app/public' + docs.profilephoto);
+        });
+      });
+      User.update({ _id: req.cookies.objectID }, { $set: {profilephoto: serverPath}}, function (err, user) {
+        if (err) {
+          console.log("A mysterious error occured saving profilephoto to  " + req.cookies.objectID);
+          console.log(err);
+        }
+        else {
+          console.log("Success on the profile photo!");
+        }
+      });
       res.send({
         path: serverPath
       });

@@ -66,7 +66,7 @@
       <a href="/"><img class="objlogo" src="assets/images/ObjectiveLogo.svg"></a>
     </div>
     <div class="user">
-      <img class="userpic" src="http://graph.facebook.com/<%=facebookId%>/picture?type=normal">
+      <img class="userpic" src="<% if (typeof profilephoto != 'undefined') { %> <%= profilephoto %> <% } else { %> http://graph.facebook.com/<%=facebookId%>/picture?type=normal<%}%>">
        <span class="username"><p><%= firstName %></p><span class="arrow-down"></span></span>
     </div>
     <div class="user-menu">
