@@ -24,7 +24,7 @@ html.background {
 	}
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (min-width: 1921) {
+@media (min-width: 1921px) and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	html.background {
 	   background-image: url('../../images/desktopbackground2x.jpg');
 	}

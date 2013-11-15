@@ -25,7 +25,7 @@ html.background {
     background-image: url("../../images/mobilebackground2x.jpg");
   }
 }
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (min-width: 1921) {
+@media (min-width: 1921px) and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   html.background {
     background-image: url("../../images/desktopbackground2x.jpg");
   }
@@ -305,6 +305,7 @@ header .username p {
   opacity: 0;
   height: 2em;
   position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   cursor: pointer;
