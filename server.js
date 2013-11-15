@@ -5,6 +5,8 @@ var mongoose = require('mongoose'),
   imageMagick = gm.subClass({ imageMagick: true }),
   engine = require("ejs-locals"),
   passport = require('passport'),
+  sys = require('sys'),
+  exec = require('child_process').exec,
   FacebookStrategy = require('passport-facebook').Strategy;
 
 var port = 8000;
