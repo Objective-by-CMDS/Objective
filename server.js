@@ -1,6 +1,8 @@
 var mongoose = require('mongoose'),
   express = require("express"),
   fs = require("fs"),
+  gm = require('gm'),
+  imageMagick = gm.subClass({ imageMagick: true }),
   engine = require("ejs-locals"),
   passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy;
@@ -181,20 +183,38 @@ app.get('/settings', function(req, res) {
   });
 });
 app.post('/settings', function(req, res) {
-  if(/^[a-zA-Z0-9- ]*$/.test(req.files.profilephoto.name) === true) {
+  var item = req.files.profilephoto;
+  if(/^[a-zA-Z0-9- ]*$/.test(item.name) === true) {
     res.send({
       error: 'Oh no! Your image name contains special/illegal characters. Try again afer renaming your file to not have special characters.'
     });
+    removeFile(item.path);
     return;
   }
-  var tempPath = '/assets/images/temp/' + req.files.profilephoto.name;
-  fs.rename(req.files.profilephoto.path, __dirname + '/app/public' + tempPath,
+  if (item.size > 2097152) {
+    res.send({
+      error: 'Your file is too large! It must be under 2mb. Yours is ' + Math.floor(item.size / 1024 * 0.001, 10) + 'mb'
+    });
+    removeFile(item.path);
+    return;
+  }
+  if (item.type !== 'image/png' && item.type !== 'image/jpg' && item.type !== 'image/jpeg' && item.type !== 'image/gif') {
+    res.send({
+      error: 'Invalid image format. PNG, JPG, and GIF files are only allowed'
+    });
+    return;
+  }
+  var tempPath = '/assets/images/temp/' + item.name,
+      fullTempPath = __dirname + '/app/public' + tempPath;
+  fs.rename(item.path, fullTempPath,
     function(error) {
-      console.log("this: " + req.files.profilephoto.path + " to: " + __dirname + '/app/public' + tempPath);
-      fs.unlink(req.files.profilephoto.path, function (err) {
-        if (err) return;
-        console.log('successfully deleted first file:  %s', req.files.profilephoto.path);
-      });
+      console.log("this: " + item.path + " to: " + fullTempPath);
+      removeFile(item.path);
+      imageMagick(fullTempPath)
+        .resize(200, 200)
+        .write(fullTempPath, function(error) {
+          if (error) console.log(error);
+        });
       if(error) {
         console.log(error);
         res.send({
@@ -214,10 +234,7 @@ app.post('/settings/save', function(req, res) {
   console.log("New File: " + pathToFile + ", Old File: " + oldToFile);
   fs.rename(oldToFile, __dirname + '/app/public' + pathToFile,
     function(error) {
-      fs.unlink(oldToFile, function (err) {
-        if (err) return;
-        console.log('successfully deleted %s', oldToFile);
-      });
+      removeFile(oldToFile);
       if(error) {
         console.log(error);
         res.send({
@@ -226,10 +243,7 @@ app.post('/settings/save', function(req, res) {
         return;
       }
       User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
-        fs.unlink(__dirname + '/app/public' + docs.profilephoto, function (err) {
-          if (err) return;
-          console.log('successfully deleted old photo %s', __dirname + '/app/public' + docs.profilephoto);
-        });
+        removeFile(__dirname + '/app/public' + docs.profilephoto);
       });
       User.update({ _id: req.cookies.objectID }, { $set: {profilephoto: pathToFile}}, function (err, user) {
         if (err) {
@@ -246,6 +260,13 @@ app.post('/settings/save', function(req, res) {
     }
   );
 });
+function removeFile (file) {
+  fs.unlink(file, function (err) {
+    if (err) return;
+    console.log('successfully deleted the file %s', file);
+  });
+  return;
+}
 app.get('/delete', function(req, res) {
   var id = req.query.id;
   User.update({'tasks._id':id}, { $pull: { tasks: {_id: id}}}, function (err) {
