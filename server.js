@@ -116,7 +116,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }))
 app.get('/auth/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
-    res.cookie('objectID', req.user._id);
+    res.cookie('objectID', req.user._id, { domain : ".getobjective.com" });
     res.redirect('/tasks');
 });
 
