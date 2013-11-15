@@ -195,6 +195,7 @@ app.post('/settings', function(req, res) {
         console.log('successfully deleted first file:  %s', req.files.profilephoto.path);
       });
       if(error) {
+        console.log(error);
         res.send({
           error: 'Ah crap! Something bad happened while moving/deleting files.'
         });
@@ -217,8 +218,9 @@ app.post('/settings/save', function(req, res) {
         console.log('successfully deleted %s', oldToFile);
       });
       if(error) {
+        console.log(error);
         res.send({
-          error: 'Ah crap! Something bad happened'
+          error: 'Ah crap! Something bad happened' + error
         });
         return;
       }
