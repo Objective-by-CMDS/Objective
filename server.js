@@ -189,6 +189,7 @@ app.post('/settings', function(req, res) {
   }
   var tempPath = '/assets/images/temp/' + req.files.profilephoto.name;
   fs.rename(req.files.profilephoto.path, __dirname + '/app/public' + tempPath,
+    console.log(__dirname + '/app/public' + tempPath);
     function(error) {
       fs.unlink(req.files.profilephoto.path, function (err) {
         if (err) return;
