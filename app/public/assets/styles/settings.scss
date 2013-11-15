@@ -9,6 +9,7 @@
 	-moz-transition: background 0.35s ease;
 	transition: background 0.35s ease;
 	width: 80%;
+	max-width: 35em;
 	background: #F4F4F4;
 	border-radius: 8px;
 	margin: 0 auto;
@@ -35,25 +36,29 @@
 }
 
 #inputbackgroundcontainer {
-	width: 20%;
 	margin: 0 auto;
 }
 
 .fileinputcontainer {
 	position: relative;
-	background: #fff;
+	background: #F4F4F4;
 	height: 2em;
-	border: 1px solid #c0c0c0;
-	box-shadow: 0 -2px 0 #939393 inset;
+	display: inline-block;
+	padding: 1% 2.5% 0;
+	border-top: 1px solid $lightgrey;
+	border-left: 1px solid $lightgrey;
+	border-right: 1px solid $lightgrey;
+	box-shadow: 0px 2px 0px $objgreen;
+	margin: 2.5% 0;
 	overflow: hidden;
 	-webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
-	margin: 5% 0;
 	cursor: pointer;
 	&:hover {
-		background: #eee;
+		background: #eaeaea;
+		box-shadow: 0px 5px 0px rgba(139,215,112,0.85);
 	}
 	&:hover span {
 		color: #626262;
@@ -78,17 +83,25 @@ span {
 }
 .inputlabels {
 	font-weight: 700;
+	display: block;
 }
 .uploadedPhoto {
 	width: 100%;
 	padding-top: 3%;
 }
 .button {
-	padding: 0.5em 1.25em
+	padding: 0.5em 1.25em;
+	margin-top: 2.5%;
 }
 @media only screen and (max-width: 35em) {
-#inputbackgroundcontainer {
-	width: 80%;
+.settingslist {
+	width: 90%;
+	padding-bottom: 5%;
+	margin-top: 5%;
+}
+
+.profileimageupload {
+	margin-top: 5%;	
 }
 }
 @import "bookmarklet";
