@@ -1,11 +1,11 @@
 html.background {
-	background: url('../../images/background1.jpg') fixed;
+	background: url('/assets/images/background1.jpg') fixed;
 	background-size: cover;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 html.background {
-   background-image: url('../../images/background1@2x.jpg');
+   background-image: url('/assets/images/background1@2x.jpg');
 }
 }
 
@@ -127,7 +127,7 @@ header .username p {
 	overflow: hidden;
 	z-index: 2;
 	background: #fff;
-	box-shadow: 0 2px 0 $objgreen; 
+	box-shadow: 0 2px 0 $objgreen;
 }
 
 .background .user-menu {

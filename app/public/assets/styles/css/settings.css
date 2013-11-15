@@ -14,13 +14,13 @@
 
 /* === Main CSS === */
 html.background {
-  background: url("../../images/background1.jpg") fixed;
+  background: url("/assets/images/background1.jpg") fixed;
   background-size: cover;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   html.background {
-    background-image: url("../../images/background1@2x.jpg");
+    background-image: url("/assets/images/background1@2x.jpg");
   }
 }
 body {
@@ -296,6 +296,11 @@ header .username p {
   color: #325e3a;
 }
 
+@media only screen and (max-width: 35em) {
+  #saveAjax, #inputbackgroundcontainer {
+    width: 100%;
+  }
+}
 /* === Bookmarklet === */
 #bookmarklet {
   display: none;
