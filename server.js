@@ -5,8 +5,7 @@ var mongoose = require('mongoose'),
   passport = require('passport'),
   FacebookStrategy = require('passport-facebook').Strategy;
 
-var isProduction = (process.env.NODE_ENV === 'production');
-var port = (isProduction ? 80 : 8000);
+var port = 8000;
 
 var app = express();
 app.engine('ejs', engine);
