@@ -8,7 +8,7 @@ $(document).ready(function() {
     $('#saveAjax').removeAttr('disabled');
 
     $('#uploadForm').ajaxSubmit({
-      url: 'http://localhost:8000/settings',
+      url: '/settings',
       success: function(response) {
         console.log("SUCCESS UPLOADING TEMP FILE BEFORE ERROR REPORTING");
         if(response.error) {
@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   $('#saveAjax').on('click', function() {
     $.ajax({
-      url: 'http://localhost:8000/settings/save',
+      url: '/settings/save',
       type: 'POST',
       //Ajax events
       // beforeSend: beforeSendHandler,
