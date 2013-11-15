@@ -1,12 +1,12 @@
 html.background {
-	background-image: url('../../images/background.jpg');
+	background-image: url('../../images/desktopbackground.jpg');
 	background-attachment: fixed;
 	background-size: cover;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	html.background {
-	   background-image: url('../../images/background2x.jpg');
+	   background-image: url('../../images/desktopbackground2x.jpg');
 	}
 }
 
@@ -167,6 +167,18 @@ header .username p {
 
 
 @media only screen and (max-width: 35em) {
+html.background {
+	background-image: url('../../images/mobilebackground.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	html.background {
+	   background-image: url('../../images/mobilebackground2x.jpg');
+	}
+}
+
 header {
 	font-size: 0.8em;
 	padding: 2.5% 0;
