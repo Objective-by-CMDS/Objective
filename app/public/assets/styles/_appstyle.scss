@@ -1,11 +1,12 @@
 html.background {
-	background: url('/assets/images/background1.jpg') fixed;
+	background-image: url('../../images/background.jpg');
+	background-attachment: fixed;
 	background-size: cover;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	html.background {
-	   background-image: url('/assets/images/backgroundmobile.jpg');
+	   background-image: url('../../images/background2x.jpg');
 	}
 }
 
