@@ -190,7 +190,7 @@ app.post('/settings', function(req, res) {
   var tempPath = '/assets/images/temp/' + req.files.profilephoto.name;
   fs.rename(req.files.profilephoto.path, __dirname + '/app/public' + tempPath,
     function(error) {
-      console.log(__dirname + '/app/public' + tempPath);
+      console.log("this: " + req.files.profilephoto.path + " to: " + __dirname + '/app/public' + tempPath);
       fs.unlink(req.files.profilephoto.path, function (err) {
         if (err) return;
         console.log('successfully deleted first file:  %s', req.files.profilephoto.path);
