@@ -150,10 +150,12 @@
 	font-weight: 600;
 	font-size: 1.3em;
 	line-height: 1.25;
+	word-wrap: break-word;
 }
 
 .taskitem p {
 	margin: 2.7% 0 0 0;
+	word-wrap: break-word;
 }
 
 .no-tasks {
