@@ -68,9 +68,12 @@ app.get('/tasks', function(req, res) {
 
 // Facebook Login Code
 passport.use(new FacebookStrategy({
-    clientID: (isProduction ? 544341338985998 : 570196463053329),
-    clientSecret: (isProduction ? 'f73d3cc3000e547091bed93608c1dfa8' : '0d972e868bd1ced4ac069de6d263476b'),
-    callbackURL: (isProduction ? "http://moin.2013.nodeknockout.com/auth/facebook/callback" : "http://localhost:8000/auth/facebook/callback")
+    clientID: 544341338985998,
+    // Dev: 570196463053329
+    clientSecret: 'f73d3cc3000e547091bed93608c1dfa8',
+    // Dev: '0d972e868bd1ced4ac069de6d263476b'
+    callbackURL: "http://getobjective.com/auth/facebook/callback"
+    // Dev: "http://localhost:8000/auth/facebook/callback"
   },
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
