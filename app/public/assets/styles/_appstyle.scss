@@ -3,11 +3,11 @@ html.background {
 	background-size: cover;
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-	html.background {
-	   background-image: url('/assets/images/backgroundmobile.jpg');
-	}
-}
+// @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+// 	html.background {
+// 	   background-image: url('/assets/images/backgroundmobile.jpg');
+// 	}
+// }
 
 body {
 	margin: 0;
