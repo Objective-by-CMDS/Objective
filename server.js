@@ -53,7 +53,7 @@ db.once('open', function callback () {
 app.get('/', function(req, res) {
     if (typeof req.cookies.objectID != 'undefined') {
       User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
-        res.render('taskboard.ejs', docs);
+        res.redirect('tasks');
       });
     } else {
       res.render('index.ejs');
