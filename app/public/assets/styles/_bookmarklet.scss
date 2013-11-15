@@ -97,23 +97,8 @@
 
 #bookmarklet .bookmarklet {
 	margin-top: 7.5%;
-	padding: 0.5em 0.75em;
-	color: #FFF;
-	text-decoration: none;
-	font-size: 1.1em;
 	cursor: move;
 	cursor: -webkit-grab;
-	display: inline-block;
-	border-radius: 8px;
-	-webkit-transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	-moz-transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	transition: background-color 0.3s ease, box-shadow 0.3s ease;
-	background-color: $objgreen;
-	background-image: -o-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: -moz-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: -webkit-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: -ms-linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
-	background-image: linear-gradient(-180deg, rgba(255, 255, 255, 0) 0%, rgba(0,0,0,0.15) 100%);
 	box-shadow: 0px 0px 0px rgba(0,0,0,0);
 }
 

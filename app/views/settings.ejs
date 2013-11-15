@@ -3,16 +3,16 @@
 
 <main class="settingslist">
   <h1 class="settingstitle">Change your settings</h1>
-  <div class="settingslistcontainer cf">
-    <form id="uploadForm" method="post" action="/settings/save" enctype="multipart/form-data">
+  <div class="settingslistcontainer">
+    <form class="profileimageupload" id="uploadForm" method="post" action="/settings/save" enctype="multipart/form-data">
       <section id="inputbackgroundcontainer">
-        <label class="inputlabels" for="profilephoto">Profile Photo</label><br>
+        <label class="inputlabels" for="profilephoto">Profile Photo</label>
         <div class="fileinputcontainer">
-          <h6 id="fileselecttext">Select your profile photo</h6>
+          <span id="fileselecttext">Select your profile photo</span>
           <input id="userPhotoInput" class="fileinputinvis" type="file" name="profilephoto">
         </div>
       </section>
-      <input id="saveAjax" type="button" value="Save">
+      <input id="saveAjax" class="button" type="button" value="Save">
     </form>
   </div>
 </main>

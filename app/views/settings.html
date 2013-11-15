@@ -56,7 +56,7 @@
 	
 	<link rel="stylesheet" href="../public/assets/styles/css/normalize.css">
 	
-	<link rel="stylesheet" href="../public/assets/styles/css/taskboard.css">
+	<link rel="stylesheet" href="../public/assets/styles/css/settings.css">
 	
 </head>
 <body>
@@ -96,36 +96,27 @@
 		</div>
 	</header>
 	
-	<main class="tasklist">
-		<div class="tasklistcontainer" id="masonryContainer">
-		<div class="grid-sizer"></div>
-		<div class="gutter-sizer"></div>
-		
-		<div class="taskitem cf">
-			<div class="itemleft">
-				<a href=""><img class="taskicon" src="../public/assets/images/Userpic.png"></a>
-				<a class="completebutton">
-					<svg class="circle" width="32px" height="32px" viewBox="0 0 32 32"><g class="circlefill" transform="translate(-64.000000, -64.000000)" fill="#444444" fill-rule="evenodd"><path d="M80,96 C88.8365564,96 96,88.8365564 96,80 C96,71.1634436 88.8365564,64 80,64 C71.1634436,64 64,71.1634436 64,80 C64,88.8365564 71.1634436,96 80,96 Z M80.1066667,93.12 C87.2937326,93.12 93.12,87.2937326 93.12,80.1066667 C93.12,72.9196008 87.2937326,67.0933333 80.1066667,67.0933333 C72.9196008,67.0933333 67.0933333,72.9196008 67.0933333,80.1066667 C67.0933333,87.2937326 72.9196008,93.12 80.1066667,93.12 Z M80.1066667,93.12"></path></g></svg>
-					<img class="checkmark" src="../public/assets/images/check.svg">
-				</a>
-			</div>
-			<div class="iteminfo">
-				<h1><a href="">Task Title</a></h1>
-				<p>Task Description</p>
-			</div>
-		</div>
-		</div>
-	</main>
+
+<main class="settingslist">
+  <h1 class="settingstitle">Change your settings</h1>
+  <div class="settingslistcontainer">
+    <form class="profileimageupload" id="uploadForm" method="post" action="/settings/save" enctype="multipart/form-data">
+      <section id="inputbackgroundcontainer">
+        <label class="inputlabels" for="profilephoto">Profile Photo</label>
+        <div class="fileinputcontainer">
+          <span id="fileselecttext">Select your profile photo</span>
+          <input id="userPhotoInput" class="fileinputinvis" type="file" name="profilephoto">
+        </div>
+      </section>
+      <input id="saveAjax" class="button" type="button" value="Save">
+    </form>
+  </div>
+</main>
 		
 	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-	<script src="../public/assets/scripts/libs/masonry.min.js"></script>
 	<script>
 		$(document).ready(function(){
-		
-			var $container = $('#masonryContainer');
-			$container.masonry({ gutter: '.gutter-sizer', columnWidth: '.grid-sizer', itemSelector: '.taskitem' });
-			$container.masonry('bindResize');		
-			
+					
 			$('header .user').mouseenter(function() {
 				$('.user-menu').fadeIn('300');
 			});

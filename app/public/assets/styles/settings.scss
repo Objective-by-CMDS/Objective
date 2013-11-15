@@ -1,100 +1,94 @@
 @import "constants";
-/* === Nice Tools === */
 
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-
-/* === Main CSS === */
+/* === Page CSS === */
 
 @import "appstyle";
 
-.settingslistcontainer {
-  width: 80%;
-  margin-left: 10%;
+.settingslist {
+	-webkit-transition: background 0.35s ease;
+	-moz-transition: background 0.35s ease;
+	transition: background 0.35s ease;
+	width: 80%;
+	background: #F4F4F4;
+	border-radius: 8px;
+	margin: 0 auto;
+	padding: 1.5% 2.5% 2.5%;
+	
 }
+	.background .settingslist {
+		background: rgba(245,245,245,0.8);
+	}
+	
+	.background .settingslist:hover {
+		background: rgba(245,245,245,0.9);
+	}
+
+.profileimageupload {
+	text-align: center;
+	margin-top: 2.5%;
+}
+
 .settingstitle {
-  font-size: 1.5em;
-  text-align: center;
+	font-size: 1.5em;
+	text-align: center;
+	margin: 0;
 }
+
 #inputbackgroundcontainer {
-  width: 20%;
+	width: 20%;
+	margin: 0 auto;
 }
+
 .fileinputcontainer {
-  position: relative;
-  background: #fff;
-  border: 1px solid #c0c0c0;
-  box-shadow: 0 -2px 0 #939393 inset;
-  width: 100%;
-  overflow: hidden;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-  margin: 1.1% 0;
-  &:hover {
-    background: #eee;
-  }
-  &:hover h6 {
-    color: #626262;
-  }
-  .fileinputinvis {
-    z-index: 2;
+	position: relative;
+	background: #fff;
+	height: 2em;
+	border: 1px solid #c0c0c0;
+	box-shadow: 0 -2px 0 #939393 inset;
+	overflow: hidden;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+	margin: 5% 0;
+	cursor: pointer;
+	&:hover {
+		background: #eee;
+	}
+	&:hover span {
+		color: #626262;
+	}
+.fileinputinvis {
+	z-index: 2;
     opacity: 0;
+    height: 2em;
+	position: absolute;
+	left: 0;
     width: 100%;
     cursor: pointer;
   }
-  h6 {
-    position: absolute;
-    top: 0;
-    cursor: pointer;
-    margin: 8px 15px;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-  }
+span {
+	cursor: pointer;
+}
 }
 #backgroundsample {
-  width: 100%;
-  margin-top: 2%;
-  border: 1px solid #c0c0c0;
+	width: 100%;
+	margin-top: 2%;
+	border: 1px solid #c0c0c0;
 }
 .inputlabels {
-  font: 600 1em Oxygen;
+	font-weight: 700;
 }
 .uploadedPhoto {
-  width: 100%;
-  padding-top: 3%;
+	width: 100%;
+	padding-top: 3%;
 }
-#saveAjax {
-  width: 20%;
-  outline: none;
-  background: #9fffbc;
-  color: #68B77C;
-  font: 600 1em Oxygen;
-  border: 1px solid #68b77c;
-  box-shadow: 0 2px 0 #939393;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
-  &:hover {
-    color: #325e3a;
-  }
+.button {
+	padding: 0.5em 1.25em
 }
 @media only screen and (max-width: 35em) {
-  #saveAjax, #inputbackgroundcontainer {
-    width: 100%;
-  }
+#inputbackgroundcontainer {
+	width: 80%;
+}
 }
 @import "bookmarklet";
