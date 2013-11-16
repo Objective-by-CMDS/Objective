@@ -251,7 +251,7 @@ app.post('/settings', function(req, res) {
 });
 // Finalize profile upload image
 app.post('/settings/save', function(req, res) {
-  var tempFile = __dirname + '/app/public' + req.body.permFile; //FUll path
+  var tempFile = __dirname + '/app/public' + req.body.pathToFile; //FUll path
   console.log(tempFile);
   var permFile = (req.body.pathToFile).replace(/\/temp\//, '/uploads/'); // starts at /assets/
   fs.rename(tempFile, __dirname + '/app/public' + permFile,
