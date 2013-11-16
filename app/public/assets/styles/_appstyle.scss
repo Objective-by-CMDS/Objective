@@ -104,9 +104,15 @@ header .userpic, header .username {
 	header .userpic:active, header .username:active {
 		opacity: 0.85;
 	}
-
-header .userpic {
+header .userpiccover {
 	width: 2.5em;
+	height: 2.5em;
+}
+header .userpic {
+	content: '';
+	width: 2.5em;
+	height: 2.5em;
+	background-size: cover;
 	border-radius: 50%;
 	border: 1px solid $lightgrey;
 	display: inline-block;

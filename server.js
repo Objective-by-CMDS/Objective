@@ -66,6 +66,7 @@ app.get('/', function(req, res) {
 
 app.get('/tasks', function(req, res) {
   User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+    docs.currentpage = 'tasks';
     res.render('taskboard.ejs', docs);
   });
 });
@@ -192,11 +193,14 @@ app.post('/add/task', function(req, res) {
 });
 app.get('/settings', function(req, res) {
   User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+    docs.currentpage = 'settings';
     res.render('settings.ejs', docs);
   });
 });
+// temporarily upload file
 app.post('/settings', function(req, res) {
   var item = req.files.profilephoto;
+  // Illegal characters
   if(/^[a-zA-Z0-9- ]*$/.test(item.name) === true) {
     res.send({
       error: 'Oh no! Your image name contains special/illegal characters. Try again afer renaming your file to not have special characters.'
@@ -204,6 +208,7 @@ app.post('/settings', function(req, res) {
     removeFile(item.path);
     return;
   }
+  // Too Large (2MB)
   if (item.size > 2097152) {
     res.send({
       error: 'Your file is too large! It must be under 2mb. Yours is ' + Math.floor(item.size / 1024 * 0.001, 10) + 'mb'
@@ -211,23 +216,26 @@ app.post('/settings', function(req, res) {
     removeFile(item.path);
     return;
   }
+  // Wrong image format
   if (item.type !== 'image/png' && item.type !== 'image/jpg' && item.type !== 'image/jpeg' && item.type !== 'image/gif') {
     res.send({
       error: 'Invalid image format. PNG, JPG, and GIF files are only allowed'
     });
     return;
   }
-  var tempPath = '/assets/images/temp/' + item.name,
-      fullTempPath = __dirname + '/app/public' + tempPath;
+  var tempPath = '/assets/images/temp/' + item.name, // for <img> tags to find images
+      fullTempPath = __dirname + '/app/public' + tempPath; // for backend to find image
   fs.rename(item.path, fullTempPath,
     function(error) {
-      console.log("this: " + item.path + " to: " + fullTempPath);
+      // remove initial temp file
       removeFile(item.path);
+      // Shrinks the image
       imageMagick(fullTempPath)
         .resize(200, 200)
         .write(fullTempPath, function(error) {
           if (error) console.log(error);
         });
+      // Error on moving the temporary file to a perm temp path
       if(error) {
         console.log(error);
         res.send({
@@ -235,30 +243,32 @@ app.post('/settings', function(req, res) {
         });
         return;
       }
+      // The path for the temp path that the ajax uses to show a preview of the image.
       res.send({
         path: tempPath
       });
     }
   );
 });
+// Finalize profile upload image
 app.post('/settings/save', function(req, res) {
-  var oldToFile = __dirname + '/app/public' + req.body.pathToFile //FUll path
-    , pathToFile = (req.body.pathToFile).replace(/\/temp\//, '/uploads/'); // starts at /assets/
-  console.log("New File: " + pathToFile + ", Old File: " + oldToFile);
-  fs.rename(oldToFile, __dirname + '/app/public' + pathToFile,
+  var tempFile = __dirname + '/app/public' + req.body.pathToFile; //FUll path
+  console.log(tempFile);
+  var permFile = (req.body.pathToFile).replace(/\/temp\//, '/uploads/'); // starts at /assets/
+  fs.rename(tempFile, __dirname + '/app/public' + permFile,
     function(error) {
-      removeFile(oldToFile);
+      removeFile(tempFile);
       if(error) {
-        console.log(error);
         res.send({
           error: 'Ah crap! Something bad happened' + error
         });
         return;
       }
       User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+        // Remove old photo
         removeFile(__dirname + '/app/public' + docs.profilephoto);
       });
-      User.update({ _id: req.cookies.objectID }, { $set: {profilephoto: pathToFile}}, function (err, user) {
+      User.update({ _id: req.cookies.objectID }, { $set: {profilephoto: permFile}}, function (err, user) {
         if (err) {
           console.log("A mysterious error occured saving profilephoto to  " + req.cookies.objectID);
           console.log(err);
@@ -268,11 +278,12 @@ app.post('/settings/save', function(req, res) {
         }
       });
       res.send({
-        path: pathToFile
+        path: permFile
       });
     }
   );
 });
+// Removing files
 function removeFile (file) {
   fs.unlink(file, function (err) {
     if (err) return;

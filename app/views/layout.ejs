@@ -86,12 +86,17 @@
       <a href="/tasks"><img class="objlogo" src="assets/images/ObjectiveLogo.svg"></a>
     </div>
     <div class="user">
-      <img class="userpic" src="<% if (typeof profilephoto != 'undefined') { %> <%= profilephoto %> <% } else { %> http://graph.facebook.com/<%=facebookId%>/picture?type=normal<%}%>">
+      <div class="userpic" style="background-image: url(<% if (typeof profilephoto != 'undefined') { %> <%= profilephoto %> <% } else { %> http://graph.facebook.com/<%=facebookId%>/picture?type=normal<%}%>)">
+      </div>
        <span class="username"><p><%= firstName %></p><span class="arrow-down"></span></span>
     </div>
     <div class="user-menu">
-      <a href="tasks"><li>Tasks</li></a>
-      <a href="settings"><li>Settings</li></a>
+      <% if (currentpage != 'tasks') { %>
+        <a href="tasks"><li>Tasks</li></a>
+      <% } %>
+      <% if (currentpage != 'settings') { %>
+        <a href="settings"><li>Settings</li></a>
+      <% } %>
       <a href="#bookmarklet"><li>Bookmarklet</li></a>
       <a href="logout"><li>Sign Out</li></a>
     </div>

@@ -20,7 +20,7 @@
 		</div>
 		<div class="iteminfo">
 			<h1><a href="http://<%= task['URL'] %>" target="_blank"><%=task['name']%></a></h1>
-			<% if (task['notes'] != '') { %>
+			<% if (task['notes'] != 'null' && task['notes'] != '') { %>
 				<p><%= task['notes'] %></p>
 			<% } else { %>
 				<p><i>No Notes</i></p>
