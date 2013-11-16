@@ -90,8 +90,12 @@
        <span class="username"><p><%= firstName %></p><span class="arrow-down"></span></span>
     </div>
     <div class="user-menu">
-      <a href="tasks"><li>Tasks</li></a>
-      <a href="settings"><li>Settings</li></a>
+      <% if (currentpage != 'tasks') { %>
+        <a href="tasks"><li>Tasks</li></a>
+      <% } %>
+      <% if (currentpage != 'settings') { %>
+        <a href="settings"><li>Settings</li></a>
+      <% } %>
       <a href="#bookmarklet"><li>Bookmarklet</li></a>
       <a href="logout"><li>Sign Out</li></a>
     </div>
