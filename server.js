@@ -70,7 +70,8 @@ app.get('/tasks', function(req, res) {
   });
 });
 
-app.get('/deploy', function(req, res) {
+app.post('/deploy', function(req, res) {
+  console.log(req);
   exec('./pull.sh', function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
