@@ -253,7 +253,7 @@ app.post('/settings', function(req, res) {
 app.post('/settings/save', function(req, res) {
   var tempFile = __dirname + '/app/public' + req.body.permFile; //FUll path
   console.log(tempFile);
-  var permFile = (req.body.permFile).replace(/\/temp\//, '/uploads/'); // starts at /assets/
+  var permFile = (req.body.tempPath).replace(/\/temp\//, '/uploads/'); // starts at /assets/
   fs.rename(tempFile, __dirname + '/app/public' + permFile,
     function(error) {
       removeFile(tempFile);
