@@ -71,7 +71,7 @@ app.get('/tasks', function(req, res) {
 });
 
 app.get('/deploy', function(req, res) {
-  exec('whoami', function (error, stdout, stderr) {
+  exec('./pull.sh', function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
     console.log('stderr: ' + stderr);
     if (error !== null) {
