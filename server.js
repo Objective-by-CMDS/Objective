@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
   exec = require('child_process').exec,
   FacebookStrategy = require('passport-facebook').Strategy;
 
-var port = 4000;
+var port = 8000;
 
 var app = express();
 app.engine('ejs', engine);
