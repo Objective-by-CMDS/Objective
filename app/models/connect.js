@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var db = mongoose.createConnection('mongodb://moin.2013.nodeknockout.com/objective');
+var db = mongoose.createConnection('mongodb://localhost/objective');
 
 db.on('error', console.error);
 
