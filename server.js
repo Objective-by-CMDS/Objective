@@ -16,6 +16,7 @@ app.engine('ejs', engine);
 app.configure(function() {
   app.set('port', port);
   app.set('views', __dirname + '/app/views');
+  app.use(express.logger('dev'));
   app.set("view options", {
       layout: false
   });
@@ -27,6 +28,10 @@ app.configure(function() {
   app.use(passport.session());
   app.use(app.router);
   app.use(express.static(__dirname + '/app/public'));
+});
+
+app.configure('development', function () {
+  app.use(express.errorHandler());
 });
 
 app.listen(port);
@@ -94,6 +99,7 @@ passport.use(new FacebookStrategy({
   function(accessToken, refreshToken, profile, done) {
     User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
       if (err) { return done(err); }
+      console.log(User);
       if (created) {
         User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
           if (err) {
