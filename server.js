@@ -163,12 +163,10 @@ app.get('/get/tasks/:id', function(req, res) {
 });
 
 app.get('/logout', function(req, res, err){
-  req.passport.session.destroy();
-  req.passport.session.save();
   req.logout();
   res.clearCookie('objectID');
   res.redirect('/');
-  console.log(task);
+  console.log(err);
 });
 
 app.get('/add/task', function(req, res) {
