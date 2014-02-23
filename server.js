@@ -162,12 +162,13 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
-app.get('/logout', function(req, res){
-  req.session.destroy();
-  req.session.save();
+app.get('/logout', function(req, res, err){
+  req.passport.session.destroy();
+  req.passport.session.save();
   req.logout();
   res.clearCookie('objectID');
   res.redirect('/');
+  console.log(task);
 });
 
 app.get('/add/task', function(req, res) {
