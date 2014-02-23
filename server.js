@@ -24,6 +24,7 @@ app.configure(function() {
   app.use(express.cookieParser());
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+  app.use(express.session({ secret: 'my_precious' }));
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(app.router);
@@ -64,9 +65,92 @@ db.once('open', function callback () {
   User = mongoose.model('User', userSchema);
 });
 
+// Facebook Login Code
+passport.use(new FacebookStrategy({
+	clientID: 544341338985998,
+	// Dev: 570196463053329
+	clientSecret: 'f73d3cc3000e547091bed93608c1dfa8',
+	// Dev: '0d972e868bd1ced4ac069de6d263476b'
+	callbackURL: "http://getobjective.com/auth/facebook/callback"
+	// Dev: "http://localhost:8000/auth/facebook/callback"
+},
+function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({facebookId: profile.id}, function(err, user, created, oldUser) {
+		if (err) {
+			return done(err);
+		}
+		if(oldUser){
+			done(null,oldUser);
+		}
+		console.log(User);
+		if (created) {
+			User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
+				if (err) {
+					console.log("A mysterious error occured saving user ID " + profile.id);
+					console.log(err);
+				}
+				var facebookId = profile.id;
+				var name = "Save Tasks with Objective";
+				var notes = "Objective allows you to easily save the important things you need to do on the internet for later. To get started, just click the title of this task to add the bookmarklet to your browser.";
+				var url = "http://getobjective.com/tasks#bookmarklet";
+				var task = new Task({name: name, notes: notes, URL: url});
+			User.update({facebookId: facebookId}, { $push: {tasks: task}}, function(err, user) {
+				if(err) {
+					console.log(err);
+					console.log("An error occured adding your initial task, " + id + ", URL, " + url);
+				}
+			});
+			});
+		}
+		done(null, user);
+	});
+}));
+
+passport.serializeUser(function(user, done) {
+	done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+	User.findById(id, function(err, user) {
+		done(err, user);
+	});
+});
+
+app.isAuthenticated = function (req, res, next) {
+	if (req.isAuthenticated()) {
+		next();
+	}
+	else {
+		res.redirect('/');
+	}
+};
+
+app.get('/auth/facebook',
+	passport.authenticate('facebook', {
+		scope: 'email'
+	}
+));
+
+app.get('/auth/facebook/callback',
+	passport.authenticate('facebook', {
+		failureRedirect: '/'
+	}),
+	function(req, res) {
+		res.cookie('objectID', req.user._id, { domain : ".getobjective.com" });
+		res.redirect('/tasks');
+	}
+);
+
+app.get('/logout', function(req, res){
+	req.logout();
+	req.session = null;
+	res.clearCookie('objectID');
+	res.redirect('/');
+});
+
 app.get('/', function(req, res) {
 	/* This is very weak and causes users not to be logged out properly if enabled
-	if (typeof req.cookies.objectID !== 'undefined') {
+	if (typeof req.cookies.objectID != 'undefined') {
 		User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
 			res.redirect('tasks');
 		});
@@ -76,7 +160,7 @@ app.get('/', function(req, res) {
 	/*}*/
 });
 
-app.get('/tasks', function(req, res) {
+app.get('/tasks', app.isAuthenticated, function(req, res) {
   User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
     docs.currentpage = 'tasks';
     res.render('taskboard.ejs', docs);
@@ -95,81 +179,19 @@ app.get('/tasks', function(req, res) {
   });
 });*/
 
-// Facebook Login Code
-passport.use(new FacebookStrategy({
-    clientID: 544341338985998,
-    // Dev: 570196463053329
-    clientSecret: 'f73d3cc3000e547091bed93608c1dfa8',
-    // Dev: '0d972e868bd1ced4ac069de6d263476b'
-    callbackURL: "http://getobjective.com/auth/facebook/callback"
-    // Dev: "http://localhost:8000/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    User.findOrCreate({facebookId: profile.id}, function(err, user, created) {
-      if (err) { return done(err); }
-      console.log(User);
-      if (created) {
-        User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
-          if (err) {
-            console.log("A mysterious error occured saving user ID " + profile.id);
-            console.log(err);
-          }
-          var facebookId = profile.id;
-          var name = "Save Tasks with Objective";
-          var notes = "Objective allows you to easily save the important things you need to do on the internet for later. To get started, just click the title of this task to add the bookmarklet to your browser.";
-          var url = "http://getobjective.com/tasks#bookmarklet";
-          var task = new Task({name: name, notes: notes, URL: url});
-          User.update({facebookId: facebookId}, { $push: {tasks: task}}, function(err, user) {
-            if(err) {
-              console.log(err);
-              console.log("An error occured adding your initial task, " + id + ", URL, " + url);
-            }
-          });
-        });
-      }
-      done(null, user);
-    });
-  }
-));
-
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
-
-app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { failureRedirect: '/login' }),
-  function(req, res) {
-    res.cookie('objectID', req.user._id, { domain : ".getobjective.com" });
-    res.redirect('/tasks');
-});
-
-app.get('/logout', function(req, res){
-	req.logout();
-	req.session = null;
-	res.clearCookie('objectID');
-	res.redirect('/');
-});
-
 // Task API
 app.get('/get/profile/:id', function(req, res) {
-  var id = req.params.id;
-  User.find({_id: id}, function(err, docs) {
-    res.send(JSON.stringify(docs));
-  });
+	var id = req.params.id;
+	User.find({_id: id}, function(err, docs) {
+		res.send(JSON.stringify(docs));
+	});
 });
 
 app.get('/get/tasks/:id', function(req, res) {
-  var id = req.params.id;
-  User.find({_id: id}, 'tasks', function(err, docs) {
-    res.send(JSON.stringify(docs));
-  });
+	var id = req.params.id;
+	User.find({_id: id}, 'tasks', function(err, docs) {
+		res.send(JSON.stringify(docs));
+	});
 });
 
 app.get('/add/task', function(req, res) {
