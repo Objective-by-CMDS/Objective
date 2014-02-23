@@ -148,6 +148,14 @@ app.get('/auth/facebook/callback',
     res.redirect('/tasks');
 });
 
+app.get('/logout', function(req, res){
+	req.logout(function(err) {
+		if (err) console.log(err);
+	});
+	res.clearCookie('objectID');
+	res.redirect('/');
+});
+
 // Task API
 app.get('/get/profile/:id', function(req, res) {
   var id = req.params.id;
@@ -161,26 +169,6 @@ app.get('/get/tasks/:id', function(req, res) {
   User.find({_id: id}, 'tasks', function(err, docs) {
     res.send(JSON.stringify(docs));
   });
-});
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-app.get('/logout', function(req, res){
-=======
-app.get('/logout', function(req, res, err){
->>>>>>> bf4105affe7b13df7619013917033837c91b07c9
-  req.logout();
-  res.clearCookie('objectID');
-  res.redirect('/');
-  console.log(err);
-=======
-app.get('/logout', function(req, res){
-	req.logout(function(err) {
-		if (err) console.log(err);
-	});
-	res.clearCookie('objectID');
-	res.redirect('/');
->>>>>>> d017c3668afc15c880a618f2345c326eb6fd0d94
 });
 
 app.get('/add/task', function(req, res) {
