@@ -81,7 +81,8 @@ app.get('/tasks', function(req, res) {
   });
 });
 
-app.post('/deploy', function(req, res) {
+// Don't know why this is here
+/*app.post('/deploy', function(req, res) {
   console.log(req);
   exec('./pull.sh', function (error, stdout, stderr) {
     console.log('stdout: ' + stdout);
@@ -90,7 +91,7 @@ app.post('/deploy', function(req, res) {
       console.log('exec error: ' + error);
     }
   });
-});
+});*/
 
 // Facebook Login Code
 passport.use(new FacebookStrategy({
