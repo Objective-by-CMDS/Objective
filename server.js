@@ -162,10 +162,15 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
+<<<<<<< HEAD
 app.get('/logout', function(req, res){
+=======
+app.get('/logout', function(req, res, err){
+>>>>>>> bf4105affe7b13df7619013917033837c91b07c9
   req.logout();
   res.clearCookie('objectID');
   res.redirect('/');
+  console.log(err);
 });
 
 app.get('/add/task', function(req, res) {
