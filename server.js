@@ -1,42 +1,42 @@
 var mongoose = require('mongoose'),
-  express = require("express"),
-  fs = require("fs"),
-  gm = require('gm'),
-  imageMagick = gm.subClass({ imageMagick: true }),
-  engine = require("ejs-locals"),
-  passport = require('passport'),
-  sys = require('sys'),
-  exec = require('child_process').exec,
-  FacebookStrategy = require('passport-facebook').Strategy;
+	express = require("express"),
+	fs = require("fs"),
+	gm = require('gm'),
+	imageMagick = gm.subClass({ imageMagick: true }),
+	engine = require("ejs-locals"),
+	passport = require('passport'),
+	sys = require('sys'),
+	exec = require('child_process').exec,
+	FacebookStrategy = require('passport-facebook').Strategy;
 
 var port = 8000;
 
 var app = express();
 app.engine('ejs', engine);
 app.configure(function() {
-  app.set('port', port);
-  app.set('views', __dirname + '/app/views');
-  app.use(express.logger('dev'));
-  app.set("view options", {
-      layout: false
-  });
-  app.set('view engine', 'ejs');
-  app.use(express.cookieParser());
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(express.session({ secret: 'my_precious' }));
-  app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/app/public'));
+	app.set('port', port);
+	app.set('views', __dirname + '/app/views');
+	app.use(express.logger('dev'));
+	app.set("view options", {
+		layout: false
+	});
+	app.set('view engine', 'ejs');
+	app.use(express.cookieParser());
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
+	app.use(express.session({ secret: 'my_precious' }));
+	app.use(passport.initialize());
+	app.use(passport.session());
+	app.use(app.router);
+	app.use(express.static(__dirname + '/app/public'));
 });
 
 app.configure('development', function () {
-  app.use(express.errorHandler());
+	app.use(express.errorHandler());
 });
 
 app.listen(port);
-console.log("Server listening on: " + port);
+console.log("\nServer listening on: " + port);
 
 // Mongo code
 mongoose.connect('mongodb://localhost/objective');
@@ -45,24 +45,24 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 var userSchema, User;
 db.once('open', function callback () {
-  var findOrCreate = require('mongoose-findorcreate');
-  var taskSchema = mongoose.Schema({
-  	name: String,
-  	dueDate: Date,
-  	notes: String,
-  	URL: String
-  });
-  userSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    facebookId: Number,
-    tasks: [taskSchema],
-    profilephoto: String
-  });
-  userSchema.plugin(findOrCreate);
-  Task = mongoose.model('Task', taskSchema);
-  User = mongoose.model('User', userSchema);
+	var findOrCreate = require('mongoose-findorcreate');
+	var taskSchema = mongoose.Schema({
+		name: String,
+		dueDate: Date,
+		notes: String,
+		URL: String
+	});
+	userSchema = mongoose.Schema({
+		firstName: String,
+		lastName: String,
+		email: String,
+		facebookId: Number,
+		tasks: [taskSchema],
+		profilephoto: String
+	});
+	userSchema.plugin(findOrCreate);
+	Task = mongoose.model('Task', taskSchema);
+	User = mongoose.model('User', userSchema);
 });
 
 // Facebook Login Code
@@ -82,7 +82,7 @@ function(accessToken, refreshToken, profile, done) {
 		if(oldUser){
 			done(null,oldUser);
 		}
-		console.log(User);
+		// console.log(User);
 		if (created) {
 			User.update({ facebookId: profile.id }, { $set: {firstName: profile.name.givenName, lastName: profile.name.familyName, email: profile._json.email}}, function (err, user) {
 				if (err) {
@@ -161,22 +161,29 @@ app.get('/', function(req, res) {
 });
 
 app.get('/tasks', app.isAuthenticated, function(req, res) {
-  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
-    docs.currentpage = 'tasks';
-    res.render('taskboard.ejs', docs);
-  });
+	User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+		docs.currentpage = 'tasks';
+		res.render('taskboard.ejs', docs);
+	});
+});
+
+app.get('/settings', app.isAuthenticated, function(req, res) {
+	User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+		docs.currentpage = 'settings';
+		res.render('settings.ejs', docs);
+	});
 });
 
 // Don't know why this is here
 /*app.post('/deploy', function(req, res) {
-  console.log(req);
-  exec('./pull.sh', function (error, stdout, stderr) {
-    console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    }
-  });
+	console.log(req);
+	exec('./pull.sh', function (error, stdout, stderr) {
+		console.log('stdout: ' + stdout);
+		console.log('stderr: ' + stderr);
+	if (error !== null) {
+		console.log('exec error: ' + error);
+	}
+	});
 });*/
 
 // Task API
@@ -195,45 +202,40 @@ app.get('/get/tasks/:id', function(req, res) {
 });
 
 app.get('/add/task', function(req, res) {
-  var id = req.query.id;
-  var name = req.query.name;
-  var notes = req.query.notes;
-  var url = req.query.url;
-  var task = new Task({ name: name, notes: notes, URL: url });
-  console.log(task);
-  User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
-    if(err) {
-      console.log(err);
-      console.log("An error occured adding your task, " + id + ", URL, " + url);
-    }
-  });
+	var id = req.query.id;
+	var name = req.query.name;
+	var notes = req.query.notes;
+	var url = req.query.url;
+	var task = new Task({ name: name, notes: notes, URL: url });
+	console.log(task);
+	User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
+		if(err) {
+			console.log(err);
+			console.log("An error occured adding your task, " + id + ", URL, " + url);
+		}
+	});
 });
 
 app.post('/add/task', function(req, res) {
-  console.log(req);
-  var id = req.body.id;
-  var name = req.body.name;
-  var dueDate = req.body.dueDate;
-  var notes = req.body.notes;
-  var URL = req.body.URL;
-  var task = new Task({ name: name, dueDate: dueDate, notes: notes, URL: URL });
+	console.log(req);
+	var id = req.body.id;
+	var name = req.body.name;
+	var dueDate = req.body.dueDate;
+	var notes = req.body.notes;
+	var URL = req.body.URL;
+	var task = new Task({ name: name, dueDate: dueDate, notes: notes, URL: URL });
 
-  User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
-    if(err) {
-      console.log("An error occured adding your task.");
-      console.log(err);
-      res.send("{success: 0}");
-    }
-    console.log(user);
-    res.send("{success: 1}");
-  });
+	User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
+		if(err) {
+			console.log("An error occured adding your task.");
+			console.log(err);
+			res.send("{success: 0}");
+		}
+		console.log(user);
+		res.send("{success: 1}");
+	});
 });
-app.get('/settings', function(req, res) {
-  User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
-    docs.currentpage = 'settings';
-    res.render('settings.ejs', docs);
-  });
-});
+
 // temporarily upload file
 app.post('/settings', function(req, res) {
   var item = req.files.profilephoto;
@@ -287,6 +289,7 @@ app.post('/settings', function(req, res) {
     }
   );
 });
+
 // Finalize profile upload image
 app.post('/settings/save', function(req, res) {
   var tempFile = __dirname + '/app/public' + req.body.pathToFile; //Full path
@@ -322,16 +325,19 @@ app.post('/settings/save', function(req, res) {
 });
 // Removing files
 function removeFile (file) {
-  fs.unlink(file, function (err) {
-    if (err) return;
-    console.log('successfully deleted the file %s', file);
-  });
-  return;
+	fs.unlink(file, function (err) {
+		if (err) return;
+		console.log('successfully deleted the file %s', file);
+	});
+	return;
 }
+
 app.get('/delete', function(req, res) {
-  var id = req.query.id;
-  User.update({'tasks._id':id}, { $pull: { tasks: {_id: id}}}, function (err) {
-    if (err) { console.log(err); }
-    res.redirect('tasks');
-  });
+	var id = req.query.id;
+	User.update({'tasks._id':id}, { $pull: { tasks: {_id: id}}}, function (err) {
+		if (err) {
+			console.log(err);
+		}
+		res.redirect('tasks');
+	});
 });
