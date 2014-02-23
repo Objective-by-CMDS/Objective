@@ -45,7 +45,7 @@ db.on('error', console.error.bind(console, 'connection error:'));
 var userSchema, User;
 db.once('open', function callback () {
   var findOrCreate = require('mongoose-findorcreate');
-  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, });
+  var taskSchema = mongoose.Schema({name:String, dueDate: Date, notes:String, URL:String, faviconURL:String});
   userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
