@@ -13,20 +13,20 @@
 /* === Backgrounds === */
 
 html.background {
-	background-image: url('../../images/background.jpg');
+	background-image: url('../../assets/images/background.jpg');
 	background-attachment: fixed;
 	background-size: cover;
 }
 
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	html.background {
-	   background-image: url('../../images/mobilebackground2x.jpg');
+	   background-image: url('../../assets/images/mobilebackground2x.jpg');
 	}
 }
 
 @media (min-width: 1921px) and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 	html.background {
-	   background-image: url('../../images/desktopbackground2x.jpg');
+	   background-image: url('../../assets/images/desktopbackground2x.jpg');
 	}
 }
 
