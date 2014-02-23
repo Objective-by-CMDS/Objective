@@ -1,6 +1,7 @@
-<% layout('layout') -%>
-
-<link rel="stylesheet" href='/assets/styles/settings.css'>
+<% layout('app-view') -%>
+<% stylesheet('/assets/styles/settings.css') -%>
+<% script('/assets/scripts/jquery.form.js') -%>
+<% script('/assets/scripts/ajaxSubmitFile.js') -%>
 
 <main class="settingslist">
   <h1 class="settingstitle">Change your settings</h1>
@@ -17,5 +18,3 @@
     </form>
   </div>
 </main>
-<script src="/assets/scripts/jquery.form.js"></script>
-<script src="/assets/scripts/ajaxSubmitFile.js"></script>
