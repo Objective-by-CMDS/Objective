@@ -163,8 +163,9 @@ app.get('/get/tasks/:id', function(req, res) {
 });
 
 app.get('/logout', function(req, res){
-  req.logout();
   req.session.destroy();
+  req.session.save();
+  req.logout();
   res.clearCookie('objectID');
   res.redirect('/');
 });
