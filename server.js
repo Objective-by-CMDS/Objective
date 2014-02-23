@@ -46,10 +46,10 @@ var userSchema, User;
 db.once('open', function callback () {
   var findOrCreate = require('mongoose-findorcreate');
   var taskSchema = mongoose.Schema({
-  	name:String,
+  	name: String,
   	dueDate: Date,
-  	notes:String,
-  	URL:String
+  	notes: String,
+  	URL: String
   });
   userSchema = mongoose.Schema({
     firstName: String,
@@ -162,11 +162,12 @@ app.get('/get/tasks/:id', function(req, res) {
   });
 });
 
-app.get('/logout', function(req, res, err){
-  req.logout();
-  res.clearCookie('objectID');
-  res.redirect('/');
-  console.log(err);
+app.get('/logout', function(req, res){
+	req.logout(function(err) {
+		if (err) console.log(err);
+	});
+	res.clearCookie('objectID');
+	res.redirect('/');
 });
 
 app.get('/add/task', function(req, res) {
@@ -264,7 +265,7 @@ app.post('/settings', function(req, res) {
 });
 // Finalize profile upload image
 app.post('/settings/save', function(req, res) {
-  var tempFile = __dirname + '/app/public' + req.body.pathToFile; //FUll path
+  var tempFile = __dirname + '/app/public' + req.body.pathToFile; //Full path
   console.log(tempFile);
   var permFile = (req.body.pathToFile).replace(/\/temp\//, '/uploads/'); // starts at /assets/
   fs.rename(tempFile, __dirname + '/app/public' + permFile,
