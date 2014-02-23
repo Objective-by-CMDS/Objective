@@ -109,7 +109,7 @@ passport.use(new FacebookStrategy({
           var facebookId = profile.id;
           var name = "Save Tasks with Objective";
           var notes = "Objective allows you to easily save the important things you need to do on the internet for later. To get started, just click the title of this task to add the bookmarklet to your browser.";
-          var url = "getobjective.com/tasks#bookmarklet";
+          var url = "http://getobjective.com/tasks#bookmarklet";
           var task = new Task({name: name, notes: notes, URL: url});
           User.update({facebookId: facebookId}, { $push: {tasks: task}}, function(err, user) {
             if(err) {
@@ -168,6 +168,7 @@ app.get('/add/task', function(req, res) {
   var name = req.query.name;
   var notes = req.query.notes;
   var url = req.query.url;
+  var faviconurl = req.query.url.split('#')[0];
   var task = new Task({name: name, notes: notes, URL: url});
   console.log(task);
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
@@ -185,6 +186,7 @@ app.post('/add/task', function(req, res) {
   var dueDate = req.body.dueDate;
   var notes = req.body.notes;
   var URL = req.body.URL;
+  var faviconurl = req.body.URL.split('#')[0];
   var task = new Task({name: name, dueDate: dueDate, notes: notes, URL: URL});
 
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
