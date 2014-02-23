@@ -169,7 +169,7 @@ app.get('/add/task', function(req, res) {
   var notes = req.query.notes;
   var url = req.query.url;
   var faviconurl = req.query.url.split('#')[0];
-  var task = new Task({name: name, notes: notes, URL: url});
+  var task = new Task({ name: name, notes: notes, URL: url, faviconurl: faviconurl });
   console.log(task);
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
     if(err) {
@@ -187,7 +187,7 @@ app.post('/add/task', function(req, res) {
   var notes = req.body.notes;
   var URL = req.body.URL;
   var faviconurl = req.body.URL.split('#')[0];
-  var task = new Task({name: name, dueDate: dueDate, notes: notes, URL: URL});
+  var task = new Task({ name: name, dueDate: dueDate, notes: notes, URL: URL, faviconurl: faviconurl });
 
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
     if(err) {
