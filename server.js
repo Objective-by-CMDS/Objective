@@ -65,13 +65,15 @@ db.once('open', function callback () {
 });
 
 app.get('/', function(req, res) {
-    if (typeof req.cookies.objectID !== 'undefined') {
-      User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
-        res.redirect('tasks');
-      });
-    } else {
-      res.render('index.ejs');
-    }
+	/* This is very weak and causes users not to be logged out properly if enabled
+	if (typeof req.cookies.objectID !== 'undefined') {
+		User.findById(req.cookies.objectID, 'firstName facebookId URL tasks profilephoto', function(err, docs) {
+			res.redirect('tasks');
+		});
+	} 
+	else { */
+		res.render('index.ejs');
+	/*}*/
 });
 
 app.get('/tasks', function(req, res) {
@@ -149,9 +151,8 @@ app.get('/auth/facebook/callback',
 });
 
 app.get('/logout', function(req, res){
-	req.logout(function(err) {
-		if (err) console.log(err);
-	});
+	req.logout();
+	req.session = null;
 	res.clearCookie('objectID');
 	res.redirect('/');
 });
