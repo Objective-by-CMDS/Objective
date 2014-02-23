@@ -38,7 +38,7 @@ app.listen(port);
 console.log("Server listening on: " + port);
 
 // Mongo code
-mongoose.connect('mongodb://moin.2013.nodeknockout.com/objective');
+mongoose.connect('mongodb://localhost/objective');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
