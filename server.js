@@ -168,8 +168,7 @@ app.get('/add/task', function(req, res) {
   var name = req.query.name;
   var notes = req.query.notes;
   var url = req.query.url;
-  var faviconurl = req.query.url.split('#')[0];
-  var task = new Task({ name: name, notes: notes, URL: url, faviconurl: faviconurl });
+  var task = new Task({ name: name, notes: notes, URL: url });
   console.log(task);
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
     if(err) {
@@ -186,8 +185,7 @@ app.post('/add/task', function(req, res) {
   var dueDate = req.body.dueDate;
   var notes = req.body.notes;
   var URL = req.body.URL;
-  var faviconurl = req.body.URL.split('#')[0];
-  var task = new Task({ name: name, dueDate: dueDate, notes: notes, URL: URL, faviconurl: faviconurl });
+  var task = new Task({ name: name, dueDate: dueDate, notes: notes, URL: URL });
 
   User.update({_id: id}, { $push: {tasks: task}}, function(err, user) {
     if(err) {
