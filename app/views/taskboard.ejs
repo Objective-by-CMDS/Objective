@@ -12,14 +12,14 @@
 	<% tasks.forEach(function(task, i){ %>
 	<div class="taskitem cf">
 		<div class="itemleft">
-			<a href="http://<%= task['URL'] %>" target="_blank"><img class="taskicon" src="http://objective.getfavicon.appspot.com/<%= task['URL'].split('#')[0] %>?defaulticon=http://getobjective.com/assets/images/defaultfavicon.png"></a>
+			<a href="<%= task['URL'] %>" target="_blank"><img class="taskicon" src="http://objective.getfavicon.appspot.com/<%= task['URL'].split('#')[0] %>?defaulticon=http://getobjective.com/assets/images/defaultfavicon.png"></a>
 			<a class="completebutton" data-id="<%=task['_id']%>">
 				<svg class="circle" width="32px" height="32px" viewBox="0 0 32 32"><g class="circlefill" transform="translate(-64.000000, -64.000000)" fill="#444444" fill-rule="evenodd"><path d="M80,96 C88.8365564,96 96,88.8365564 96,80 C96,71.1634436 88.8365564,64 80,64 C71.1634436,64 64,71.1634436 64,80 C64,88.8365564 71.1634436,96 80,96 Z M80.1066667,93.12 C87.2937326,93.12 93.12,87.2937326 93.12,80.1066667 C93.12,72.9196008 87.2937326,67.0933333 80.1066667,67.0933333 C72.9196008,67.0933333 67.0933333,72.9196008 67.0933333,80.1066667 C67.0933333,87.2937326 72.9196008,93.12 80.1066667,93.12 Z M80.1066667,93.12"></path></g></svg>
 				<img class="checkmark" src="../assets/images/check.svg">
 			</a>
 		</div>
 		<div class="iteminfo">
-			<h1><a href="http://<%= task['URL'] %>" target="_blank"><%=task['name']%></a></h1>
+			<h1><a href="<%= task['URL'] %>" target="_blank"><%=task['name']%></a></h1>
 			<% if (task['notes'] != 'null' && task['notes'] != '') { %>
 				<p><%= task['notes'] %></p>
 			<% } else { %>
