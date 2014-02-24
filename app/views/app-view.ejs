@@ -1,127 +1,128 @@
 <!DOCTYPE html>
 <html lang="en" class="background">
 <head>
-  <title>Objective | Your Tasks</title>
-
-  <meta charset="UTF-8">
-
-  <meta name="apple-mobile-web-app-capable" content="yes">
-
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-  <meta name="apple-mobile-web-app-title" content="Objective">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>Objective | Your Tasks</title>
+	
+	<meta charset="UTF-8">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	
+	<meta name="apple-mobile-web-app-title" content="Objective">
+	 
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
 
 	<!-- Icons -->
 
 	<!-- iOS 7 iPad (retina) -->
 	<link href="assets/images/AppleTouchIcons/152x152.png"
-	  sizes="152x152"
-	  rel="apple-touch-icon">
+		sizes="152x152"
+		rel="apple-touch-icon">
 
 	<!-- iOS 6 iPad (retina) -->
 	<link href="assets/images/AppleTouchIcons/144x144.png"
-	  sizes="144x144"
-	  rel="apple-touch-icon">
+		sizes="144x144"
+		rel="apple-touch-icon">
 
 	<!-- iOS 7 iPhone (retina) -->
 	<link href="assets/images/AppleTouchIcons/120x120.png"
-	  sizes="120x120"
-	  rel="apple-touch-icon">
+		sizes="120x120"
+		rel="apple-touch-icon">
 
 	<!-- iOS 6 iPhone (retina) -->
 	<link href="assets/images/AppleTouchIcons/114x114.png"
-	  sizes="114x114"
-	  rel="apple-touch-icon">
+		sizes="114x114"
+		rel="apple-touch-icon">
 
 	<!-- iOS 7 iPad -->
 	<link href="assets/images/AppleTouchIcons/76x76.png"
-	  sizes="76x76"
-	  rel="apple-touch-icon">
+		sizes="76x76"
+		rel="apple-touch-icon">
 
 	<!-- iOS 6 iPad -->
 	<link href="assets/images/AppleTouchIcons/72x72.png"
-	  sizes="72x72"
-	  rel="apple-touch-icon">
+		sizes="72x72"
+		rel="apple-touch-icon">
 
 	<!-- iOS 6 iPhone -->
 	<link href="assets/images/AppleTouchIcons/57x57.png"
-	  sizes="57x57"
-	  rel="apple-touch-icon">
+		sizes="57x57"
+		rel="apple-touch-icon">
 
-  <link rel="icon" href="favicon.png">
-  
-  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
-  <%- stylesheets %>
+	<link rel="icon" href="favicon.png">
+	
+	<%- stylesheets %>
 
 </head>
 <body>
-  <section id="bookmarklet">
+
+<section id="bookmarklet">
 	<a href="#" class="background"></a>
 	<div class="modal">
 	<a href="#" class="close"><img src="assets/images/close.svg"></a>
 	<div class="bookmarklet-explain">
-	  <div class="outercontainer">
-	  <div class="innercontainer">
-		<span class="text">Drag the button up into your bookmarks bar to add tasks to Objective!</span>
-	  </div>
-	  </div>
+		<div class="outercontainer">
+		<div class="innercontainer">
+			<span class="text">Drag the button up into your bookmarks bar to add tasks to Objective!</span>
+		</div>
+		</div>
 	</div>
 	<div class="instructions">
-	<h1>Bookmarklet</h1>
-	<h2>Adding tasks to Objective</h2>
-	<a class="bookmarklet button" href='javascript:void((function(){var id = "<%=_id%>";var name = prompt("Enter name for task:");var notes = prompt("Enter notes for task:");var url = location.href;(new Image()).src = ("http://getobjective.com/add/task/?id="+id+"&name="+name+"&notes="+notes+"&url="+url);})());'>Add to Objective</a>
-	<p class="bookmarklet-instructions">Drag this into your bookmarks bar so you can easily add tasks to Objective.<br><br>Next time you have something that you need to add to your task list, just give this link a click from your bookmarks bar.</p>
+		<h1>Bookmarklet</h1>
+		<h2>Adding tasks to Objective</h2>
+		<a class="bookmarklet button" href='javascript:void((function(){var id = "<%=_id%>";var name = prompt("Enter name for task:");var notes = prompt("Enter notes for task:");var url = location.href;(new Image()).src = ("http://getobjective.com/add/task/?id="+id+"&name="+name+"&notes="+notes+"&url="+url);})());'>Add to Objective</a>
+		<p class="bookmarklet-instructions">Drag this into your bookmarks bar so you can easily add tasks to Objective.<br><br>Next time you have something that you need to add to your task list, just give this link a click from your bookmarks bar.</p>
 	</div>
 	</div>
-  </section>
+</section>
 
-  <header>
+<header>
 	<div class="container cf">
 	<div class="branding">
-	  <a href="/tasks"><img class="objlogo" src="assets/images/ObjectiveLogo.svg"></a>
+		<a href="/tasks"><img class="objlogo" src="assets/images/ObjectiveLogo.svg"></a>
 	</div>
 	<div class="user">
-	  <div class="userpic" style="background-image: url(<% if (typeof profilephoto != 'undefined') { %> <%= profilephoto %> <% } else { %> http://graph.facebook.com/<%=facebookId%>/picture?type=normal<%}%>)">
-	  </div>
+		<div class="userpic" style="background-image: url(<% if (typeof profilephoto != 'undefined') { %> <%= profilephoto %> <% } else { %> http://graph.facebook.com/<%=facebookId%>/picture?type=normal<%}%>)"></div>
 		<span class="username"><p><%= firstName %></p><span class="arrow-down"></span></span>
 	</div>
 	<div class="user-menu">
-	  <% if (currentpage != 'tasks') { %>
-		<a href="tasks"><li>Tasks</li></a>
-	  <% } %>
-	  <% if (currentpage != 'settings') { %>
-		<a href="settings"><li>Settings</li></a>
-	  <% } %>
-	  <a href="#bookmarklet"><li>Bookmarklet</li></a>
-	  <a href="logout"><li>Sign Out</li></a>
+		<% if (currentpage != 'tasks') { %>
+			<a href="tasks"><li>Tasks</li></a>
+		<% } %>
+		<% if (currentpage != 'settings') { %>
+			<a href="settings"><li>Settings</li></a>
+		<% } %>
+			<a href="#bookmarklet"><li>Bookmarklet</li></a>
+			<a href="logout"><li>Sign Out</li></a>
 	</div>
-  </header>
-  <%- body -%>
-  <%- scripts %>
-  <script>
+</header>
+<%- body -%>
+<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<%- scripts %>
+<script>
 	$(document).ready(function(){
-	  $('header .user').mouseenter(function() {
-		$('.user-menu').fadeIn('300');
-	  });
-	  $('header .user').click(function() {
-		$('.user-menu').fadeToggle('300');
-	  });
-	  $('.user-menu').mouseleave(function() {
-		$('.user-menu').fadeOut('300');
-	  });
-	  $('.bookmarklet').mouseenter(function() {
-		$('.bookmarklet-explain').slideDown('300');
-		$('.close').addClass('lower');
-	  });
-	  $('body').mouseleave(function() {
-		$('.bookmarklet-explain').slideUp('show');
-		$('.close').removeClass('lower');
-	  });
+		$('header .user').mouseenter(function() {
+			$('.user-menu').fadeIn('300');
+		});
+		$('header .user').click(function() {
+			$('.user-menu').fadeToggle('300');
+		});
+		$('.user-menu').mouseleave(function() {
+			$('.user-menu').fadeOut('300');
+		});
+		$('.bookmarklet').mouseenter(function() {
+			$('.bookmarklet-explain').slideDown('300');
+			$('.close').addClass('lower');
+		});
+		$('body').mouseleave(function() {
+			$('.bookmarklet-explain').slideUp('show');
+			$('.close').removeClass('lower');
+		});
 	});
-  </script>
+</script>
+	
 </body>
 </html>
